@@ -1,0 +1,355 @@
+{% extends "base_.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb">
+                          <h1><strong>Icollect Dashbord:</strong></h1>
+                        </div>
+                        <div class="breadcrumb">
+                        <h3><strong>Tne Number:</strong></h3>
+                        </div>
+                        <!--buttun trigger modal -->
+                        <a href="#myModal" class="btn btn-primary btn-lg" data-toggle="modal">
+                            <span class="badge"></span>Meters  N.{{ json_tne_number|count }}
+                        </a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel"><strong>Meters ({{ json_building|default('ciao') }})</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        {% for tne in json_tne_number %}
+                                        <a href="{{url_for('tables_history_meters', building=json_building,name = tne)}}">{{ tne }}</a>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+                                        <a href="/" class="btn btn-primary">Save changes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fine Modal-->
+
+                        <!-- Split button -->
+{#                        <div class="btn-group">#}
+{#                            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Metes#}
+{#                                <span class="caret"></span><span class="badge"></span> N.{{ json_tne_number|count }}#}
+{#                            </button>#}
+{#                            <ul class="dropdown-menu">#}
+{#                                {% for tne in json_tne_number %}#}
+{#                                    <li><a href="#">{{ tne }} </a></li>#}
+{#                                {% endfor %}#}
+{#                            </ul>#}
+{#                        </div>#}
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="tables">
+                <table class="table table-bordered">
+                    <thead class="table-thead">
+                    <tr>
+                        <th>Serial Number</th>
+                        <th>Meter Model</th>
+                        <th>Tenant_name</th>
+                        <th>Protocol</th>
+                        <th>Brand</th>
+                        <th>Slave Number</th>
+                        <th>Wireless</th>
+                        <th>Address</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                            {% if "serial_number" in json_table_meter_value%}
+                                <td>{{ json_table_meter_value['serial_number']|default('None')}}</td>
+                            {% endif %}
+                            {% if "meter_model" in json_table_meter_value%}
+                                <td>{{ json_table_meter_value['meter_model']}}</td>
+                            {% else %}
+                                <td class="danger"> None</td>
+                            {% endif %}
+                            {% if "tenant_name" in json_table_meter_value%}
+                                <td>{{ json_table_meter_value['tenant_name']}}</td>
+                            {% else %}
+                                <td class="danger">None</td>
+                            {% endif %}
+                            {% if "protocol" in json_table_meter_value%}
+                                <td>{{ json_table_meter_value['protocol']}}</td>
+                            {% else %}
+                                <td class="danger">None</td>
+                            {% endif %}
+                            {% if "brand" in json_table_meter_value%}
+                                <td>{{ json_table_meter_value['brand']}}</td>
+                            {% else %}
+                                <td class="danger">None</td>
+                            {% endif %}
+                            {% if "slave_number" in json_table_meter_value%}
+                                  <td>{{ json_table_meter_value['slave_number']}}</td>
+                            {% else %}
+                                    <td class="danger">None</td>
+                            {% endif %}
+                            {% if "wireless" in json_table_meter_value%}
+                                <td>{{ json_table_meter_value['wireless']}}</td>
+                            {% else %}
+                                <td class="danger">None</td>
+                            {% endif %}
+                            {% if "address" in json_table_meter_value%}
+                                <td>{{ json_table_meter_value['address']}}</td>
+                            {% else %}
+                                <td class="danger">None</td>
+                            {% endif %}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- collegamento alla tabella chart history-->
+            <div class="row1">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default" align="center" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Meters Dashbord VaN
+                            <div class="pull-right">
+{#                                <div class="btn-group">#}
+{#                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+{#                                            data-toggle="dropdown">#}
+{#                                        Actions#}
+{#                                        <span class="caret"></span>#}
+{#                                    </button>#}
+{#                                    <ul class="dropdown-menu pull-right" role="menu">#}
+{#                                        <li><a href="#">Meters1</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters2</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters3</a>#}
+{#                                        </li>#}
+{#                                        <li class="divider"></li>#}
+{#                                        <li><a href="#">All Meters</a>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                        <!-- /.panel-heading-start -->
+                        <div id="chartdiv0" align="center" style="width: 200px; height: 200px;">
+
+                            <!-- /.panel-heading-end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default" align="center" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Meters Dashbord VbN
+                            <div class="pull-right">
+{#                                <div class="btn-group">#}
+{#                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+{#                                            data-toggle="dropdown">#}
+{#                                        Actions#}
+{#                                        <span class="caret"></span>#}
+{#                                    </button>#}
+{#                                    <ul class="dropdown-menu pull-right" role="menu">#}
+{#                                        <li><a href="#">Meters1</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters2</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters3</a>#}
+{#                                        </li>#}
+{#                                        <li class="divider"></li>#}
+{#                                        <li><a href="#">All Meters</a>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                        <!-- /.panel-heading-start -->
+
+                        <div id="chartdiv1" align="center" style="width: 200px; height: 200px;">
+                            <!-- /.panel-heading-end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default" align="center" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Meters Dashbord VcN
+                            <div class="pull-right">
+{#                                <div class="btn-group">#}
+{#                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+{#                                            data-toggle="dropdown">#}
+{#                                        Actions#}
+{#                                        <span class="caret"></span>#}
+{#                                    </button>#}
+{#                                    <ul class="dropdown-menu pull-right" role="menu">#}
+{#                                        <li><a href="#">Meters1</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters2</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters3</a>#}
+{#                                        </li>#}
+{#                                        <li class="divider"></li>#}
+{#                                        <li><a href="#">All Meters</a>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                        <!-- /.panel-heading-start -->
+                        <div id="chartdiv2" align="center" style="width: 200px; height: 200px;">
+                            <!-- /.panel-heading-end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default" align="center" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Meters Dashbord Phase
+                            <div class="pull-right">
+{#                                <div class="btn-group">#}
+{#                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+{#                                            data-toggle="dropdown">#}
+{#                                        Actions#}
+{#                                        <span class="caret"></span>#}
+{#                                    </button>#}
+{#                                    <ul class="dropdown-menu pull-right" role="menu">#}
+{#                                        <li><a href="#">Meters1</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters2</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters3</a>#}
+{#                                        </li>#}
+{#                                        <li class="divider"></li>#}
+{#                                        <li><a href="#">All Meters</a>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                        <!-- /.panel-heading-start -->
+                        <div id="Phase" align="center" style="width: 200px; height: 200px;">
+                            <!-- /.panel-heading-end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row1">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default" align="center" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Meters Dashbord Ia
+                            <div class="pull-right">
+{#                                <div class="btn-group">#}
+{#                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+{#                                            data-toggle="dropdown">#}
+{#                                        Actions#}
+{#                                        <span class="caret"></span>#}
+{#                                    </button>#}
+{#                                    <ul class="dropdown-menu pull-right" role="menu">#}
+{#                                        <li><a href="#">Meters1</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters2</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters3</a>#}
+{#                                        </li>#}
+{#                                        <li class="divider"></li>#}
+{#                                        <li><a href="#">All Meters</a>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                        <!-- /.panel-heading-start -->
+                        <div id="chartdiv3" align="center" style="width: 200px; height: 200px;">
+                            <!-- /.panel-heading-end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default" align="center" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Meters Dashbord Ib
+                            <div class="pull-right">
+{#                                <div class="btn-group">#}
+{#                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+{#                                            data-toggle="dropdown">#}
+{#                                        Actions#}
+{#                                        <span class="caret"></span>#}
+{#                                    </button>#}
+{#                                    <ul class="dropdown-menu pull-right" role="menu">#}
+{#                                        <li><a href="#">Meters1</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters2</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters3</a>#}
+{#                                        </li>#}
+{#                                        <li class="divider"></li>#}
+{#                                        <li><a href="#">All Meters</a>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                        <!-- /.panel-heading-start -->
+                        <div id="chartdiv4" align="center" style="width: 200px; height: 200px;">
+                            <!-- /.panel-heading-end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default" align="center" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Meters Dashbord Ic
+                            <div class="pull-right">
+{#                                <div class="btn-group">#}
+{#                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+{#                                            data-toggle="dropdown">#}
+{#                                        Actions#}
+{#                                        <span class="caret"></span>#}
+{#                                    </button>#}
+{#                                    <ul class="dropdown-menu pull-right" role="menu">#}
+{#                                        <li><a href="#">Meters1</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters2</a>#}
+{#                                        </li>#}
+{#                                        <li><a href="#">Meters3</a>#}
+{#                                        </li>#}
+{#                                        <li class="divider"></li>#}
+{#                                        <li><a href="#">All Meters</a>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                        <!-- /.panel-heading-start -->
+                        <div id="chartdiv5" align="center" style="width: 200px; height: 200px;">
+                            <!-- /.panel-heading-end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{url_for('static', filename='css/simple-sidebar.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='favicon.ico')}}" rel="shortcut icon">
+     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static' , filename = 'css/main.css')}}">
+    <title> Login Dashboard </title>
+</head>
+<body>
+    <div class="container">
+        <div class="card card-container">
+            <div class="page-tittle">
+                <h3>Icollect Dashboard Login</h3>
+            </div>
+            {% for message in get_flashed_messages() %}
+                <div class="page-message"><strong>Error:</strong>{{ message }}</div>
+            {% endfor %}
+            {% if error %}
+                <div class="page-error" role="alert"><strong>Error:</strong>{{ error }}</div>
+            {% endif %}
+            <br>
+            <br>
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+
+            {% block login %}
+            {% endblock %}
+
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Icollect Dashbord</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='favicon.ico')}}" rel="shortcut icon">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/simple-sidebar.css')}}" rel="stylesheet">
+    <!-- Amcharts JavaScript-->
+     <script type=text/javascript src="{{
+            url_for('static', filename='js/amcharts/amcharts.js') }}"></script>
+    <script type=text/javascript src="{{
+            url_for('static', filename="js/amcharts/gauge.js") }}"></script>
+    <script type="text/javascript">
+
+        var chart = AmCharts.makeChart("chartdiv", {
+            type: "gauge",
+            "theme": "light",
+            "titles": [{
+                "text": "Kw/h Proof",
+                "size": 15
+            }],
+
+            axes: [{
+                startValue: 0,
+                axisThickness: 1,
+                endValue: 5000,
+                valueInterval: 1000,
+                bottomTextYOffset: -20,
+                bottomText: "0 Kw/h",
+
+                bands: [{
+                    startValue: 0,
+                    endValue: 2000,
+                    color: "#00CC00"
+                },
+
+                    {
+                        startValue: 1001,
+                        endValue: 4000,
+                        color: "#ffac29"
+                    },
+
+                    {
+                        startValue: 4001,
+                        endValue: 5000,
+                        color: "#ea3838",
+                        innerRadius: "95%"
+                    }
+                ]
+            }],
+
+            arrows: [{}]
+        });
+
+        setInterval(updateValue ,1000);
+
+             // set random value
+            function updateValue() {
+               chart.arrows[0].setValue('{{ prova }}');
+               chart.axes[0].setBottomText( {{ prova }}+ "kwh");
+
+            }
+    </script>
+    <script type="text/javascript">
+
+        var chart1 = AmCharts.makeChart("chartdiv1", {
+            type: "gauge",
+            "titles": [{
+                "text": "Kw/h Proof",
+                "size": 15
+            }],
+
+            axes: [{
+                startValue: 0,
+                axisThickness: 1,
+                endValue: 220,
+                bottomTextYOffset: -20,
+                bottomText: "0 Kw/h",
+
+                bands: [{
+                    startValue: 0,
+                    endValue: 90,
+                    color: "#00CC00"
+                },
+
+                    {
+                        startValue: 90,
+                        endValue: 130,
+                        color: "#ffac29"
+                    },
+
+                    {
+                        startValue: 130,
+                        endValue: 220,
+                        color: "#ea3838",
+                        innerRadius: "95%"
+                    }
+                ]
+            }],
+
+            arrows: [{}]
+        });
+
+        setInterval(randomValue, 2000);
+
+        // set random value
+        function randomValue() {
+            var value = Math.round(Math.random() * 200);
+            chart1.arrows[0].setValue(value);
+            chart1.axes[0].setBottomText(value + " km/h");
+        }
+    </script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<herder>
+    <div class = "navbar-header">
+        <a class = "navbar-brand" href="/">
+            <img style="max-width: 120px margin-top: -7px" src = "{{url_for ('static' , filename='images/TNE_150.png')}}">
+        </a>
+    </div>
+    <!--<ul class="nav-pills" role="tablist">
+        <a href="/daschbord/"> <button type="button" class="btn btn-success" aria-label="Left Align" style="margin-top: 15px;
+                margin-bottom: 5px; height: 44px; margin-right: 15px;">
+            <span class="glyphicon glyphicon-dashboard" aria-label="true"></span> Open Dashbord
+        </button></a>
+
+    </ul>-->
+</herder>
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="/">
+                    <img style="max-width: 50px; margin-top: -7px" src = "{{url_for ('static' , filename='images/TNE_150.png')}}">
+                    Icollect Dashbord
+                </a>
+            </li>
+            <li class ="Tables">
+                <a href="/"><span class="glyphicon glyphicon-dashboard" aria-label="true"></span>  Connect.. </a>
+            </li>
+            <li>
+                <a href="/tables/"><span class="glyphicon glyphicon-scale" aria-label="true"></span>  Tables ...</a>
+            </li>
+            <li>
+                <a href="/user/"><span class="glyphicon glyphicon-envelope" aria-label="true"></span>  E-mail</a>
+            </li>
+            <li>
+                <a href="/AngGauge/"><span class="glyphicon glyphicon-leaf" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-fire" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-folder-open" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-label="true"></span>  Other</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Icollect Dashbord</h1>
+                    <!-- collegamenti -->
+
+                    <h3>  Type Collector:
+                        <!-- Split button -->
+                        <div class="btn-group">
+                            <button type="button"  data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Meter <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+
+                            </ul>
+                        </div>
+                    </h3>
+                </div>
+            </div>
+
+
+            {# Tabella con nome inserito #}
+            <div class ="tables">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>dato1</th>
+                        <th>dato2</th>
+                        <th>dato3</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>..</td>
+                        <td>..</td>
+                        <td>..</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>..</td>
+                        <td>..</td>
+                        <td>..</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>..</td>
+                        <td>..</td>
+                        <td>..</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class=col-lg-3 col-md-6>
+                    <div class="panel panel-default" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> WhRec Value
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        TneNumber
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <div id="content">
+                                            {% block content %}
+                                            {% endblock %}
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                         <div id="chartdiv"  align="center" style="width: 200px; height: 200px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default" style="width: 250px">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Meters Dashbord
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Meters1</a>
+                                        </li>
+                                        <li><a href="#">Meters2</a>
+                                        </li>
+                                        <li><a href="#">Meters3</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">All Meters</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div id="chartdiv1"  align="center" style="width: 200px; height: 200px;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- jquery-->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script type=text/javascript src="{{
+        url_for('static', filename="js/bootstrap.min.js") }}"></script>
+{#<!-- Amcharts JavaScript-->#}
+{#<script type=text/javascript src="{{#}
+{#        url_for('static', filename='js/amcharts/amcharts.js') }}"></script>#}
+{#<script type=text/javascript src="{{#}
+{#        url_for('static', filename="js/amcharts/gauge.js") }}"></script>#}
+
+</body>
+
+</html>

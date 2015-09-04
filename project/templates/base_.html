@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+{% block head %}
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Icollect</title>
+
+    <!-- Bootstrap Core CSS -->
+     <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+     <link href="{{url_for('static', filename='css/sb-admin.css')}}" rel="stylesheet">
+     <link href="{{ url_for('static', filename='css/simple-sidebar.css')}}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+     <link href="{{url_for('static', filename='font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
+    <!-- Tables Bootstrap-->
+    <link href="{{ url_for('static', filename='css/dataTables.bootstrap.css')}}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+     <!-- Amcharts JavaScript-->
+     <script type=text/javascript src="{{
+            url_for('static', filename='js/amcharts/amcharts.js') }}"></script>
+     <script type=text/javascript src="{{
+            url_for('static', filename="js/amcharts/gauge.js") }}"></script>
+     <script type= text/javascript src="
+            {{ url_for('static', filename='js/amcharts/serial.js')}}"></script>
+
+    <!--socket.io-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+
+    <!-- icon -->
+    <link href="{{url_for('static', filename='favicon.ico')}}" rel="shortcut icon">
+
+    <!-- Amcharts-->
+    <script src="{{url_for('static', filename='js/amcharts/exporting/amexport.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/amcharts/exporting/rgbcolor.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/amcharts/exporting/canvg.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/amcharts/exporting/jspdf.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/amcharts/exporting/filesaver.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/amcharts/exporting/jspdf.plugin.addimage.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/amcharts/images/export.png')}}" type="text/javascript"></script>
+    {% block scripts %}
+        {{ moment.include_moment() }}
+    {% endblock %}
+    <!-- start chardiv0 -->
+    <!--<script type="text/javascript">
+
+        // Voltage VaN
+        var chart = AmCharts.makeChart("chartdiv", {
+            type: "gauge",
+            "theme": "light",
+            "titles": [{
+                "text": "VaN ",
+                "size": 15
+            }],
+
+            "axes": [ {
+                "axisThickness": 1,
+                "axisAlpha": 0.2,
+                "tickAlpha": 0.2,
+                "valueInterval": 100,
+                "bands": [ {
+                    "color": "#84b761",
+                    "innerRadius": "70%",
+                    "endValue": 200,
+                    "startValue": 0
+                }, {
+                    "color": "#fdd400",
+                    "innerRadius": "70%",
+                    "endValue": 400,
+                    "startValue": 201
+                }, {
+                    "color": "#cc4748",
+                    "endValue": 500,
+                    "innerRadius": "70%",
+                    "startValue": 401
+                } ],
+                "bottomText": "0 VaN",
+                "bottomTextYOffset": -20,
+                "endValue": 500
+            } ],
+
+            arrows: [{}]
+        });
+            // funzione con socket.io and event
+        setInterval(updateValue,1000);
+
+                function updateValue() {
+                    namespace = '/test';
+                    var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+                    socket.on('gauge_responce', function (evento) {
+
+                        chart.arrows.setValue(evento.valore);
+                    chart.axes.setBottomText("VaN"+ evento.valore);
+                    });
+                };
+            // funzione con server send event
+{#            function randomValue(){#}
+{##}
+{#                var source = new EventSource("/progress");#}
+{#                //source.onmessage = function(event) {#}
+{#                    source.addEventListener('top_up',function(event){#}
+{#                     arrow.setValue(event.data);#}
+{#                    axis.setBottomText(event.data + " km/h");#}
+{##}
+{#                },false);#}
+{#            }#}
+{##}
+{##}
+{#                {% if  database_meters_VaN != False or dababase_meters_VaN != 0 %}#}
+{#                    chart.arrows[0].setValue({{ database_meters_VaN }});#}
+{#                    chart.axes[0].setBottomText({{ database_meters_VaN }}, "VaN");#}
+{#                {% else%}#}
+{#                    chart.arrows[0].setValue( "Error Value");#}
+{#                    chart.axes[0].setBottomText("Error Value");#}
+{#                {% endif %}#}
+
+    </script>-->
+
+    <!-- fine chartdiv0-->
+    <script type="text/javascript">
+
+            var chart;
+            var arrow;
+            var axis;
+
+            AmCharts.ready(function () {
+                // create angular gauge
+                chart = new AmCharts.AmAngularGauge();
+                chart.addTitle("Voltage");
+
+                // create axis
+                axis = new AmCharts.GaugeAxis();
+                axis.startValue = 0;
+                axis.axisThickness = 1;
+                axis.endValue = 500;
+                axis.valueInterval= 100;
+                // color bands
+                var band1 = new AmCharts.GaugeBand();
+                band1.startValue = 0;
+                band1.endValue = 200;
+                band1.color = "#84b761";
+
+                var band2 = new AmCharts.GaugeBand();
+                band2.startValue = 201;
+                band2.endValue = 400;
+                band2.color = "#fdd400";
+
+                var band3 = new AmCharts.GaugeBand();
+                band3.startValue = 401;
+                band3.endValue = 500;
+                band3.color = "#cc4748";
+                band3.innerRadius = "95%";
+
+                axis.bands = [band1, band2, band3];
+
+                // bottom text
+                axis.bottomTextYOffset = -20;
+                axis.setBottomText("Volt");
+                chart.addAxis(axis);
+
+                // gauge arrow
+                arrow = new AmCharts.GaugeArrow();
+                chart.addArrow(arrow);
+
+                chart.write("chartdiv0");
+                // change value every 2 seconds
+                setInterval(randomValue,2000)
+            });
+            // funzione con socket.io and event
+                function randomValue() {
+                    namespace = '/test';
+                    var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+                    socket.on('gauge_responce', function(evento) {
+                    arrow.setValue(evento.valore);
+                    axis.setBottomText("VbN"+evento.valore);
+                    });
+                };
+{#            // funzione con server send event#}
+{#            function randomValue(){#}
+{##}
+{#                var source = new EventSource("/progress");#}
+{#                //source.onmessage = function(event) {#}
+{#                    source.addEventListener('top_up',function(event){#}
+{#                     arrow.setValue(event.data);#}
+{#                    axis.setBottomText(event.data + " km/h");#}
+{##}
+{#                },false);#}
+{#            }#}
+        </script>
+    <script type="text/javascript">
+
+            var chart_vbn;
+            var arrow_vbn;
+            var axis_vbn;
+
+            AmCharts.ready(function () {
+                // create angular gauge
+                chart_vbn = new AmCharts.AmAngularGauge();
+                chart_vbn.addTitle("Voltage VbN");
+
+                // create axis
+                axis_vbn = new AmCharts.GaugeAxis();
+                axis_vbn.startValue = 0;
+                axis_vbn.axisThickness = 1;
+                axis_vbn.endValue = 500;
+                axis_vbn.valueInterval= 100;
+                // color bands
+                var band_vbn_1 = new AmCharts.GaugeBand();
+                band_vbn_1.startValue = 0;
+                band_vbn_1.endValue = 200;
+                band_vbn_1.color = "#84b761";
+
+                var band_vbn_2 = new AmCharts.GaugeBand();
+                band_vbn_2.startValue = 201;
+                band_vbn_2.endValue = 400;
+                band_vbn_2.color = "#fdd400";
+
+                var band_vbn_3 = new AmCharts.GaugeBand();
+                band_vbn_3.startValue = 401;
+                band_vbn_3.endValue = 500;
+                band_vbn_3.color = "#cc4748";
+                band_vbn_3.innerRadius = "95%";
+
+                axis_vbn.bands = [band_vbn_1, band_vbn_2, band_vbn_3];
+
+                // bottom text
+                axis_vbn.bottomTextYOffset = -20;
+                axis_vbn.setBottomText("Volt");
+                chart_vbn.addAxis(axis_vbn);
+
+                // gauge arrow
+                arrow_vbn = new AmCharts.GaugeArrow();
+                chart_vbn.addArrow(arrow_vbn);
+
+                chart_vbn.write("chartdiv1");
+                // change value every 2 seconds
+                setInterval(randomValue_vbn,2000)
+            });
+            // funzione con socket.io and event
+                function randomValue_vbn() {
+                    namespace = '/test';
+                    var socket_vbn = io.connect('http://' + document.domain + ':' + location.port + namespace);
+                    socket_vbn.on('gauge_responce_vbn', function(evento) {
+                    arrow_vbn.setValue(evento.valore);
+                    axis_vbn.setBottomText("VbN"+evento.valore);
+                    });
+                };
+            // funzione con server send event
+{#            function randomValue(){#}
+{##}
+{#                var source = new EventSource("/progress");#}
+{#                //source.onmessage = function(event) {#}
+{#                    source.addEventListener('top_up',function(event){#}
+{#                     arrow.setValue(event.data);#}
+{#                    axis.setBottomText(event.data + " km/h");#}
+{##}
+{#                },false);#}
+{#            }#}
+        </script>
+{#    <script type="text/javascript">#}
+{#            var chart;#}
+{##}
+{#            var chartData = [{#}
+{##}
+{#                "tenant": "USA",#}
+{#                    "value": 4025,#}
+{#                    "color": "#FF0F00"#}
+{#            }];#}
+{##}
+{##}
+{##}
+{#            var chart = AmCharts.makeChart("tenant_value", {#}
+{#                type: "serial",#}
+{#                dataProvider: chartData,#}
+{#                categoryField: "tenant",#}
+{#                depth3D: 20,#}
+{#                angle: 35,#}
+{##}
+{#                categoryAxis: {#}
+{#                    labelRotation: 90,#}
+{#                    gridPosition: "start"#}
+{#                },#}
+{##}
+{#                valueAxes: [{#}
+{#                    title: "DEMAND"#}
+{#                }],#}
+{##}
+{#                graphs: [{#}
+{##}
+{#                    valueField: "value",#}
+{#                    colorField: "color",#}
+{#                    type: "column",#}
+{#                    lineAlpha: 44,#}
+{#                    fillAlphas: 1#}
+{#                }],#}
+{##}
+{#                chartCursor: {#}
+{#                    cursorAlpha: 0,#}
+{#                    zoomable: false,#}
+{#                    categoryBalloonEnabled: false#}
+{#                },#}
+{##}
+{#                exportConfig: {#}
+{#                    menuTop: "21px",#}
+{#                    menuBottom: "auto",#}
+{#                    menuRight: "21px",#}
+{#                    backgroundColor: "#efefef",#}
+{##}
+{#                    menuItemStyle	: {#}
+{#                    backgroundColor			: '#EFEFEF',#}
+{#                    rollOverBackgroundColor	: '#DDDDDD'},#}
+{##}
+{#                    menuItems: [{#}
+{#                        textAlign: 'center',#}
+{#                        icon: 'js/amcharts/images/export.png',#}
+{#                        onclick:function(){},#}
+{#                        items: [{#}
+{#                            title: 'JPG',#}
+{#                            format: 'jpg'#}
+{#                        }, {#}
+{#                            title: 'PNG',#}
+{#                            format: 'png'#}
+{#                        }, {#}
+{#                            title: 'SVG',#}
+{#                            format: 'svg'#}
+{#                        }, {#}
+{#                            title: 'PDF',#}
+{#                            format: 'pdf'#}
+{#                        }]#}
+{#                    }]#}
+{#                }#}
+{#            });#}
+{#        </script>#}
+
+
+</head>
+{% endblock %}
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img style="max-width: 60px; margin-top: -7px" src = "{{url_for ('static' , filename='images/TNE_150.png')}}">
+                </a>
+                <a class ="navbar-brand" href="/dashboard"><strong>Icollect Dashboard</strong></a>
+                <div class="navbar-brand">
+                    {% for message in get_flashed_messages() %}
+                        <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                </div>
+                <div class="navbar-text"> Local time is {{ moment(current_time).format('LLL') }}</div>
+                <div class="navbar-text"> That was {{ moment(current_time).fromNow(refresh=True)}}</div>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            {% if session.logged_in %}
+                                            <strong> {{ username }}</strong>
+                                            {% endif %}
+                                        </h5>
+
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  {{ username }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/building"><i class="fa fa-fw fa-bar-chart-o"></i> Building </a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/tenant"><i class="fa fa-fw fa-table"></i> Tenant </a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/meters"><i class="fa fa-fw fa-edit"></i> Meters </a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/users"><i class="glyphicon glyphicon-user"></i> Users </a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/prova"><i class="fa fa-fw fa-wrench"></i> Gauge</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    </li>
+                    <li>
+                        <a href="../../Template_Error/index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div id="page-wrapper">
+           <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            <div class="box-header show-header widget-head">
+                                Dashboard
+                            </div>
+                        </h1>
+{#                        <div class="col-lg-6">#}
+{#                        {% if error %}#}
+{#                            <div class="page-error"><strong>Error:</strong>{{ error }}</div>#}
+{#                        {% endif %}#}
+{#                        </div>#}
+
+
+{#                        <div class="page-tabs">#}
+{#                            <ul class="nav nav-pills">#}
+{#                                <li type="button" class="btn btn-default" role="presentation"><a class="tab-extra" href="{{ url_for('building_')}}" aria-controls="building" role="tab">Building</a></li>#}
+{#                                <li type="button" class="btn btn-default" role="presentation"><a class="tab-extra" href="{{ url_for('tenant_')}}"  role="tab" aria-controls="tenant">Tenant</a></li>#}
+{#                                <li type="button" class="btn btn-default" role="presentation"><a class="tab-extra" href="{{ url_for('meters_') }}" role="tab" aria-controls="meters">Meters</a></li>#}
+{##}
+{#                                <button type="button" class="btn btn-default btn-lg btn-setting" data-toggle="tooltip" title="Dashbord Setting"><a href="{{url_for('setting_')}}" class="dash-setting">#}
+{#                                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>#}
+{#                                </button>#}
+{#                            </ul>#}
+{#                        </div>#}
+
+                    </div>
+                </div>
+           </div>
+    </div>
+        <!-- start  Content-->
+        {% block content %}
+        {% endblock %}
+       <!-- end Content--><!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+{#    <script type=text/javascript src="{{#}
+{#        url_for('static', filename="js/bootstrap.min.js") }}"></script>#}
+{#    <script type=text/javascript src="{{ url_for('static', filename="js/bootstrap.js") }}"></script>#}
+
+</body>
+</html>

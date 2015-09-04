@@ -1,0 +1,95 @@
+{% extends "base_.html" %}
+
+{% block head %}
+    {{ super() }}
+    {% endblock %}
+
+{% block content %}
+
+      <div id="page-wrapper">
+           <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                     <div class="col-lg-12">
+                         {% if error %}
+                            <div class="alert alert-danger"><strong>Error:</strong>{{ error }}</div>
+                         {% endif %}
+                     </div>
+
+                    <!-- start tabs user-->
+                            <div class="col-lg-6">
+                                <form class="form-signin" method="post" action="">
+                                    {{ form.csrf_token}}
+                                        </br>
+                                        <div class="box-widget">
+                                            <div class="box-header show-header widget-header">
+                                                <div class="box-header-text">New User</div>
+                                            </div>
+                                            <br/>
+                                                {{ form.user(id="inputUsers",class="form-control",placeholder="Users") }}
+                                                {% if form.user.errors %}
+                                                <span class="error">
+                                                    {% for error in form.user.errors %}
+                                                        {{ error }}
+                                                    {% endfor %}
+                                                </span>
+                                                {% endif %}
+                                            <br/>
+                                                {{ form.password (class="form-control",placeholder="Password")}}
+                                                {% if form.password.errors %}
+                                                <span class="error">
+                                                     {% for error in form.password.errors %}
+                                                        {{ error }}
+                                                     {% endfor %}
+                                                </span>
+                                                {% endif %}
+                                            <br/>
+                                                {{ form.confirm(class="form-control",placeholder="Confirm Password")}}
+                                                {% if form.confirm.errors %}
+                                                <span class="error">
+                                                    {% for error in form.confirm.errors %}
+                                                        {{ error }}
+                                                    {% endfor %}
+                                                </span>
+                                                {% endif %}
+                                            <br/>
+                                                {{ form.email(class="form-control",placeholder="Email")}}
+                                                {% if form.email.errors %}
+                                                <span class="error">
+                                                    {% for error in form.email.errors %}
+                                                        {{ error }}
+                                                    {% endfor %}
+                                                </span>
+                                                {% endif %}
+                                            <br/>
+                                                {{ form.first_name(class="form-control",placeholder="Fist Name")}}
+                                                {% if form.first_name.errors %}
+                                                <span class="error">
+                                                    {% for error in form.first_name.errors %}
+                                                        {{ error }}
+                                                    {% endfor %}
+                                                </span>
+                                                {% endif %}
+                                            <br/>
+                                                {{ form.last_name(class="form-control",placeholder="Last Name")}}
+                                                {% if form.last_name.errors %}
+                                                <span class="error">
+                                                    {% for error in form.last_name.errors %}
+                                                        {{ error }}
+                                                    {% endfor %}
+                                                </span>
+                                                {% endif %}
+                                            <br/>
+                                            <div class="select_profile">
+                                                 {{ form.select_profile(class="form-control")}}
+                                            </div>
+                                            <br/>
+                                            <input type="submit" class="btn btn-success" value="Register">
+                                        </div>
+                                </form>
+                            </div>
+
+                </div>
+           </div>
+      </div>
+{% endblock  %}

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Icollect Dashbord</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='favicon.ico')}}" rel="shortcut icon">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/simple-sidebar.css')}}" rel="stylesheet">
+    <!-- Amcharts JavaScript-->
+     <script type=text/javascript src="{{
+            url_for('static', filename='js/amcharts/amcharts.js') }}"></script>
+     <script type=text/javascript src="{{
+            url_for('static', filename="js/amcharts/gauge.js") }}"></script>
+
+    <script type="text/javascript">
+        // Voltage VaN
+        var chart = AmCharts.makeChart("chartdiv0", {
+            type: "gauge",
+            "theme": "light",
+            "titles": [{
+                "text": "VaN ",
+                "size": 15
+            }],
+
+            "axes": [ {
+                "axisThickness": 1,
+                "axisAlpha": 0.2,
+                "tickAlpha": 0.2,
+                "valueInterval": 100,
+                "bands": [ {
+                    "color": "#84b761",
+                    "innerRadius": "70%",
+                    "endValue": 200,
+                    "startValue": 0
+                }, {
+                    "color": "#fdd400",
+                    "innerRadius": "70%",
+                    "endValue": 400,
+                    "startValue": 201
+                }, {
+                    "color": "#cc4748",
+                    "endValue": 500,
+                    "innerRadius": "70%",
+                    "startValue": 401
+                } ],
+                "bottomText": "0 VaN",
+                "bottomTextYOffset": -20,
+                "endValue": 500
+            } ],
+
+            arrows: [{}]
+        });
+
+        setInterval(updateValue,1000);
+
+             // set random value
+            function updateValue() {
+
+                {% if  database_meters_VaN != False or dababase_meters_VaN != 0 %}
+                    chart.arrows[0].setValue({{ database_meters_VaN }});
+                    chart.axes[0].setBottomText({{ database_meters_VaN }}, "VaN");
+                {% else%}
+                    chart.arrows[0].setValue( "Error Value");
+                    chart.axes[0].setBottomText("Error Value");
+                {% endif %}
+            }
+    </script>
+    <script type="text/javascript">
+        // Voltage VbN
+        var chart1 = AmCharts.makeChart("chartdiv1", {
+            type: "gauge",
+            "theme": "light",
+            "titles": [{
+                "text": "VbN ",
+                "size": 15
+            }],
+
+            "axes": [ {
+                "axisThickness": 1,
+                "axisAlpha": 0.2,
+                "tickAlpha": 0.2,
+                "valueInterval": 100,
+                "bands": [ {
+                    "color": "#84b761",
+                    "innerRadius": "70%",
+                    "endValue": 200,
+                    "startValue": 0
+                }, {
+                    "color": "#fdd400",
+                    "innerRadius": "70%",
+                    "endValue": 400,
+                    "startValue": 201
+                }, {
+                    "color": "#cc4748",
+                    "endValue": 500,
+                    "innerRadius": "70%",
+                    "startValue": 401
+                } ],
+                "bottomText": "0 VbN",
+                "bottomTextYOffset": -20,
+                "endValue": 500
+            } ],
+
+            arrows: [{}]
+        });
+
+        setInterval(updateValue1 ,1000);
+
+             // set random value
+            function updateValue1() {
+                {% if  database_meters_VaN != False %}
+                    chart1.arrows[0].setValue( {{ database_meters_VbN }} );
+                    chart1.axes[0].setBottomText( {{database_meters_VbN}},"Vab");
+                {% else%}
+                    chart1.arrows[0].setValue({{ datbase_meters_VbN }});
+                    chart1.axes[0].setBottomText("Error Value");
+                {% endif %}
+
+            }
+    </script>
+    <script type="text/javascript">
+        // Voltage VcN
+        var chart2 = AmCharts.makeChart("chartdiv2", {
+            type: "gauge",
+            "theme": "light",
+            "titles": [{
+                "text": "VcN ",
+                "size": 15
+            }],
+
+            "axes": [ {
+                "axisThickness": 1,
+                "axisAlpha": 0.2,
+                "tickAlpha": 0.2,
+                "valueInterval": 100,
+                "bands": [ {
+                    "color": "#84b761",
+                    "innerRadius": "70%",
+                    "endValue": 200,
+                    "startValue": 0
+                }, {
+                    "color": "#fdd400",
+                    "innerRadius": "70%",
+                    "endValue": 400,
+                    "startValue": 201
+                }, {
+                    "color": "#cc4748",
+                    "endValue": 500,
+                    "innerRadius": "70%",
+                    "startValue": 401
+                } ],
+                "bottomText": "0 VcN",
+                "bottomTextYOffset": -20,
+                "endValue": 500
+            } ],
+
+            arrows: [{}]
+        });
+
+        setInterval(updateValue2 ,1000);
+
+             // set random value
+            function updateValue2() {
+                {% if  database_meters_VcN != False %}
+                    chart2.arrows[0].setValue({{ database_meters_VcN }});
+                    chart2.axes[0].setBottomText({{database_meters_VcN}}, "VcN");
+                {% else %}
+                    chart2.arrows[0].setValue("Error Value");
+                    chart2.axes[0].setBottomText("Erroe Value");
+                {% endif %}
+            }
+    </script>
+
+    <script type="text/javascript">
+            var chart3;
+            var arrow;
+            var axis;
+
+            AmCharts.ready(function () {
+                // create angular gauge
+                chart3 = new AmCharts.AmAngularGauge();
+                chart3.addTitle("Ia");
+
+
+                // create axis
+                axis = new AmCharts.GaugeAxis();
+                axis.startValue = 0;
+				axis.axisThickness = 1;
+                axis.endValue = 200;
+                axis.axisAlpha = 0.2;
+                axis.tickAlpha = 0.2;
+                axis.valueInterval = 50;
+
+
+                // color bands
+                var band1Ia = new AmCharts.GaugeBand();
+                band1Ia.startValue = 0;
+                band1Ia.endValue = 80;
+                band1Ia.color = "#84b761";
+                band1Ia.innerRadius = "70%";
+
+                var band2Ia = new AmCharts.GaugeBand();
+                band2Ia.startValue = 81;
+                band2Ia.endValue = 140;
+                band2Ia.color = "#ffd400";
+                band2Ia.innerRadius = "70%";
+
+                var band3Ia = new AmCharts.GaugeBand();
+                band3Ia.startValue = 141;
+                band3Ia.endValue = 200;
+                band3Ia.color = "#cc4748";
+                band3Ia.innerRadius = "70%";
+
+                axis.bands = [band1Ia, band2Ia, band3Ia];
+
+                // bottom text
+                axis.bottomTextYOffset = -20;
+                axis.setBottomText("0 Ia");
+                chart3.addAxis(axis);
+
+                // gauge arrow
+                arrow = new AmCharts.GaugeArrow();
+                chart3.addArrow(arrow);
+
+                chart3.write("chartdiv3");
+                // change value every 2 seconds
+                setInterval(UpdateValue3, 2000);
+            });
+
+            // set random value
+            function UpdateValue3() {
+                {% if  database_meters_Ia != False %}
+                    arrow.setValue( {{ database_meters_Ia }});
+                    axis.setBottomText( {{database_meters_Ia }},"Ia");
+                {% else %}
+                    arrow.setValue( "Error Value");
+                    axis.setBottomText( "Erroe Value ","Ia");
+                {% endif %}
+            }
+    </script>
+    <script type="text/javascript">
+            var chart4;
+            var arrow4;
+            var axis4;
+
+            AmCharts.ready(function () {
+                // create angular gauge
+                chart4 = new AmCharts.AmAngularGauge();
+                chart4.addTitle("Ib");
+
+
+                // create axis
+                axis4 = new AmCharts.GaugeAxis();
+                axis4.startValue = 0;
+				axis4.axisThickness = 1;
+                axis4.endValue = 200;
+                axis4.axisAlpha = 0.2;
+                axis4.tickAlpha = 0.2;
+                axis4.valueInterval = 50;
+
+
+                // color bands
+                var band1Ia4 = new AmCharts.GaugeBand();
+                band1Ia4.startValue = 0;
+                band1Ia4.endValue = 80;
+                band1Ia4.color = "#84b761";
+                band1Ia4.innerRadius = "70%";
+
+                var band2Ia4 = new AmCharts.GaugeBand();
+                band2Ia4.startValue = 81;
+                band2Ia4.endValue = 140;
+                band2Ia4.color = "#ffd400";
+                band2Ia4.innerRadius = "70%";
+
+                var band3Ia4 = new AmCharts.GaugeBand();
+                band3Ia4.startValue = 141;
+                band3Ia4.endValue = 200;
+                band3Ia4.color = "#cc4748";
+                band3Ia4.innerRadius = "70%";
+
+                axis4.bands = [band1Ia4, band2Ia4, band3Ia4];
+
+                // bottom text
+                axis4.bottomTextYOffset = -20;
+                axis4.setBottomText("0 Ia");
+                chart4.addAxis(axis4);
+
+                // gauge arrow
+                arrow4 = new AmCharts.GaugeArrow();
+                chart4.addArrow(arrow4);
+
+                chart4.write("chartdiv4");
+                // change value every 2 seconds
+                setInterval(UpdateValue4, 2000);
+            });
+
+            // set random value
+            function UpdateValue4() {
+                {% if  database_meters_Ib != False %}
+                    arrow4.setValue( {{ database_meters_Ib }});
+                    axis4.setBottomText( {{database_meters_Ib }},"Ib");
+                {% else %}
+                    arrow4.setValue( "Error Value");
+                    axis4.setBottomText( "Erroe Value ","Ib");
+                {% endif %}
+            }
+    </script>
+    <script type="text/javascript">
+            var chart5;
+            var arrow5;
+            var axis5;
+
+            AmCharts.ready(function () {
+                // create angular gauge
+                chart5 = new AmCharts.AmAngularGauge();
+                chart5.addTitle("Ic");
+
+
+                // create axis
+                axis5 = new AmCharts.GaugeAxis();
+                axis5.startValue = 0;
+				axis5.axisThickness = 1;
+                axis5.endValue = 200;
+                axis5.axisAlpha = 0.2;
+                axis5.tickAlpha = 0.2;
+                axis5.valueInterval = 50;
+
+
+                // color bands
+                var band1Ia5 = new AmCharts.GaugeBand();
+                band1Ia5.startValue = 0;
+                band1Ia5.endValue = 80;
+                band1Ia5.color = "#84b761";
+                band1Ia5.innerRadius = "70%";
+
+                var band2Ia5 = new AmCharts.GaugeBand();
+                band2Ia5.startValue = 81;
+                band2Ia5.endValue = 140;
+                band2Ia5.color = "#ffd400";
+                band2Ia5.innerRadius = "70%";
+
+                var band3Ia5 = new AmCharts.GaugeBand();
+                band3Ia5.startValue = 141;
+                band3Ia5.endValue = 200;
+                band3Ia5.color = "#cc4748";
+                band3Ia5.innerRadius = "70%";
+
+                axis5.bands = [band1Ia5, band2Ia5, band3Ia5];
+
+                // bottom text
+                axis5.bottomTextYOffset = -20;
+                axis5.setBottomText("0 Ic");
+                chart5.addAxis(axis5);
+
+                // gauge arrow
+                arrow5 = new AmCharts.GaugeArrow();
+                chart5.addArrow(arrow5);
+
+                chart5.write("chartdiv5");
+                // change value every 2 seconds
+                setInterval(UpdateValue5, 2000);
+            });
+
+            // set random value
+            function UpdateValue5() {
+                {% if  database_meters_Ic != False %}
+                    arrow5.setValue( {{ database_meters_Ic }});
+                    axis5.setBottomText( {{database_meters_Ic }},"Ic");
+                {% else %}
+                    arrow5.setValue( "Error Value");
+                    axis5.setBottomText( "Erroe Value ","Ic");
+                {% endif %}
+            }
+    </script>
+    <script type="text/javascript">
+			var chartPhase;
+            var VaArrowPhase, VbArrowPhase, VcArrowPhase;
+            var IaArrowPhase, IbArrowPhase, IcArrowPhase;
+
+
+			AmCharts.ready(function () {
+
+				// clock is just an angular gauge with three arrows
+				chartPhase = new AmCharts.AmAngularGauge();
+				chartPhase.startDuration = 0.3;
+
+                var bordPhase = new AmCharts.GaugeBand()
+                bordPhase.startValue = 0;
+                bordPhase.endValue = 360;
+
+				// for simplicyty, we use only one axis
+				var axisPhase = new AmCharts.GaugeAxis();
+				axisPhase.startValue = 0;
+				axisPhase.endValue = 360;
+				axisPhase.valueInterval = 30;
+				axisPhase.minorTickInterval = 1;
+				axisPhase.showFirstLabel = true;
+                axisPhase.showLastLabel = true;
+				axisPhase.startAngle = 90;
+				axisPhase.endAngle = 450;
+				axisPhase.axisAlpha = 100;
+                axisPhase.bottomText = "Phase";
+                axisPhase.tickColor = "#97C30A";
+                axisPhase.ValueAxis =
+                axisPhase.radius = "100%";
+                axisPhase.setColor = "#97C30A"
+                chartPhase.addAxis(axisPhase);
+
+                // Voltage PhVa
+                VaArrowPhase = new AmCharts.GaugeArrow();
+                VaArrowPhase.radius = "100%";
+                VaArrowPhase.clockWiseOnly = true;
+                VaArrowPhase.color = "#CC0000";
+                VaArrowPhase.startWidth = 1;
+                VaArrowPhase.nailRadius = 1;
+
+                // PhIa
+                IaArrowPhase = new AmCharts.GaugeArrow();
+                IaArrowPhase.radius = {{ database_meters_Ia }};
+                IaArrowPhase.clockWiseOnly = true;
+                IaArrowPhase.color = "#CC0000";
+                IaArrowPhase.startWidth = 1;
+                IaArrowPhase.nailRadius = 1;
+
+                // Voltage PhVb
+                VbArrowPhase = new AmCharts.GaugeArrow();
+                VbArrowPhase.radius = "100%";
+                VbArrowPhase.clockWiseOnly = true;
+                VbArrowPhase.color = "#97C30A";
+                VbArrowPhase.startWidth = 1;
+                VbArrowPhase.nailRadius = 1;
+
+                // PhIb
+                IbArrowPhase = new AmCharts.GaugeArrow();
+                IbArrowPhase.radius = {{ database_meters_Ib }};
+                IbArrowPhase.clockWiseOnly = true;
+                IbArrowPhase.color = "#97C30A";
+                IbArrowPhase.startWidth = 1;
+                IbArrowPhase.nailRadius = 1;
+
+                // Voltage PhVc
+                VcArrowPhase = new AmCharts.GaugeArrow();
+                VcArrowPhase.radius = "100%";
+                VcArrowPhase.clockWiseOnly = true;
+                VcArrowPhase.color = "#0000FF";
+                VcArrowPhase.startWidth = 1;
+                VcArrowPhase.nailRadius = 1;
+
+				// PhIc
+				IcArrowPhase = new AmCharts.GaugeArrow();
+                IcArrowPhase.radius = {{ database_meters_Ic }};
+                IcArrowPhase.clockWiseOnly = true;
+                IcArrowPhase.color = "#0000FF";
+                IcArrowPhase.startWidth = 1;
+                IcArrowPhase.nailRadius = 1;
+
+
+
+
+				// update clock before adding arrows to avoid initial animation
+				updateClock();
+
+				// add arrow
+                chartPhase.addArrow(VaArrowPhase);
+                chartPhase.addArrow(VbArrowPhase);
+                chartPhase.addArrow(VcArrowPhase);
+                chartPhase.addArrow(IaArrowPhase);
+                chartPhase.addArrow(IbArrowPhase);
+                chartPhase.addArrow(IcArrowPhase);
+
+				chartPhase.write("Phase");
+
+				// update each second
+				setInterval(updateClock, 1000);
+			});
+
+			// update clock
+			function updateClock() {
+
+				// set Voltage
+                VaArrowPhase.setValue(360);
+                VbArrowPhase.setValue(120);
+                VcArrowPhase.setValue(240);
+
+                // set I
+                IaArrowPhase.setValue( 0 - ({{ database_meters_PhAI }}))
+                IbArrowPhase.setValue( 120 - ({{ database_meters_PhBI }}))
+				IcArrowPhase.setValue( 240 - ({{ database_meters_PhCI }}))
+
+			}
+
+
+    </script>
+    <script type="text/javascript">
+           var chartHis;
+           var chartData = [];
+
+           AmCharts.ready(function () {
+              // generate some random data first
+               generateChartData();
+
+               // SERIAL CHART
+               chartHis = new AmCharts.AmSerialChart();
+               chartHis.pathToImages = "../amcharts/images/";
+               chartHis.dataProvider = chartData;
+               chartHis.categoryField = "date"; // inserire i dati della query
+
+               // listen for "dataUpdated" event (fired when chart is inited) and call zoomChart method when it happens
+               chartHis.addListener("dataUpdated", zoomChart);
+
+               // AXES
+               // category
+               var categoryAxis = chartHis.categoryAxis;
+               categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+               categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
+               categoryAxis.minorGridEnabled = true;
+               categoryAxis.axisColor = "#DADADA";
+
+               // first value axis (on the left)
+               var valueAxis1 = new AmCharts.ValueAxis();
+               valueAxis1.axisColor = "#FF6600";
+               valueAxis1.axisThickness = 2;
+               valueAxis1.gridAlpha = 0;
+               chartHis.addValueAxis(valueAxis1);
+
+               // second value axis (on the right)
+               var valueAxis2 = new AmCharts.ValueAxis();
+               valueAxis2.position = "right"; // this line makes the axis to appear on the right
+               valueAxis2.axisColor = "#FCD202";
+               valueAxis2.gridAlpha = 0;
+               valueAxis2.axisThickness = 2;
+               chartHis.addValueAxis(valueAxis2);
+
+               // third value axis (on the left, detached)
+               var valueAxis3 = new AmCharts.ValueAxis();
+               valueAxis3.offset = 50; // this line makes the axis to appear detached from plot area
+               valueAxis3.gridAlpha = 0;
+               valueAxis3.axisColor = "#B0DE09";
+               valueAxis3.axisThickness = 2;
+               chartHis.addValueAxis(valueAxis3);
+
+               // GRAPHS
+               // first graph
+               var graph1 = new AmCharts.AmGraph();
+               graph1.valueAxis = valueAxis1; // we have to indicate which value axis should be used
+               graph1.title = "red line";
+               graph1.valueField = "visits";
+               graph1.bullet = "round";
+               graph1.hideBulletsCount = 30;
+               graph1.bulletBorderThickness = 1;
+               chartHis.addGraph(graph1);
+
+               // second graph
+               var graph2 = new AmCharts.AmGraph();
+               graph2.valueAxis = valueAxis2; // we have to indicate which value axis should be used
+               graph2.title = "yellow line";
+               graph2.valueField = "hits";
+               graph2.bullet = "square";
+               graph2.hideBulletsCount = 30;
+               graph2.bulletBorderThickness = 1;
+               chartHis.addGraph(graph2);
+
+               // third graph
+               var graph3 = new AmCharts.AmGraph();
+               graph3.valueAxis = valueAxis3; // we have to indicate which value axis should be used
+               graph3.valueField = "views";
+               graph3.title = "green line";
+               graph3.bullet = "triangleUp";
+               graph3.hideBulletsCount = 30;
+               graph3.bulletBorderThickness = 1;
+               chartHis.addGraph(graph3);
+
+               // CURSOR
+               var chartCursor = new AmCharts.ChartCursor();
+               chartCursor.cursorPosition = "mouse";
+               chartHis.addChartCursor(chartCursor);
+
+               // SCROLLBAR
+               var chartScrollbar = new AmCharts.ChartScrollbar();
+               //chartHis.addChartScrollbar(chartScrollbar);
+
+               // LEGEND
+               var legend = new AmCharts.AmLegend();
+               legend.marginLeft = 110;
+               legend.useGraphSettings = true;
+               chartHis.addLegend(legend);
+
+               // WRITE
+               chartHis.write("chartdiv20");
+           });
+
+           // generate some random data, quite different range
+           function generateChartData() {
+               var firstDate = new Date();
+               firstDate.setDate(firstDate.getDate() - 60);
+
+               for (var i = 0; i < 50; i++) {
+                   // we create date objects here. In your data, you can have date strings
+                   // and then set format of your dates using chart.dataDateFormat property,
+                   // however when possible, use date objects, as this will speed up chart rendering.
+                   var newDate = new Date(firstDate);
+                   newDate.setDate(newDate.getDate() + i);
+
+                   var visits = Math.round(Math.random() * 40) + 100;
+                   var hits = Math.round(Math.random() * 80) + 500;
+                   var views = Math.round(Math.random() * 6000);
+
+                   chartData.push({
+                       date: newDate,
+                       visits: visits,
+                       hits: hits,
+                       views: views
+                   });
+               }
+           }
+
+           // this method is called when chart is first inited as we listen for "dataUpdated" event
+           function zoomChart() {
+               // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+               chartHis.zoomToIndexes(10, 20);
+           }
+    </script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<herder>
+    <div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="/">
+                    <img style="max-width: 50px; margin-top: -7px" src = "{{url_for ('static' , filename='images/TNE_150.png')}}">
+                    Icollect Dashbord
+                </a>
+            </li>
+            <li class ="Tables">
+                <a href="/"><span class="glyphicon glyphicon-dashboard" aria-label="true"></span>  Connect.. </a>
+            </li>
+            <li>
+                <a href="/TablesMeters/"><span class="glyphicon glyphicon-scale" aria-label="true"></span>  History Meters </a>
+            </li>
+            <li>
+                <a href="/user/"><span class="glyphicon glyphicon-envelope" aria-label="true"></span>  E-mail</a>
+            </li>
+            <li>
+                <a href="/AngGauge/"><span class="glyphicon glyphicon-leaf" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-fire" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-folder-open" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-label="true"></span>  Other</a>
+            </li>
+        </ul>
+    </div>
+ </div>
+</herder>
+<body>
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="/dashbord/">
+                    <img style="max-width: 50px; margin-top: -7px" src = "{{url_for ('static' , filename='images/TNE_150.png')}}">
+                    Icollect Dashbord
+                </a>
+            </li>
+            <li class ="Tables">
+                <a href="/dashbord/"><span class="glyphicon glyphicon-dashboard" aria-label="true"></span>  Dashbord </a>
+            </li>
+            <li>
+                <a href="/TablesMeters"><span class="glyphicon glyphicon-scale" aria-label="true"></span>  Tables Meters </a>
+            </li>
+            <li>
+                <a href="/user/"><span class="glyphicon glyphicon-envelope" aria-label="true"></span>  E-mail</a>
+            </li>
+            <li>
+                <a href="/AngGauge/"><span class="glyphicon glyphicon-leaf" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-fire" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-folder-open" aria-label="true"></span>  Other</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-label="true"></span>  Other</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class ="container_dashboard">
+    {% block dashbord %}
+    {% endblock %}
+    </div>
+    <div class = "container_Charts_Vol_I">
+        {% block Charts_Vol_I %}
+
+        {% endblock %}
+    </div>
+
+
+</div>
+    <!-- /#sidebar-wrapper -->
+ <!-- jquery-->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script type=text/javascript src="{{
+        url_for('static', filename="js/bootstrap.min.js") }}"></script>
+{#<!-- Amcharts JavaScript-->#}
+{#<script type=text/javascript src="{{#}
+{#        url_for('static', filename='js/amcharts/amcharts.js') }}"></script>#}
+{#<script type=text/javascript src="{{#}
+{#        url_for('static', filename="js/amcharts/gauge.js") }}"></script>#}
+
+</body>
+
+</html>
+ <li class="sidebar-brand">
+                <a href="/">
+                    <img style="max-width: 50px; margin-top: -7px" src = "{{url_for ('static' , filename='images/TNE_150.png')}}">
+                    Icollect Dashbord
+                </a>
+            </li>

@@ -1,0 +1,114 @@
+{% extends 'base_.html' %}
+
+
+
+{% block content %}
+
+    <div id="page-wrapper">
+           <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% if 'collector' in json_building %}
+                            <h1><strong>{{ json_building['collector']['building'] }}
+                        <img class="img-building" src="/static/images/building_black.png">
+                        </strong></h1>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Portfolio</div>
+                            </div>
+                            </br>
+                            <strong>
+                                <div class="box-text">{{ json_building['collector']['portfolio']}}</div>
+                            </strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Info</div>
+                            </div>
+                            </br>
+                            <strong>
+                                <div class="box-text">{{ json_building['collector']['building']}}</div>
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Total Tenants</div>
+                            </div>
+                            </br>
+                            <strong>
+                               <div class="tenant-total">
+                                    <div class="box-text"><a class="box-text-href"  href="#"> {{ json_tenant_building| length }}</a></div>
+                               </div>
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Total Meters</div>
+                            </div>
+                            </br>
+                            <strong>
+                               <div class="meters-total">
+                                    <div class="box-text"><a class="box-text-href"  href="#"> {{ json_tne_number|count }}</a></div>
+                               </div>
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Logo</div>
+                            </div>
+                            </br>
+                            <strong>
+                               <div class="Logo">
+                                    <div class="box-text">
+                                        {% if json_building['collector']['building'] == "340_Madison_Avenue" %}
+                                            <img class="img-building-jpg" src="/static/images/340_Mad_Ave/RXR_340_Mad_Ave_2.jpg">
+                                        {% endif %}
+                                    </div>
+                               </div>
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Web Site</div>
+                            </div>
+                            </br>
+                            <strong>
+                               <div class="web-site">
+                                    <div class="box-text">
+                                        {% if json_building['collector']['building'] == "340_Madison_Avenue" %}
+                                            <a class ="web-site-building" href="http://www.rxrrealty.com/portfolio/new-york-city/manhattan/340-madison-avenue/">http://www.rxrrealty.com/portfolio/new-york-city/manhattan/340-madison-avenue/</a>
+                                        {% endif %}
+                                    </div>
+                               </div>
+                            </strong>
+                        </div>
+                    </div>
+                   <!-- <div class="col-lg-12">
+                        <div class="box-widget">
+                           <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Fleet Overview</div>
+                           </div>
+
+                           <div id="tenant_value" style="width: 50%; height: 400px;"></div>
+
+                        </div>
+
+                    </div>-->
+                </div>
+           </div>
+     </div>
+{% endblock %}
