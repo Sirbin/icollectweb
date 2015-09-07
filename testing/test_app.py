@@ -10,7 +10,7 @@ from project import app, db
 from project.config_ import path_
 from project.model_ import user_
 
-TEST_DB = "testing\pester.db"
+TEST_DB = "pester.db"
 
 
 class AllTest(unittest.TestCase):
@@ -18,6 +18,7 @@ class AllTest(unittest.TestCase):
     #esegui prio per ogni test
     def setUp(self):
         app.config['TESTING'] = True
+        app.config['DEBUG'] = True
         app.config['WTF_CSRF_ENABLE'] = False
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(path_,TEST_DB)
         self.app = app.test_client()
@@ -94,6 +95,19 @@ class AllTest(unittest.TestCase):
          self.login("massimo1","colantoni1")
          responce = self.app.get('dashboard/setting/',follow_redirects=True)
          self.assertIn("not permission",responce.data)
+
+    def test_on_404_error(self):
+        responce = self.app.get('/this_route_non_exist')
+        self.assertEqual(responce.status_code, 404)
+        self.assertIn(b'sorry',responce.data)
+
+    def test_on_505(self):
+        bad_user= user_(user="jeremy",password="corallo12",email="jeremy@hto.it",first_name="traco",last_name="sorra",profile_type="users")
+        db.session.add(bad_user)
+        db.session.commit()
+        respoce = self.login('jeremy1', 'corallo')
+        self.assertEqual(respoce.status_code,500)
+
 
 if __name__ == '__main__':
     unittest.main()

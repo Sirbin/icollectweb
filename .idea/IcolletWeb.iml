@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/project" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Py_Error" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 2.7.9 virtualenv at C:\Users\Alessio\IcolletBoot\env" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.9 virtualenv at C:\Users\Alessio\icollectweb\env" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

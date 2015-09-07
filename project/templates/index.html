@@ -17,9 +17,11 @@
             <div class="page-tittle">
                 <h3>Icollect Dashboard Login</h3>
             </div>
-            {% for message in get_flashed_messages() %}
-                <div class="page-message"><strong>Error:</strong>{{ message }}</div>
-            {% endfor %}
+            {% if not session.logged_in %}
+                {% for message in get_flashed_messages() %}
+                    <div class="page-message"><strong>{{ message }}</strong></div>
+                {% endfor %}
+            {% endif %}
             {% if error %}
                 <div class="page-error" role="alert"><strong>Error:</strong>{{ error }}</div>
             {% endif %}

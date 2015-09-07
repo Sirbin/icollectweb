@@ -7,7 +7,7 @@ from flask import render_template, redirect, url_for, session, flash, request, B
 from sqlalchemy.exc import IntegrityError
 from .form import register_user , login_users
 from project.model_ import user_
-from project import db
+from project import db,bycrypt_on_pass_user
 
 #config
 users_for_blueprint = Blueprint('user',__name__)
@@ -40,7 +40,7 @@ def login_():
     if request.method == 'POST':
         if form.validate_on_submit():
             user = user_.query.filter_by(user=request.form['user_login']).first()
-            if user is not None and user.password == request.form['user_password']:
+            if user is not None and bycrypt_on_pass_user.check_password_hash(user.password,request.form['user_password']):
                 session['logged_in'] = True
                 session['user_id'] = user.id_user
                 session['user'] = user.user
@@ -63,7 +63,7 @@ def logout_():
     session.pop('user',None)
     session.pop('profile',None)
     flash('Goodbye')
-    return redirect(url_for('login_'))
+    return redirect(url_for('user.login_'))
 
 @users_for_blueprint.route('/dashboard/users/new_user', methods=['GET', 'POST'])
 @login_required
@@ -72,7 +72,7 @@ def new_users():
     form = register_user(request.form)
     if request.method == "POST":
         if form.validate_on_submit():
-            new_user = user_(form.user.data, form.password.data, form.email.data, form.first_name.data,
+            new_user = user_(form.user.data,bycrypt_on_pass_user.generate_password_hash(form.password.data), form.email.data, form.first_name.data,
                              form.last_name.data, str(form.select_profile.data))
             try:
                 db.session.add(new_user)
@@ -97,11 +97,11 @@ def edit_users(useredit):
         if form.validate_on_submit():
             try:
                 db.session.query(user_).filter_by(user=useredit_change).update(
-                    {"user": form.user.data, "profile_type": form.select_profile.data, "password": form.password.data,
+                    {"user": form.user.data, "profile_type": form.select_profile.data, "password": bycrypt_on_pass_user.generate_password_hash(form.password.data),
                      "email": form.email.data, "first_name": form.first_name.data, "last_name": form.last_name.data})
                 db.session.commit()
-                flash('User %s' % form.user.data, 'Update')
-                return redirect(url_for('user_page'))
+                flash('User {0} Upadate'.format(form.user.data))
+                return redirect(url_for('user.user_page'))
             except IntegrityError:
                 error = "username and/or email are exist"
                 return render_template('edit_user.html', useredit_change=query_for_change_user, form=form, error=error,

@@ -12,10 +12,7 @@ from flask_socketio import SocketIO
 from gunicorn import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
-
-#from  import create_json_building, create_json_table, create_json_tne, create_tenant_building
-
-
+from flask_bcrypt import Bcrypt
 #monkey.patch_all()
 
 
@@ -30,6 +27,9 @@ app.config.from_pyfile('config_.py')
 # applications Socketio
 socketio = SocketIO(app)
 
+
+# password crypt
+bycrypt_on_pass_user = Bcrypt(app)
 
 # database
 db = SQLAlchemy(app)
