@@ -1,16 +1,16 @@
 {% extends "base_.html" %}
 
 {% block head %}
-    {{ super() }}
+    {{super()}}
 {% endblock %}
 
 {% block content %}
-
     <div id="page-wrapper">
          <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Error Internal server </h1>
+                        <h1>Error Internal server  </h1>
+                        <div class="btn btn-primary" type="button"><a href="{{ url_for('user.login_') }}"><strong>Return Page Login</strong></a> </div>
                     </div>
                 </div>
          </div>

@@ -8,11 +8,12 @@ from sqlalchemy.exc import IntegrityError
 from .form import register_user , login_users
 from project.model_ import user_
 from project import db,bycrypt_on_pass_user
+from project.Loggin_Debug import Logging
+
+
 
 #config
 users_for_blueprint = Blueprint('user',__name__)
-
-
 
 
 # Function help
@@ -46,6 +47,9 @@ def login_():
                 session['user'] = user.user
                 session['profile'] = user.profile_type
                 flash("you are logged Welcome %s" % session['user'])
+                now_time =datetime.utcnow()
+                user_logging = Logging(user_connect_=None)
+                user_logging.create_log_info(session['user'],now_time.strftime('%d-%m-%Y %H-%M-%S'), request.url)
                 return render_template('dashboard_.html', username=session['user'], current_time=datetime.utcnow())
             else:
                 error = "Invalid User or Password"

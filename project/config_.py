@@ -3,6 +3,8 @@ __author__ = 'Alessio'
 import os
 
 path_ = os.path.abspath(os.path.dirname(__file__))
+path_testing = os.path.dirname(path_)
+
 
 # value
 DATABASE = "METER.LOG"
@@ -12,7 +14,6 @@ SECRET_KEY = 'my_secret'
 CSRF_ENABLED = True
 
 DEBUG = True
-
 DATABASE_CONFIG_ = "Database\config.json"
 DATABASE_CONFIG_DB = "Database\icollect_.db"
 

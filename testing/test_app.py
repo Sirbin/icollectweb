@@ -7,11 +7,11 @@ __author__ = 'Alessio'
 import unittest
 import os
 from project import app, db
-from project.config_ import path_
+from project.config_ import path_testing
 from project.model_ import user_
 
-TEST_DB = "pester.db"
-
+TEST_DB = "testing\database_tester.db"
+print os.path.join(path_testing,TEST_DB)
 
 class AllTest(unittest.TestCase):
 
@@ -20,7 +20,7 @@ class AllTest(unittest.TestCase):
         app.config['TESTING'] = True
         app.config['DEBUG'] = True
         app.config['WTF_CSRF_ENABLE'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(path_,TEST_DB)
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(path_testing,TEST_DB)
         self.app = app.test_client()
         db.create_all()
 
@@ -108,6 +108,8 @@ class AllTest(unittest.TestCase):
         respoce = self.login('jeremy1', 'corallo')
         self.assertEqual(respoce.status_code,500)
 
+    def test(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()
