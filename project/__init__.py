@@ -10,6 +10,7 @@ from gunicorn import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 #monkey.patch_all()
 
 app = Flask(__name__)
@@ -28,6 +29,10 @@ bycrypt_on_pass_user = Bcrypt(app)
 
 # database
 db = SQLAlchemy(app)
+
+# Login Manager
+#login_ = LoginManager()
+#login_.init_app(app)
 
 from setting.view import blueprint_setting
 from general.view import blueprint_general

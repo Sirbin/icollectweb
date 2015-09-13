@@ -45,11 +45,11 @@ def login_():
                 session['logged_in'] = True
                 session['user_id'] = user.id_user
                 session['user'] = user.user
-                session['profile'] = user.profile_type
+                session['profile'] = user.role
                 flash("you are logged Welcome %s" % session['user'])
-                now_time =datetime.utcnow()
+                now_time =datetime.now()
                 user_logging = Logging(user_connect_=None)
-                user_logging.create_log_info(session['user'],now_time.strftime('%d-%m-%Y %H-%M-%S'), request.url)
+                user_logging.create_login_info(session['user'],now_time.strftime('%d-%m-%Y %H-%M-%S'), request.url)
                 return render_template('dashboard_.html', username=session['user'], current_time=datetime.utcnow())
             else:
                 error = "Invalid User or Password"
@@ -62,6 +62,9 @@ def login_():
 @users_for_blueprint.route('/logout')
 @login_required
 def logout_():
+    now_time =datetime.now()
+    user_logging = Logging(user_connect_=None)
+    user_logging.create_logout_info(session['user'], now_time.strftime('%d-%m-%Y %H-%M-%S'))
     session.pop('logged_in', None)
     session.pop('user_id', None)
     session.pop('user',None)
@@ -123,10 +126,10 @@ def delete_users(usersdel):
         db.session.query(user_).filter_by(user=delete_us).delete()
         db.session.commit()
         flash('users delete')
-        return redirect(url_for('user_page'))
+        return redirect(url_for('user.user_page'))
     else:
         flash('User {0} is not Administrator'.format(session['user']))
-        return redirect(url_for('user_page'))
+        return redirect(url_for('user.user_page'))
 
 @users_for_blueprint.route('/dashboard/users')
 @login_required

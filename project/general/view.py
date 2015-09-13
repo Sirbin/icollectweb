@@ -5,7 +5,7 @@ from functools import wraps
 from flask import render_template, redirect, url_for, session, flash, Blueprint
 from project.json_conf_ import create_tenant_building,create_json_table,create_json_building,create_json_tne
 from project import db
-
+from project.model_ import gauge_
 
 #config
 blueprint_general = Blueprint('general',__name__)
@@ -85,5 +85,5 @@ def gauge_prova():
             for t in gauge_user_user_id:
                 print t.id_, t.name_gauge_change, t.gauge_choiche
                 value_tot = {"id":t.id_ ,"name":t.name_gauge_change,"choice":t.gauge_choiche}
-            return render_template('prova.html',username=session['user'], current_time=datetime.utcnow(),scelta_van =str(t.gauge_choiche) )
+            return render_template('prova.html',username=session['user'], current_time=datetime.utcnow(),scelta_van =t.gauge_choiche)
         return redirect(url_for('dashboard_'))

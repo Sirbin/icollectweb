@@ -21,10 +21,12 @@
                             <script>
                                 $(document).ready(function() {
                                     console.log("ready");
-                                    {% if scelta_van == "True" %}
+                                    {% if scelta_van == True %}
                                         $('#chartdiv0').show()
                                         $('#chartdiv1').show()
-                                        console.log("ok");
+                                        console.log("ok")
+                                    {% else %}
+                                        $('#chartdiv0').hide()
                                     {% endif %}
                                 });
 

@@ -15,7 +15,7 @@
                                     <div class="box-widget">
                                         {% if name_controll %}
                                         <div class="chartdiv0">
-                                            <label><strong>Gauge VaN :</strong>{{form.name_change_gauge_van(value=name_controll.name_gauge_change) }} {{ form.name_checked_gauge_van( value= name_controll.gauge_choiche) }}</label></div>
+                                            <label><strong>Gauge VaN :</strong>{{form.name_change_gauge_van(value=name_controll.name_gauge_change) }} {{ form.name_checked_gauge_van( checked= name_controll.gauge_choiche) }}</label></div>
                                         {% else %}
                                         <div class="chartdiv0">
                                             <label><strong>Gauge VaN :</strong>{{form.name_change_gauge_van }} {{ form.name_checked_gauge_van}}</label>

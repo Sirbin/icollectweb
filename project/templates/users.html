@@ -57,7 +57,7 @@
                                         <td>{{user.email}}</td>
                                         <td>{{user.first_name}}</td>
                                         <td>{{user.last_name}}</td>
-                                        <td>{{user.profile_type}}</td>
+                                        <td>{{user.role}}</td>
                                         <div class="btn-group-lg">
                                         <td width="150px"><a type="button" class="btn btn-danger btn-user-dng" href="{{ url_for('user.delete_users', usersdel=user.user)}}">Delete</a>
                                         <a type="button" class="btn btn-success btn-user-edit" href="{{ url_for('user.edit_users', useredit=user.user) }}">Edit</a></td>

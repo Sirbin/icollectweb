@@ -72,3 +72,60 @@ Traceback (most recent call last):
   File "C:\Users\Alessio\icollectweb\env\lib\site-packages\werkzeug\routing.py", line 1678, in build
     raise BuildError(endpoint, values, method)
 BuildError: ('user.edit_users', {}, None)
+2015-09-09 11:17:03,148 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 09-17-03'}
+2015-09-09 11:18:17,108 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 09-18-17'}
+2015-09-09 11:18:17,108 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 09-18-17'}
+2015-09-09 11:19:26,464 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 09-19-26'}
+2015-09-09 11:19:26,464 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 09-19-26'}
+2015-09-09 11:19:26,464 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 09-19-26'}
+2015-09-09 11:20:16,711 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 09-20-16'}
+2015-09-09 11:20:16,711 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 09-20-16'}
+2015-09-09 11:20:16,711 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 09-20-16'}
+2015-09-09 11:20:16,711 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 09-20-16'}
+2015-09-09 16:15:27,335 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 16-15-27'}
+2015-09-09 18:28:25,687 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 18-28-25'}
+2015-09-09 18:28:28,710 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 18-28-28'}
+2015-09-09 18:28:28,710 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 18-28-28'}
+2015-09-09 18:48:53,661 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 18-48-53'}
+2015-09-09 18:48:53,661 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 18-48-53'}
+2015-09-09 18:48:53,661 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '09-09-2015 18-48-53'}
+2015-09-09 22:55:51,674 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 22-55-51'}
+2015-09-09 23:03:46,365 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 23-03-46'}
+2015-09-09 23:09:19,335 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator', 'time': '09-09-2015 23-09-19'}
+2015-09-10 15:03:10,095 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '10-09-2015 15-03-10'}
+2015-09-10 15:09:08,177 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '10-09-2015 15-09-08'}
+2015-09-10 15:12:23,329 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '10-09-2015 15-12-23'}
+2015-09-10 15:21:48,033 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '10-09-2015 15-21-48'}
+2015-09-10 15:33:53,664 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '10-09-2015 15-33-53'}
+2015-09-11 17:48:24,750 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 17-48-24'}
+2015-09-11 17:51:10,664 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 17-51-10'}
+2015-09-11 17:51:10,664 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 17-51-10'}
+2015-09-11 18:20:59,380 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 18-20-59'}
+2015-09-11 18:30:38,878 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 18-30-38'}
+2015-09-11 19:12:03,924 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 19-12-03'}
+2015-09-11 19:17:10,819 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 19-17-10'}
+2015-09-11 19:26:15,555 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 19-26-15'}
+2015-09-11 19:31:37,937 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 19-31-37'}
+2015-09-11 19:31:40,240 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 19-31-40'}
+2015-09-11 19:31:40,240 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 19-31-40'}
+2015-09-11 19:34:51,670 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '11-09-2015 19-34-51'}
+2015-09-12 23:25:13,440 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-25-13'}
+2015-09-12 23:31:20,688 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-31-20'}
+2015-09-12 23:35:32,930 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-35-32'}
+2015-09-12 23:37:51,971 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-37-51'}
+2015-09-12 23:39:19,907 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-39-19'}
+2015-09-12 23:40:27,654 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-40-27'}
+2015-09-12 23:42:01,927 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-42-01'}
+2015-09-12 23:45:05,388 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-45-05'}
+2015-09-12 23:50:49,299 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '12-09-2015 23-50-49'}
+2015-09-13 00:07:29,861 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 00-07-29'}
+2015-09-13 00:13:53,700 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 00-13-53'}
+2015-09-13 00:24:15,592 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 00-24-15'}
+2015-09-13 00:28:13,000 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 00-28-12'}
+2015-09-13 09:37:04,430 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 09-37-04'}
+2015-09-13 10:29:14,559 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 10-29-14'}
+2015-09-13 10:36:44,654 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 10-36-44'}
+2015-09-13 10:55:42,648 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 10-55-42'}
+2015-09-13 11:02:51,809 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 11-02-51'}
+2015-09-13 11:04:42,134 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 11-04-42'}
+2015-09-13 11:12:39,704 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '13-09-2015 11-12-39'}
