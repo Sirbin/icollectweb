@@ -94,26 +94,32 @@ from model_ import gauge_
 #             flash('Error in the %s field - %s' % (getattr(form, field).label.text, error), 'error')
 
 
-# # Funzione Users Login
-# @app.route('/', methods=['GET', 'POST'])
+ # # Funzione Users Login
+# @users_for_blueprint.route('/', methods=['GET', 'POST'])
 # def login_():
 #     error = None
 #     form = login_users(request.form)
 #     if request.method == 'POST':
 #         if form.validate_on_submit():
-#             user = user_.query.filter_by(user=request.form['user_login']).first()
-#             if user is not None and user.password == request.form['user_password']:
+#             user = user_.query.filter_by(user=form.user_login.data).first()
+#             if user is not None and bycrypt_on_pass_user.check_password_hash(user.password,request.form['user_password']):
+#                 #login_user(user,form.user_remember.data)
 #                 session['logged_in'] = True
 #                 session['user_id'] = user.id_user
 #                 session['user'] = user.user
-#                 session['profile'] = user.profile_type
+#                 session['profile'] = user.role
 #                 flash("you are logged Welcome %s" % session['user'])
+#                 now_time =datetime.now()
+#                 user_logging = Logging(user_connect_=None)
+#                 user_logging.create_login_info(session['user'],now_time.strftime('%d-%m-%Y %H-%M-%S'), request.url)
+#                 #return redirect(request.args.get('next') or url_for('general.dashboard_'))
 #                 return render_template('dashboard_.html', username=session['user'], current_time=datetime.utcnow())
 #             else:
 #                 error = "Invalid User or Password"
 #         else:
 #             error = "Both Field are required"
 #     return render_template("Login.html", form=form, error=error)
+#
 
 
 # # Funzione Logout

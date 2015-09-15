@@ -22,13 +22,9 @@
                      {% endif %}
                     </span>
                 <br>
-{#                <input type="text" id="inputUsers" class="form-control" placeholder="Users" name="username"#}
-{#                       value = "{{ request.form.username }}" required autofocus>#}
-{#                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password"#}
-{#                       value="{{ request.form.password }}" required autofocus>#}
-                  <div id="remember" class="checkbox">
+            <div id="remember" class="checkbox">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        {{ form.user_remember(value = 'remember me') }} Remember me
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Login">Sign in</button>

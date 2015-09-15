@@ -1,8 +1,9 @@
 __author__ = 'Alessio'
 
 from project import db
-
-
+from flask_login import UserMixin
+from project import login_
+'''importa il login dall app principale'''
 
 class Permisssion:
       VIEV = 0X01
@@ -57,7 +58,7 @@ class gauge_(db.Model):
     ''' crea il modello per salvare i dati dei vari gauge
     '''
     id_gauge = db.Column(db.Integer, primary_key=True)
-    name_gauge = db.Column(db.String,unique=True)
+    name_gauge = db.Column(db.String)
     name_gauge_change = db.Column(db.String)
     gauge_choiche= db.Column(db.Boolean)
     id_ = db.Column(db.Integer, db.ForeignKey('user.id_user'))
@@ -76,7 +77,7 @@ class gauge_(db.Model):
     def __repr__(self):
         return "<name  {0}>".format(self.name_gauge)
 
-class user_(db.Model):
+class user_(db.Model,UserMixin):
     ''' creazione del modello per salvare i dati
     '''
     __tablename__ = "user"
@@ -90,6 +91,17 @@ class user_(db.Model):
     role = db.Column(db.String, db.ForeignKey('profile_type.name'))
     gauge_ch = db.relationship('gauge_', backref='user')
 
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return unicode(self.id_user)
 
     def __init__(self ,user=None,password=None,email=None,first_name=None,last_name=None,role=None):
         '''
@@ -110,4 +122,9 @@ class user_(db.Model):
 
     def __repr__(self):
         return "<name  {0}>".format(self.user)
+
+    @login_.user_loader
+    def load_user(id_user):
+        '''query per ritornare user id della tabella user_'''
+        return user_.query.get(int(id_user))
 

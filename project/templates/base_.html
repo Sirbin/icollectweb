@@ -359,6 +359,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
+        {% if current_user.is_authenticated() %}
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -395,7 +396,7 @@
                                     </span>
                                     <div class="media-body">
                                         <h5 class="media-heading">
-                                            <strong>John Smith</strong>
+                                            <strong>{{ current_user.user }}</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -411,7 +412,7 @@
                                     </span>
                                     <div class="media-body">
                                         <h5 class="media-heading">
-                                            <strong>John Smith</strong>
+                                            <strong>{{ current_user.user }}</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -427,9 +428,7 @@
                                     </span>
                                     <div class="media-body">
                                         <h5 class="media-heading">
-                                            {% if session.logged_in %}
-                                            <strong> {{ username }}</strong>
-                                            {% endif %}
+                                                <strong> {{current_user.user}}</strong>
                                         </h5>
 
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
@@ -471,7 +470,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  {{ username }} <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  {{ current_user.user|capitalize }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="{{ url_for('user.user_page') }}"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -489,6 +488,7 @@
                     </ul>
                 </li>
             </ul>
+            {% endif %}
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">

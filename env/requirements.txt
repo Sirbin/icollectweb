@@ -11,3 +11,5 @@ WTForms==2.0.2
 gunicorn
 Flask-Bcrypt
 Flask-Login
+Flask-Migrate
+Flask-Script

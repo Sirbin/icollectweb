@@ -30,9 +30,11 @@ bycrypt_on_pass_user = Bcrypt(app)
 # database
 db = SQLAlchemy(app)
 
-# Login Manager
-#login_ = LoginManager()
-#login_.init_app(app)
+#Login Manager
+login_ = LoginManager()
+login_.session_protection = 'strong'
+login_.login_view = 'user.login_'
+login_.init_app(app)
 
 from setting.view import blueprint_setting
 from general.view import blueprint_general
@@ -66,7 +68,6 @@ def server_internal_error(error):
             current_time = now_time.strftime('%d-%m-%Y %H-%M-%S')
             f.write("error 500, {0}, {1}".format(current_time,r))
     return render_template('500.html', current_time=datetime.utcnow()), 500
-
 
 
 
