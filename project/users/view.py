@@ -3,13 +3,14 @@ __author__ = 'Alessio'
 # Import
 from datetime import datetime
 from functools import wraps
-from flask import render_template, redirect, url_for, session, flash, request, Blueprint
+from flask import render_template, redirect, url_for,flash, request, Blueprint,current_app
 from sqlalchemy.exc import IntegrityError
 from .form import register_user , login_users
 from project.model_ import user_
-from project import db,bycrypt_on_pass_user
+from project import db,bycrypt_on_pass_user,app
 from project.Loggin_Debug import Logging
-from flask_login import login_user,logout_user,login_required,current_user
+from flask_login import login_user,logout_user,login_required,current_user,session
+from flask.ext.principal import identity_changed,Identity,AnonymousIdentity
 
 
 #config
@@ -31,6 +32,8 @@ def login_():
          user = user_.query.filter_by(user=form.user_login.data).first()
          if user is not None and bycrypt_on_pass_user.check_password_hash(user.password,form.user_password.data):
             login_user(user,form.user_remember.data)
+            identity = Identity(form.user_login.data)
+            identity_changed.send(app,identity=identity)
             flash("you are logged Welcome %s" % current_user.user)
             now_time =datetime.now()
             user_logging = Logging(user_connect_=None)
@@ -49,6 +52,8 @@ def logout_():
     user_logging.create_logout_info(current_user.user, now_time.strftime('%d-%m-%Y %H-%M-%S'))
     flash('Goodbye %s' % current_user.user)
     logout_user()
+    for key in ('identity.id','identity.auth_type'):
+        session.pop(key,None)
     return redirect(url_for('user.login_'))
 
 @users_for_blueprint.route('/dashboard/users/new_user', methods=['GET', 'POST'])
@@ -100,14 +105,10 @@ def edit_users(useredit):
 @users_for_blueprint.route('/dashboard/users/<usersdel>')
 @login_required
 def delete_users(usersdel):
-    if current_user.role == "admin":
         delete_us = usersdel
         db.session.query(user_).filter_by(user=delete_us).delete()
         db.session.commit()
         flash('users delete')
-        return redirect(url_for('user.user_page'))
-    else:
-        flash('User {0} is not Administrator'.format(current_user.user))
         return redirect(url_for('user.user_page'))
 
 @users_for_blueprint.route('/dashboard/users')

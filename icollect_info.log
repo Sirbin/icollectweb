@@ -485,3 +485,138 @@ BuildError: ('user.edit_users', {}, None)
 2015-09-15 18:33:36,032 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '15-09-2015 18-33-36'}
 2015-09-15 18:37:15,559 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '15-09-2015 18-37-15'}
 2015-09-15 18:39:02,608 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '15-09-2015 18-39-02'}
+2015-09-15 19:21:07,969 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '15-09-2015 19-21-07'}
+2015-09-15 19:29:14,723 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '15-09-2015 19-29-14'}
+2015-09-15 19:29:14,723 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '15-09-2015 19-29-14'}
+2015-09-15 19:48:48,058 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '15-09-2015 19-48-48'}
+2015-09-18 10:14:39,579 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 10-14-39'}
+2015-09-18 10:15:06,196 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-06'}
+2015-09-18 10:15:06,196 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-06'}
+2015-09-18 10:15:14,020 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-14'}
+2015-09-18 10:15:14,020 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-14'}
+2015-09-18 10:15:14,020 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-14'}
+2015-09-18 10:15:32,026 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-32'}
+2015-09-18 10:15:32,026 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-32'}
+2015-09-18 10:15:32,026 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-32'}
+2015-09-18 10:15:32,026 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 10-15-32'}
+2015-09-18 10:24:42,473 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 10-24-42'}
+2015-09-18 10:25:10,036 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 10-25-10'}
+2015-09-18 10:25:10,036 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 10-25-10'}
+2015-09-18 10:25:15,500 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 10-25-15'}
+2015-09-18 10:25:15,500 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 10-25-15'}
+2015-09-18 10:25:15,500 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 10-25-15'}
+2015-09-18 10:27:33,834 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 10-27-33'}
+2015-09-18 10:48:15,831 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 10-48-15'}
+2015-09-18 11:15:05,002 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 11-15-04'}
+2015-09-18 12:22:42,140 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 12-22-42'}
+2015-09-18 15:26:24,507 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 15-26-24'}
+2015-09-18 15:28:27,562 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 15-28-27'}
+2015-09-18 15:35:02,082 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 15-35-02'}
+2015-09-18 15:40:44,092 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 15-40-44'}
+2015-09-18 15:43:28,568 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 15-43-28'}
+2015-09-18 16:49:25,736 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 16-49-25'}
+2015-09-18 17:07:50,017 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 17-07-50'}
+2015-09-18 17:15:06,111 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 17-15-06'}
+2015-09-18 17:17:43,954 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 17-17-43'}
+2015-09-18 17:21:15,796 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 17-21-15'}
+2015-09-18 17:25:19,010 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 17-25-19'}
+2015-09-18 17:35:45,667 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 17-35-45'}
+2015-09-18 17:47:58,306 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 17-47-58'}
+2015-09-18 18:09:50,980 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 18-09-50'}
+2015-09-18 18:10:01,115 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-10-01'}
+2015-09-18 18:10:01,115 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-10-01'}
+2015-09-18 18:12:06,499 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 18-12-06'}
+2015-09-18 18:12:30,572 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-12-30'}
+2015-09-18 18:12:30,572 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-12-30'}
+2015-09-18 18:15:43,773 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 18-15-43'}
+2015-09-18 18:15:46,801 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-15-46'}
+2015-09-18 18:15:46,801 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-15-46'}
+2015-09-18 18:17:48,141 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 18-17-48'}
+2015-09-18 18:17:51,348 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-17-51'}
+2015-09-18 18:17:51,348 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-17-51'}
+2015-09-18 18:17:58,289 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 18-17-58'}
+2015-09-18 18:17:58,289 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 18-17-58'}
+2015-09-18 18:17:58,289 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 18-17-58'}
+2015-09-18 18:23:32,091 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 18-23-32'}
+2015-09-18 18:23:48,687 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-23-48'}
+2015-09-18 18:23:48,687 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-23-48'}
+2015-09-18 18:42:46,394 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '18-09-2015 18-42-46'}
+2015-09-18 18:42:51,555 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-42-51'}
+2015-09-18 18:42:51,555 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '18-09-2015 18-42-51'}
+2015-09-18 18:42:57,556 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 18-42-57'}
+2015-09-18 18:42:57,556 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 18-42-57'}
+2015-09-18 18:42:57,556 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 18-42-57'}
+2015-09-18 18:54:17,693 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 18-54-17'}
+2015-09-18 19:05:11,776 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 19-05-11'}
+2015-09-18 19:09:04,974 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 19-09-04'}
+2015-09-18 19:11:13,325 - project - ERROR - Exception on /dashboard/setting [GET]
+Traceback (most recent call last):
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_login.py", line 786, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_principal.py", line 198, in _decorated
+    with self:
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_principal.py", line 208, in __enter__
+    raise PermissionDenied(self.permission)
+PermissionDenied: <Permission needs=set([Need(method='role', value='Admin')]) excludes=set([])>
+2015-09-18 19:38:08,141 - project - ERROR - Exception on /dashboard/setting [GET]
+Traceback (most recent call last):
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_login.py", line 786, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_principal.py", line 198, in _decorated
+    with self:
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_principal.py", line 208, in __enter__
+    raise PermissionDenied(self.permission)
+PermissionDenied: <Permission needs=set([Need(method='role', value='Admin')]) excludes=set([])>
+2015-09-18 19:38:08,141 - project - ERROR - Exception on /dashboard/setting [GET]
+Traceback (most recent call last):
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask\app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_login.py", line 786, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_principal.py", line 198, in _decorated
+    with self:
+  File "C:\Users\Alessio\icollectweb\env\lib\site-packages\flask_principal.py", line 208, in __enter__
+    raise PermissionDenied(self.permission)
+PermissionDenied: <Permission needs=set([Need(method='role', value='Admin')]) excludes=set([])>
+2015-09-18 19:44:51,664 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 19-44-51'}
+2015-09-18 19:49:05,980 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 19-49-05'}
+2015-09-18 19:52:42,532 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 19-52-42'}
+2015-09-18 19:55:22,757 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 19-55-22'}
+2015-09-18 19:58:11,572 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 19-58-11'}
+2015-09-18 20:00:14,009 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 20-00-14'}
+2015-09-18 20:09:08,744 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 20-09-08'}
+2015-09-18 20:14:39,601 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 20-14-39'}
+2015-09-18 20:16:43,963 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 20-16-43'}
+2015-09-18 20:33:35,207 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 20-33-35'}
+2015-09-18 20:41:40,209 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 20-41-40'}
+2015-09-18 20:53:55,703 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 20-53-55'}
+2015-09-18 20:54:00,365 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 20-54-00'}
+2015-09-18 20:54:00,365 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 20-54-00'}

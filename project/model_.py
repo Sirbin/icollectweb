@@ -2,7 +2,7 @@ __author__ = 'Alessio'
 
 from project import db
 from flask_login import UserMixin
-from project import login_
+from project import login_,principal_role
 '''importa il login dall app principale'''
 
 class Permisssion:
@@ -124,7 +124,7 @@ class user_(db.Model,UserMixin):
         return "<name  {0}>".format(self.user)
 
     @login_.user_loader
-    def load_user(id_user):
+    def load_user(id_user=None):
         '''query per ritornare user id della tabella user_'''
         return user_.query.get(int(id_user))
 

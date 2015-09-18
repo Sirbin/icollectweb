@@ -13,3 +13,4 @@ Flask-Bcrypt
 Flask-Login
 Flask-Migrate
 Flask-Script
+Flask-Principal

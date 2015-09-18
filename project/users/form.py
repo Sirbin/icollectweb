@@ -4,7 +4,7 @@ from flask_wtf import Form
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms import StringField ,BooleanField,PasswordField,SelectField
 from wtforms.validators import DataRequired,Length,EqualTo,Email,ValidationError
-from project import db,model_
+from project import db,model_,login_
 from project.model_ import user_
 
 def get_query():
@@ -12,7 +12,8 @@ def get_query():
     return  my_db
 
 class login_users(Form):
-    ''' form per login
+    '''
+    form per login
     '''
     user_login = StringField('user', validators=[DataRequired(),Length(min=5,max=40)])
     user_password = PasswordField('password', validators=[DataRequired(),Length(min=5,max=40)])
@@ -38,5 +39,4 @@ class register_user(Form):
     def validate_user(self,field):
         if user_.query.filter_by(user=field.data).first():
             raise ValidationError('User already exist')
-if __name__ == '__main__':
-  pass
+
