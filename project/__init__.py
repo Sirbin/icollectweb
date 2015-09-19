@@ -42,7 +42,7 @@ principal_role = Principal(app)
 
 admin_permission = Permission(RoleNeed('Admin'))
 
-manager_permission = Permission(RoleNeed('Manager'))
+admin_manager_permission = Permission(RoleNeed('Admin'),RoleNeed('Manager'))
 
 user_permission = Permission(RoleNeed('User'))
 

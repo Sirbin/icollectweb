@@ -3,7 +3,7 @@ __author__ = 'Alessio'
 from functools import wraps
 from datetime import datetime
 from flask import render_template, redirect, url_for, session, flash, request,Blueprint,Response
-from project import db,admin_permission
+from project import db,admin_manager_permission
 from .form import form_check_gauge
 from project.model_ import gauge_
 from flask_login import login_required,current_user
@@ -25,7 +25,7 @@ def flask_error(form):
 
 @blueprint_setting.route("/dashboard/setting", methods=['GET', 'POST'])
 @login_required
-@admin_permission.require(http_exception=403)
+@admin_manager_permission.require(http_exception=403)
 def setting_():
     user_gauge_id = current_user.id_user
     gauge_user_user_id = gauge_.query.filter_by(id_=user_gauge_id).first()

@@ -620,3 +620,45 @@ PermissionDenied: <Permission needs=set([Need(method='role', value='Admin')]) ex
 2015-09-18 20:53:55,703 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '18-09-2015 20-53-55'}
 2015-09-18 20:54:00,365 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 20-54-00'}
 2015-09-18 20:54:00,365 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '18-09-2015 20-54-00'}
+2015-09-19 11:40:24,381 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-24'}
+2015-09-19 11:40:48,628 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-48'}
+2015-09-19 11:40:48,628 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-48'}
+2015-09-19 11:40:50,877 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-50'}
+2015-09-19 11:40:50,877 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-50'}
+2015-09-19 11:40:50,877 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-50'}
+2015-09-19 11:40:56,559 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-56'}
+2015-09-19 11:40:56,559 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-56'}
+2015-09-19 11:40:56,559 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-56'}
+2015-09-19 11:40:56,559 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-40-56'}
+2015-09-19 11:41:47,714 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-41-47'}
+2015-09-19 11:42:36,901 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-42-36'}
+2015-09-19 11:42:36,901 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-42-36'}
+2015-09-19 11:42:41,946 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '19-09-2015 11-42-41'}
+2015-09-19 11:42:41,946 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '19-09-2015 11-42-41'}
+2015-09-19 11:42:41,946 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '19-09-2015 11-42-41'}
+2015-09-19 11:44:32,999 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '19-09-2015 11-44-32'}
+2015-09-19 11:44:45,171 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-09-2015 11-44-45'}
+2015-09-19 11:44:45,171 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-09-2015 11-44-45'}
+2015-09-19 11:44:50,065 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-44-50'}
+2015-09-19 11:44:50,065 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-44-50'}
+2015-09-19 11:44:50,065 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-44-50'}
+2015-09-19 11:44:58,676 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-44-58'}
+2015-09-19 11:44:58,676 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-44-58'}
+2015-09-19 11:44:58,676 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-44-58'}
+2015-09-19 11:44:58,676 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-44-58'}
+2015-09-19 11:46:45,369 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-46-45'}
+2015-09-19 11:49:37,328 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-49-37'}
+2015-09-19 11:49:42,096 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-49-42'}
+2015-09-19 11:49:42,096 - project - INFO - Info Logout:{'user_connect': u'adelaide12', 'time': '19-09-2015 11-49-42'}
+2015-09-19 11:49:47,197 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '19-09-2015 11-49-47'}
+2015-09-19 11:49:47,197 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '19-09-2015 11-49-47'}
+2015-09-19 11:49:47,197 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '19-09-2015 11-49-47'}
+2015-09-19 11:49:54,390 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-09-2015 11-49-54'}
+2015-09-19 11:49:54,390 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-09-2015 11-49-54'}
+2015-09-19 11:49:54,390 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-09-2015 11-49-54'}
+2015-09-19 11:49:54,390 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-09-2015 11-49-54'}
+2015-09-19 11:49:58,302 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-49-58'}
+2015-09-19 11:49:58,302 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-49-58'}
+2015-09-19 11:49:58,302 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-49-58'}
+2015-09-19 11:49:58,302 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-49-58'}
+2015-09-19 11:49:58,302 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'adelaide12', 'time': '19-09-2015 11-49-58'}
