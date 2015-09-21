@@ -5,9 +5,9 @@ from datetime import datetime
 from functools import wraps
 from flask import render_template, redirect, url_for,flash, request, Blueprint,current_app
 from sqlalchemy.exc import IntegrityError
-from .form import register_user , login_users
+from .form import register_user , login_users , new_register_user
 from project.model_ import user_
-from project import db,bycrypt_on_pass_user,app
+from project import db,bycrypt_on_pass_user,app,admin_manager_permission,admin_permission
 from project.Loggin_Debug import Logging
 from flask_login import login_user,logout_user,login_required,current_user,session
 from flask.ext.principal import identity_changed,Identity,AnonymousIdentity
@@ -58,10 +58,10 @@ def logout_():
 
 @users_for_blueprint.route('/dashboard/users/new_user', methods=['GET', 'POST'])
 @login_required
+@admin_permission.require(http_exception=403)
 def new_users():
     error = None
-    form = register_user(request.form)
-    #if request.method == "POST":
+    form = new_register_user(request.form)
     if form.validate_on_submit():
             new_user = user_(form.user.data,bycrypt_on_pass_user.generate_password_hash(form.password.data), form.email.data, form.first_name.data,
                              form.last_name.data, str(form.select_profile.data))
@@ -80,30 +80,37 @@ def new_users():
 
 @users_for_blueprint.route('/dashboard/users/edit/<useredit>', methods=['POST', 'GET'])
 @login_required
+@admin_permission.require(http_exception=403)
 def edit_users(useredit):
     error = None
-    form = register_user(request.form)
     useredit_change = useredit
-    query_for_change_user = user_.query.filter_by(user=useredit_change)
-    if request.method == "POST":
-        if form.validate_on_submit():
-            try:
-                db.session.query(user_).filter_by(user=useredit_change).update(
-                    {"user": form.user.data, "profile_type": form.select_profile.data, "password": bycrypt_on_pass_user.generate_password_hash(form.password.data),
-                     "email": form.email.data, "first_name": form.first_name.data, "last_name": form.last_name.data})
-                db.session.commit()
-                flash('User {0} Upadate'.format(form.user.data))
-                return redirect(url_for('user.user_page'))
-            except IntegrityError:
-                error = "username and/or email are exist"
-                return render_template('edit_user.html', useredit_change=query_for_change_user, form=form, error=error,
-                                        current_time=datetime.utcnow())
-    return render_template('edit_users.html', user_change=query_for_change_user, form=form,
-                           error=error, current_time=datetime.utcnow())
+    query_for_change_user = user_.query.filter_by(user=useredit_change).first()
+    form = register_user(username=query_for_change_user)
+    if form.validate_on_submit():
+        query_for_change_user.user = form.user.data
+        query_for_change_user.role = form.select_profile.data
+        query_for_change_user.password = bycrypt_on_pass_user.generate_password_hash(form.password.data)
+        query_for_change_user.email = form.email.data
+        query_for_change_user.first_name = form.first_name.data
+        query_for_change_user.last_name = form.last_name.data
+        db.session.add(query_for_change_user)
+        db.session.commit()
+        flash('User {userdit} is update'.format(userdit=form.user.data))
+        return redirect(url_for('user.user_page'))
+    form.user.data = query_for_change_user.user
+    form.select_profile.data = query_for_change_user.role
+    form.password.data = query_for_change_user.password
+    form.email.data = query_for_change_user.email
+    form.first_name.data = query_for_change_user.first_name
+    form.last_name.data = query_for_change_user.last_name
+    return render_template('edit_users.html',  form=form, \
+                            error = error, current_time=datetime.utcnow())
+
 
 
 @users_for_blueprint.route('/dashboard/users/<usersdel>')
 @login_required
+@admin_permission.require(http_exception=403)
 def delete_users(usersdel):
         delete_us = usersdel
         db.session.query(user_).filter_by(user=delete_us).delete()

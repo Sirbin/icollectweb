@@ -2,7 +2,7 @@ __author__ = 'Alessio'
 
 
 from datetime import *
-from flask import Flask,render_template,request,Response,flash
+from flask import Flask,render_template,request,Response,flash,redirect,session,url_for,template_rendered
 from gevent import monkey
 from gevent.pywsgi import WSGIServer
 from flask_socketio import SocketIO
@@ -10,7 +10,7 @@ from gunicorn import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from flask_bcrypt import Bcrypt
-from flask_login import LoginManager,current_user
+from flask_login import LoginManager,current_user,current_app
 from flask_principal import Principal,Permission,RoleNeed,identity_loaded,identity_changed,UserNeed
 monkey.patch_all()
 
@@ -93,12 +93,19 @@ def server_internal_error(error):
             f.write("error 500, {0}, {1}".format(current_time,r))
     return render_template('500.html', current_time=datetime.utcnow()), 500
 
-@app.errorhandler(403)
+@app.errorhandler(401)
 def admin_permited_error(e):
-    error = None
     error = ('Your current identity is {user}. You need special privileges to access this page') \
              .format(user=current_user.user)
     return render_template('dashboard_.html',error=error, current_time = datetime.utcnow())
+
+@app.errorhandler(403)
+def prova_errore(e):
+    error = ('Your current identity is {user}. You need special privileges to access this page') \
+             .format(user=current_user.user)
+    session['redirect_url']=request.url
+    return render_template('users.html', error=error , current_time = datetime.utcnow())
+
 
 
 

@@ -25,7 +25,7 @@ def tables_history_meters(meters):
     if json_building != False:
         for tne in json_table_meter_value:
             if meters == tne['tne_number'] and request.method == "GET":
-                print "la base", request.base_url
+                print "la base", request.base_url,request.url
                 print "prova", request.args.get(current_user.user)
                 myth = threading.Thread(target=controllo_broker, args=(meters,))
                 myth.run()

@@ -18,7 +18,7 @@
                  </div>
                     <!-- start tabs user-->
                             <div class="col-lg-6">
-                                {% for user in user_change %}
+{#                                {% for user in user_change %}#}
                                 <form class="form-signin" method="POST" action="">
                                     {{ form.csrf_token}}
                                         </br>
@@ -27,7 +27,8 @@
                                                 <div class="box-header-text">Edit User</div>
                                             </div>
                                             <br/>
-                                                {{ form.user(id="inputUsers",class="form-control",value=user.user)}}
+{#                                               {{ form.user(id="inputUsers",class="form-control",value=user.user)}}#}
+                                                 {{ form.user(id="inputUsers",class="form-control")}}
                                                 {% if form.user.errors %}
                                                 <span class="error">
                                                     {% for error in form.user.errors %}
@@ -36,8 +37,9 @@
                                                 </span>
                                                 {% endif %}
                                             <br/>
-                                                {{ form.password (class="form-control",value=user.password)}}
-                                                {% if form.password.errors %}
+{#                                                {{ form.password (class="form-control",value=user.password)}}#}
+                                                {{ form.password (class="form-control") }}
+                                            {% if form.password.errors %}
                                                 <span class="error">
                                                     {% for error in form.password.erros %}
                                                         {{ error }}
@@ -45,7 +47,8 @@
                                                 </span>
                                                 {% endif %}
                                             <br/>
-                                                {{ form.confirm(class="form-control")}}
+{#                                                {{ form.confirm(class="form-control")}}#}
+                                                 {{ form.confirm(class="form-control") }}
                                                 {% if form.confirm.errors %}
                                                 <span class="error">
                                                     {% for error in form.confirm.errors %}
@@ -54,7 +57,8 @@
                                                 </span>
                                                 {% endif %}
                                             <br/>
-                                                {{ form.email(class="form-control",value=user.email)}}
+{#                                                {{ form.email(class="form-control",value=user.email)}}#}
+                                                {{ form.email(class="form-control") }}
                                                 {% if form.email.errors %}
                                                 <span class="error">
                                                     {% for error in form.email.errors %}
@@ -63,18 +67,21 @@
                                                 </span>
                                                 {% endif %}
                                             <br/>
-                                                {{ form.first_name(class="form-control",value=user.first_name)}}
+{#                                                {{ form.first_name(class="form-control",value=user.first_name)}}#}
+                                                 {{ form.first_name(class="form-control") }}
                                             <br/>
-                                                {{ form.last_name(class="form-control",value=user.last_name)}}
+{#                                                {{ form.last_name(class="form-control",value=user.last_name)}}#}
+                                                    {{ form.last_name(class="form-control") }}
                                             <br/>
                                             <div class="select_profile">
-                                                 {{ form.select_profile(class="form-control",value=user.profile_type)}}
+{#                                                 {{ form.select_profile(class="form-control",value=user.profile_type)}}#}
+                                                    {{ form.select_profile(class="form-control") }}
                                             </div>
                                             <br/>
                                             <input type="submit" class="btn btn-success" value="Update User">
                                         </div>
                                 </form>
-                                {% endfor %}
+{#                                {% endfor %}#}
                             </div>
 
                 </div>
