@@ -2,6 +2,166 @@
 
 {% block head %}
     {{ super() }}
+    {% block gauge %}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        namespace = '/test';
+
+            var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+
+{#            socket.on('con_resp', function (evento) {#}
+{#                console.log('connect',evento.data,evento.user,evento.room);#}
+{#            });#}
+            socket.on('connect', function(){
+               socket.emit('join',{});
+               socket.emit('connect');
+            });
+            socket.on('status',function(evento) {
+               console.log(evento);
+            });
+            socket.on('my responce',function(evento1){
+               console.log(evento1)
+            });
+
+        var chart;
+        var arrow;
+        var axis;
+
+        AmCharts.ready(function () {
+            // create angular gauge
+            chart = new AmCharts.AmAngularGauge();
+            chart.addTitle("Voltage");
+
+            // create axis
+            axis = new AmCharts.GaugeAxis();
+            axis.startValue = 0;
+            axis.axisThickness = 1;
+            axis.endValue = 500;
+            axis.valueInterval = 100;
+            // color bands
+            var band1 = new AmCharts.GaugeBand();
+            band1.startValue = 0;
+            band1.endValue = 200;
+            band1.color = "#84b761";
+
+            var band2 = new AmCharts.GaugeBand();
+            band2.startValue = 201;
+            band2.endValue = 400;
+            band2.color = "#fdd400";
+
+            var band3 = new AmCharts.GaugeBand();
+            band3.startValue = 401;
+            band3.endValue = 500;
+            band3.color = "#cc4748";
+            band3.innerRadius = "95%";
+
+            axis.bands = [band1, band2, band3];
+
+            // bottom text
+            axis.bottomTextYOffset = -20;
+            axis.setBottomText("Volt");
+            chart.addAxis(axis);
+
+            // gauge arrow
+            arrow = new AmCharts.GaugeArrow();
+            chart.addArrow(arrow);
+
+            chart.write("chartdiv0");
+            // change value every 2 seconds
+            {#                    setInterval(randomValue, 2000)#}
+        });
+
+        socket.on('gauge_responce', function (evento) {
+            arrow.setValue(evento.valore);
+            axis.setBottomText("VbN" + evento.valore);
+            {#                    });#}
+        });
+    });
+{#            // funzione con server send event#}
+{#            function randomValue(){#}
+{##}
+{#                var source = new EventSource("/progress");#}
+{#                //source.onmessage = function(event) {#}
+{#                    source.addEventListener('top_up',function(event){#}
+{#                     arrow.setValue(event.data);#}
+{#                    axis.setBottomText(event.data + " km/h");#}
+{##}
+{#                },false);#}
+{#            }#}
+
+        </script>
+{#    <script type="text/javascript">#}
+{##}
+{#            var chart_vbn;#}
+{#            var arrow_vbn;#}
+{#            var axis_vbn;#}
+{##}
+{#            AmCharts.ready(function () {#}
+{#                // create angular gauge#}
+{#                chart_vbn = new AmCharts.AmAngularGauge();#}
+{#                chart_vbn.addTitle("Voltage VbN");#}
+{##}
+{#                // create axis#}
+{#                axis_vbn = new AmCharts.GaugeAxis();#}
+{#                axis_vbn.startValue = 0;#}
+{#                axis_vbn.axisThickness = 1;#}
+{#                axis_vbn.endValue = 500;#}
+{#                axis_vbn.valueInterval= 100;#}
+{#                // color bands#}
+{#                var band_vbn_1 = new AmCharts.GaugeBand();#}
+{#                band_vbn_1.startValue = 0;#}
+{#                band_vbn_1.endValue = 200;#}
+{#                band_vbn_1.color = "#84b761";#}
+{##}
+{#                var band_vbn_2 = new AmCharts.GaugeBand();#}
+{#                band_vbn_2.startValue = 201;#}
+{#                band_vbn_2.endValue = 400;#}
+{#                band_vbn_2.color = "#fdd400";#}
+{##}
+{#                var band_vbn_3 = new AmCharts.GaugeBand();#}
+{#                band_vbn_3.startValue = 401;#}
+{#                band_vbn_3.endValue = 500;#}
+{#                band_vbn_3.color = "#cc4748";#}
+{#                band_vbn_3.innerRadius = "95%";#}
+{##}
+{#                axis_vbn.bands = [band_vbn_1, band_vbn_2, band_vbn_3];#}
+{##}
+{#                // bottom text#}
+{#                axis_vbn.bottomTextYOffset = -20;#}
+{#                axis_vbn.setBottomText("Volt");#}
+{#                chart_vbn.addAxis(axis_vbn);#}
+{##}
+{#                // gauge arrow#}
+{#                arrow_vbn = new AmCharts.GaugeArrow();#}
+{#                chart_vbn.addArrow(arrow_vbn);#}
+{##}
+{#                chart_vbn.write("chartdiv1");#}
+{#                // change value every 2 seconds#}
+{#                setInterval(randomValue_vbn,2000)#}
+{#            });#}
+{#            // funzione con socket.io and event#}
+{#                function randomValue_vbn() {#}
+{#                    namespace = '/test';#}
+{#                    var socket_vbn = io.connect('http://' + document.domain + ':' + location.port + namespace);#}
+{#                        console.log(document.domain)#}
+{#                    socket_vbn.on('gauge_responce_vbn', function(evento) {#}
+{#                    arrow_vbn.setValue(evento.valore);#}
+{#                    axis_vbn.setBottomText("VbN"+evento.valore);#}
+{#                    });#}
+{#                };#}
+{#            // funzione con server send event#}
+{#            function randomValue(){#}
+{##}
+{#                var source = new EventSource("/progress");#}
+{#                //source.onmessage = function(event) {#}
+{#                    source.addEventListener('top_up',function(event){#}
+{#                     arrow.setValue(event.data);#}
+{#                    axis.setBottomText(event.data + " km/h");#}
+{##}
+{#                },false);#}
+{#            }#}
+{#        </script>#}
+        {% endblock %}
 {% endblock %}
 
 {% block content %}
@@ -9,7 +169,7 @@
            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <strong><h1>{{ tne }}
+                        <strong><h1><div id="tne">{{ tne }}</div>
                             <img class="img-meters "src="/static/images/meters.png" />
                             </h1></strong>
                     </div>

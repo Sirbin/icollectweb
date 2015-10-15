@@ -1,6 +1,13 @@
 __author__ = 'Alessio'
+#encoding:utf-8
 
 from project.json_conf_ import create_tenant_building,create_json_table,create_json_building,create_json_tne
+from flask_login import current_user
+from gevent import monkey
+from flask import request,session,copy_current_request_context
+import threading
+monkey.patch_all()
+
 
 # Load json value
 json_tne_number = create_json_tne()
@@ -18,33 +25,30 @@ TOPIC_gen = "Collector/Interval/RXR_Realty/" + str(json_building['collector']['b
 
 import json
 import time
-#from project import socketio
-from flask_socketio import SocketIO, emit
-from gevent import monkey
+#from project import socketio,
+from flask_socketio import SocketIO, emit, join_room,disconnect,send,close_room,leave_room
 import paho.mqtt.client as mqtt
+
 from project import app
 
-monkey.patch_all()
 
 socketio = SocketIO(app)
 
- # Broker
+# Broker
 def onConnect(client, userdata, rc):
     if rc == 0:
         print "connected"
 
-
 def controllo_broker(tne=None):
     try:
-        status = client.loop_start()
-        print "lo status", status
+
         print("connect......")
-        client.connect(BROKER, port=1883, keepalive=60, bind_address="")
-        client.on_connect = onConnect
+        #client.connect(BROKER, port=1883, keepalive=60, bind_address="")
+        #client.on_connect = onConnect
+        client.loop_start()
         spedisci_dato(tne)
         client.subscribe(TOPIC_Resp, 2)
         client.on_message = onMessage
-        # client.unsubscribe(TOPIC_Resp)
     except Exception as e:
         print "connessione non stanbilita:" + "" + str(e)
 
@@ -57,17 +61,19 @@ def create_json_publish(tne):
     return data_create_meter
 
 
+def onSubscribe(client,userdata,message):
+    pass
+
 def onMessage(client, userdata, message):
-    print("Topic: " + str(message.topic) + ", Message: " + str(message.payload))
-    message_split = message.topic.split('/')
-    if message_split[1] == "Realtime":
-        stringa_ = json.loads(message.payload)
-        print stringa_['VaN'], stringa_['VbN']
-        socketio.emit('gauge_responce', {'valore': stringa_["VaN"]}, namespace='/test')
-        socketio.emit('gauge_responce_vbn', {'valore': stringa_['VbN']}, namespace='/test')
-        spedisci_dato(message_split[4])
-    else:
-        print ("stop")
+        print("Topic: " + str(message.topic) + ", Message: " + str(message.payload))
+        message_split = message.topic.split('/')
+        if message_split[1] == "Realtime":
+            stringa_ = json.loads(message.payload)
+            print stringa_['VaN'], stringa_['VbN'], stringa_['tne_number']
+            socketio.emit('gauge_responce', {'valore': stringa_["VaN"]},namespace='/test',room=message_split[4])
+            socketio.emit('gauge_responce_vbn', {'valore': stringa_['VbN']},namespace='/test',room=message_split[4])
+            spedisci_dato(message_split[4])
+
 
 
 def spedisci_dato(tne, second=None):
@@ -80,17 +86,44 @@ def spedisci_dato(tne, second=None):
             return client.publish(topic=Topic_Pub, payload=create_json_publish(tne), qos=2)
 
 
-@socketio.on('my event', namespace="/test")
+@socketio.on('my event', namespace='/test')
 def test_message(message):
     emit('my response', {"data": message['data']})
 
 
 @socketio.on('connect', namespace="/test")
 def test_connect():
-    emit('my responce', {"data": "Connect"})
+    emit('status',{'data': 'Connect!!'})
 
-client = mqtt.Client(client_id="", clean_session=True, userdata=None, protocol="MQTTv31")
+@socketio.on('disconnect', namespace="/test")
+def test_disconnect():
+    session.pop('tne')
+    print ('Client disconnect')
 
+    # leave_room(room)
+    # client.unsubscribe(TOPIC_Resp)
+    # emit('status',{'data':'user disconnect' + current_user.user,'stanza':room},room=room)
+
+@socketio.on('join', namespace='/test')
+def join(message):
+        room = session.get('tne')
+        join_room(room)
+        emit('status',{'data': current_user.user+":"+' create a socket_io'+ room},room=room)
+
+@socketio.on('left',namespace='/test')
+def left(message):
+    room = session.get('tne')
+    if  leave_room(room):
+        client.unsubscribe(TOPIC_Resp)
+        emit('status',{'data':current_user.user+":"+'leave a socket_io'+room },room=room)
+
+
+try:
+    client = mqtt.Client(client_id="", clean_session=True, userdata=None, protocol="MQTTv31")
+    client.connect(BROKER, port=1883, keepalive=60, bind_address="")
+    client.on_connect = onConnect
+except:
+    print "Error on mqtt "
 
 
 if __name__ == '__main__':

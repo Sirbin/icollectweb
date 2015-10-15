@@ -53,7 +53,7 @@
       <primary-key columns="id_user),unique (user"/>
     </table>
   </data-source>
-  <data-source name="SQLite - [2]" uuid="4e5056e6-b05f-40b5-a1f3-656df03c1fc2">
+  <data-source name="SQLite - [2]" uuid="54828fed-81e6-4746-af9d-cc95a81ec3c9">
     <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
@@ -63,7 +63,7 @@
       <column name="name_gauge_change" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="gauge_choiche" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="id_" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
-      <primary-key columns="id_gauge),foreign key(id_"/>
+      <primary-key columns="id_gauge),unique (name_gauge"/>
       <foreign-key name="#FAKE_gauge_select_1" columns="id_" ref-table="user" ref-schema="" ref-catalog="" ref-columns="id_user" update-rule="3" delete-rule="3" deferrability="1"/>
     </table>
     <table name="user" schema="" catalog="" type="TABLE">

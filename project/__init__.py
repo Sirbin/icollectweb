@@ -1,18 +1,18 @@
 __author__ = 'Alessio'
 
-
 from datetime import *
-from flask import Flask,render_template,request,Response,flash,redirect,session,url_for,template_rendered
-from gevent import monkey
-from gevent.pywsgi import WSGIServer
+
+from flask import Flask,render_template,request, session
 from flask_socketio import SocketIO
-from gunicorn import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from flask_bcrypt import Bcrypt
-from flask_login import LoginManager,current_user,current_app
-from flask_principal import Principal,Permission,RoleNeed,identity_loaded,identity_changed,UserNeed
-monkey.patch_all()
+from flask_login import LoginManager,current_user
+from flask_principal import Principal,Permission,RoleNeed,identity_loaded, UserNeed
+
+
+
+#monkey.patch_all()
 
 app = Flask(__name__)
 
@@ -33,11 +33,11 @@ db = SQLAlchemy(app)
 
 #Login Manager
 login_ = LoginManager()
-login_.session_protection = 'strong'
+login_.session_protection =     None
 login_.login_view = 'user.login_'
 login_.init_app(app)
 
-#Principal Rolbe
+#Principal Role
 principal_role = Principal(app)
 
 admin_permission = Permission(RoleNeed('Admin'))
@@ -52,12 +52,15 @@ from setting.view import blueprint_setting
 from general.view import blueprint_general
 from broker.view import blueprint_mqtt_data
 from users.view import users_for_blueprint
+from api.view import api_blueprint
 
 #register
 app.register_blueprint(blueprint_setting)
 app.register_blueprint(blueprint_general)
 app.register_blueprint(blueprint_mqtt_data)
 app.register_blueprint(users_for_blueprint)
+app.register_blueprint(api_blueprint)
+
 
 @identity_loaded.connect_via(app)
 def on_identity_loader(sender,identity):

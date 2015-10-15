@@ -10,7 +10,7 @@ path_testing = os.path.dirname(path_)
 DATABASE = "METER.LOG"
 USERNAME = 'admin'
 PASSWORD = 'admin'
-SECRET_KEY = 'my_secret'
+SECRET_KEY = 'my_secret1'
 CSRF_ENABLED = True
 
 DEBUG = True

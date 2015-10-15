@@ -5,7 +5,7 @@ from datetime import datetime
 from functools import wraps
 from flask import render_template, redirect, url_for,flash, request, Blueprint,current_app
 from sqlalchemy.exc import IntegrityError
-from .form import register_user , login_users , new_register_user
+from users.form import register_user , login_users , new_register_user
 from project.model_ import user_
 from project import db,bycrypt_on_pass_user,app,admin_manager_permission,admin_permission
 from project.Loggin_Debug import Logging
@@ -115,7 +115,7 @@ def delete_users(usersdel):
         delete_us = usersdel
         db.session.query(user_).filter_by(user=delete_us).delete()
         db.session.commit()
-        flash('users delete')
+        flash('users delete %s'% current_user.user)
         return redirect(url_for('user.user_page'))
 
 @users_for_blueprint.route('/dashboard/users')

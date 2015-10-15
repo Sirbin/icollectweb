@@ -55,8 +55,9 @@ def tenant_():
 @login_required
 def tenant_name_(tenant):
     if json_building != False:
-        return render_template('tenant_name.html', tenant=tenant,
-                               current_time=datetime.utcnow())
+
+        return render_template('tenant_name.html', tenant=tenant,json_tenant_building=json_tenant_building,
+                               current_time=datetime.utcnow(),json_building=json_building)
     return redirect(url_for('tenant.html'))
 
 @blueprint_general.route("/dashboard/meters")
@@ -70,11 +71,12 @@ def meters_():
 @blueprint_general.route('/dashboard/prova')
 @login_required
 def gauge_prova():
+        tne = json_table_meter_value
         user_gauge_id = current_user.id_user
         gauge_user_user_id = db.session.query(gauge_).filter_by(id_=user_gauge_id)
         if gauge_user_user_id is not None:
             for t in gauge_user_user_id:
                 print t.id_, t.name_gauge_change, t.gauge_choiche
                 value_tot = {"id":t.id_ ,"name":t.name_gauge_change,"chcuoice":t.gauge_choiche}
-            return render_template('prova.html', current_time=datetime.utcnow(),scelta_van =t.gauge_choiche)
+            return render_template('prova.html', tne_id = json_table_meter_value,current_time=datetime.utcnow(),scelta_van =t.gauge_choiche)
         return redirect(url_for('general.dashboard_'))

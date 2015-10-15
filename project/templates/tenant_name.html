@@ -9,7 +9,62 @@
            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                    <h1>{{ tenant }}</h1>
+                    <h1><strong>{{ tenant }} <img class="img-building" src="/static/images/tenant_black.png"></strong></h1>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Building</div>
+                            </div>
+                            </br>
+                            <strong>
+                                <div class="box-header-text"><a href="{{ url_for('general.building_')}}"> {{ json_building['collector']['building']}}</a></div>
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Info</div>
+                            </div>
+                            </br>
+                            <strong>
+                                <div class="box-header-text"><div class="box-text"> {{ tenant}}</div>
+                        </div>
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Total Meters</div>
+                            </div>
+                            </br>
+                            <strong>
+                                {% for key,value in json_tenant_building.items() %}
+                                <div class="tenant-total">
+                                    {% if key == tenant %}
+                                    <div class="box-text-href">{{ value }}</div>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header wifget-header">
+                                <div class="box-header-text">Logo</div>
+                            </div>
+                            </br>
+                            <div class="Logo">
+                                <div class="box-text">
+                                    {% if tenant == "Dr_Sarett"%}
+                                        <img class="img-tenant" src="/static/images/340_Mad_Ave/linda_saret/Dr._Linda_M._Sarett__DDS.png">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
            </div>

@@ -11,7 +11,6 @@ from project.config_ import path_testing
 from project.model_ import user_
 
 TEST_DB = "testing\database_tester.db"
-print os.path.join(path_testing,TEST_DB)
 
 class AllTest(unittest.TestCase):
 
