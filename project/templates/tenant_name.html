@@ -44,7 +44,7 @@
                                 {% for key,value in json_tenant_building.items() %}
                                 <div class="tenant-total">
                                     {% if key == tenant %}
-                                    <div class="box-text-href">{{ value }}</div>
+                                    <div class="box-text-href">{{ value|default('Nothing') }}|</div>
                                     {% endif %}
                                 </div>
                                 {% endfor %}
