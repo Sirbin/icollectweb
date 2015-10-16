@@ -54,6 +54,7 @@ def create_json_building():
         with open(DATABASE_PATH_CONFIG, "r") as JsonConn:
             meters_data = json.load(JsonConn)
             return meters_data
+
     except:
         JsonConn.close()
         return False
@@ -126,5 +127,4 @@ def estraikey(jsonstring,key):
 #     conn.close()
 
 if __name__ == '__main__':
-    pass
-
+  create_tenant_building()

@@ -45,7 +45,8 @@ def tables_history_meters(meters):
 
 
 
-                return render_template('meters_name.html', tne=meters,
+                return render_template('meters_name.html',tne=meters,json_building=json_building,
+                                       tenant = json_tenant_building,
                                        current_time=datetime.utcnow())
     flash("Json not found")
     return redirect(url_for('dashboard_'))

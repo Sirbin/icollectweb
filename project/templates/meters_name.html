@@ -169,16 +169,66 @@
            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <strong><h1><div id="tne">{{ tne }}</div>
-                            <img class="img-meters "src="/static/images/meters.png" />
+                        <strong><h1><div id="tne">{{ tne }}
+                            <img class="img-meters "src="/static/images/meters.png" /></div>
                             </h1></strong>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Portfolio info</div>
+                            </div>
+                            </br>
+                            <div class="Portofolio">
+                                <div class="box-text">{{ json_building['collector']['portfolio']}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Building Info</div>
+                            </div>
+                            </br>
+                            <div class="Portofolio">
+                                <div class="box-text"><a href="{{ url_for('general.building_')}}"> {{ json_building['collector']['building']}}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Tenant info</div>
+                            </div>
+                            </br>
+                            <div class="Portofolio">
+                                {% for k in json_building['gateways']['meters'] %}
+                                    {% if tne in k['tne_number'] %}
+                                       <div class="box-text"><a href="{{ url_for('general.tenant_name_',tenant=k['tenant_name'])}}"> {{ k['tenant_name']|default('Nothing') }}</a></div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Meters Type||Meters Model</div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-6">
+                        <div class="box-widget">
+                            <div class="box-header show-header widget-header">
+                                <div class="box-header-text">Meter Location</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="box-widget">
                             <div class="box-header show-header widget-header">
                                 <div class="box-header-text">Gauge Data Choiche</div>
                             </div>
-
                             <div class="panel panel-default" align="center" style="width: 250px">
                                 <div class="pull-right">
                                     <div class="btn-group">
@@ -211,7 +261,6 @@
                                 <!--/.panel-heading-start-->
                                 <div id="chartdiv0" align="center" style="width: 200px; height: 200px;"></div>
                                 <!-- /.panel-heading-end --->
-
                             </div>
                              <div class="panel panel-default" align="center" style="width: 250px">
                                 <div class="pull-right">
