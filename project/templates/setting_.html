@@ -10,7 +10,7 @@
                                 <div class="box-header-text">Meters Gauge Setting</div>
                             </div>
                             </br>
-                                <form id="prova" action="" method="post">
+                                <form id="form-choice-gauge" action="" method="post">
                                      {{ form.csrf_token }}
                                     <div class="box-widget">
                                         {% if name_controll %}
@@ -54,7 +54,7 @@
 
                             </script>
                             <script>
-                                 $("#prova").change(function () {
+                                 $("#form-choice-gauge").change(function () {
                                      if ($('#chart0').prop('checked')) {
                                          $("#chartdiv0").show();
                                      } else {
@@ -79,5 +79,5 @@
                 </div>
            </div>
    </div>
-{#   {{ wtf.quick_form(form)}}#}
+
 {% endblock %}

@@ -3,303 +3,333 @@
 {% block head %}
     {{ super() }}
     {% block gauge %}
-    <script type="text/javascript">
-    $(document).ready(function() {
-        namespace = '/test';
+        <script type="text/javascript">
+            $(document).ready(function () {
+                namespace = '/test';
 
-            var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+                var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+                socket.on('connect', function () {
+                    socket.emit('join', {});
+                    socket.emit('connect');
+                });
+                socket.on('status', function (evento) {
+                    console.log(evento);
+                });
+                socket.on('my responce', function (evento1) {
+                    console.log(evento1)
+                });
 
-{#            socket.on('con_resp', function (evento) {#}
-{#                console.log('connect',evento.data,evento.user,evento.room);#}
-{#            });#}
-            socket.on('connect', function(){
-               socket.emit('join',{});
-               socket.emit('connect');
+                var chart;
+                var arrow;
+                var axis;
+
+                AmCharts.ready(function () {
+                    // create angular gauge
+                    chart = new AmCharts.AmAngularGauge();
+                    chart.addTitle('{{value_name_gauge_id|default('Volts A-N')}}');
+
+                    // create axis
+                    axis = new AmCharts.GaugeAxis();
+                    axis.startValue = 0;
+                    axis.axisThickness = 1;
+                    axis.endValue = 500;
+                    axis.valueInterval = 100;
+                    // color bands
+                    var band1 = new AmCharts.GaugeBand();
+                    band1.startValue = 0;
+                    band1.endValue = 200;
+                    band1.color = "#84b761";
+
+                    var band2 = new AmCharts.GaugeBand();
+                    band2.startValue = 201;
+                    band2.endValue = 400;
+                    band2.color = "#fdd400";
+
+                    var band3 = new AmCharts.GaugeBand();
+                    band3.startValue = 401;
+                    band3.endValue = 500;
+                    band3.color = "#cc4748";
+                    band3.innerRadius = "95%";
+
+                    axis.bands = [band1, band2, band3];
+
+                    // bottom text
+                    axis.bottomTextYOffset = -20;
+                    axis.setBottomText("Volt");
+                    chart.addAxis(axis);
+
+                    // gauge arrow
+                    arrow = new AmCharts.GaugeArrow();
+                    chart.addArrow(arrow);
+
+                    chart.write("chartdiv0");
+
+
+                });
+
+                socket.on('gauge_responce', function (evento) {
+                    arrow.setValue(evento.valore);
+                    axis.setBottomText("VaN" +"/"+ evento.valore);
+
+                });
+
+
+                var chart_vbn;
+                var arrow_vbn;
+                var axis_vbn;
+
+                AmCharts.ready(function () {
+                    // create angular gauge
+                    chart_vbn = new AmCharts.AmAngularGauge();
+                    chart_vbn.addTitle("{{ value_name_gauge_id|default('VOLTS B-Nb')}}");
+
+                    // create axis
+                    axis_vbn = new AmCharts.GaugeAxis();
+                    axis_vbn.startValue = 0;
+                    axis_vbn.axisThickness = 1;
+                    axis_vbn.endValue = 500;
+                    axis_vbn.valueInterval = 100;
+                    // color bands
+                    var band_vbn_1 = new AmCharts.GaugeBand();
+                    band_vbn_1.startValue = 0;
+                    band_vbn_1.endValue = 200;
+                    band_vbn_1.color = "#84b761";
+
+                    var band_vbn_2 = new AmCharts.GaugeBand();
+                    band_vbn_2.startValue = 201;
+                    band_vbn_2.endValue = 400;
+                    band_vbn_2.color = "#fdd400";
+
+                    var band_vbn_3 = new AmCharts.GaugeBand();
+                    band_vbn_3.startValue = 401;
+                    band_vbn_3.endValue = 500;
+                    band_vbn_3.color = "#cc4748";
+                    band_vbn_3.innerRadius = "95%";
+
+                    axis_vbn.bands = [band_vbn_1, band_vbn_2, band_vbn_3];
+
+                    // bottom text
+                    axis_vbn.bottomTextYOffset = -20;
+                    axis_vbn.setBottomText("Volt");
+                    chart_vbn.addAxis(axis_vbn);
+
+                    // gauge arrow
+                    arrow_vbn = new AmCharts.GaugeArrow();
+                    chart_vbn.addArrow(arrow_vbn);
+
+                    chart_vbn.write("chartdiv1");
+                });
+
+                socket.on('gauge_responce_vbn', function (evento) {
+                    arrow_vbn.setValue(evento.valore);
+                    axis_vbn.setBottomText("VbN" +"/"+ evento.valore);
+
+                });
             });
-            socket.on('status',function(evento) {
-               console.log(evento);
-            });
-            socket.on('my responce',function(evento1){
-               console.log(evento1)
-            });
-
-        var chart;
-        var arrow;
-        var axis;
-
-        AmCharts.ready(function () {
-            // create angular gauge
-            chart = new AmCharts.AmAngularGauge();
-            chart.addTitle("Voltage");
-
-            // create axis
-            axis = new AmCharts.GaugeAxis();
-            axis.startValue = 0;
-            axis.axisThickness = 1;
-            axis.endValue = 500;
-            axis.valueInterval = 100;
-            // color bands
-            var band1 = new AmCharts.GaugeBand();
-            band1.startValue = 0;
-            band1.endValue = 200;
-            band1.color = "#84b761";
-
-            var band2 = new AmCharts.GaugeBand();
-            band2.startValue = 201;
-            band2.endValue = 400;
-            band2.color = "#fdd400";
-
-            var band3 = new AmCharts.GaugeBand();
-            band3.startValue = 401;
-            band3.endValue = 500;
-            band3.color = "#cc4748";
-            band3.innerRadius = "95%";
-
-            axis.bands = [band1, band2, band3];
-
-            // bottom text
-            axis.bottomTextYOffset = -20;
-            axis.setBottomText("Volt");
-            chart.addAxis(axis);
-
-            // gauge arrow
-            arrow = new AmCharts.GaugeArrow();
-            chart.addArrow(arrow);
-
-            chart.write("chartdiv0");
-            // change value every 2 seconds
-            {#                    setInterval(randomValue, 2000)#}
-        });
-
-        socket.on('gauge_responce', function (evento) {
-            arrow.setValue(evento.valore);
-            axis.setBottomText("VbN" + evento.valore);
-            {#                    });#}
-        });
-    });
-{#            // funzione con server send event#}
-{#            function randomValue(){#}
-{##}
-{#                var source = new EventSource("/progress");#}
-{#                //source.onmessage = function(event) {#}
-{#                    source.addEventListener('top_up',function(event){#}
-{#                     arrow.setValue(event.data);#}
-{#                    axis.setBottomText(event.data + " km/h");#}
-{##}
-{#                },false);#}
-{#            }#}
-
-        </script>
-{#    <script type="text/javascript">#}
-{##}
-{#            var chart_vbn;#}
-{#            var arrow_vbn;#}
-{#            var axis_vbn;#}
-{##}
-{#            AmCharts.ready(function () {#}
-{#                // create angular gauge#}
-{#                chart_vbn = new AmCharts.AmAngularGauge();#}
-{#                chart_vbn.addTitle("Voltage VbN");#}
-{##}
-{#                // create axis#}
-{#                axis_vbn = new AmCharts.GaugeAxis();#}
-{#                axis_vbn.startValue = 0;#}
-{#                axis_vbn.axisThickness = 1;#}
-{#                axis_vbn.endValue = 500;#}
-{#                axis_vbn.valueInterval= 100;#}
-{#                // color bands#}
-{#                var band_vbn_1 = new AmCharts.GaugeBand();#}
-{#                band_vbn_1.startValue = 0;#}
-{#                band_vbn_1.endValue = 200;#}
-{#                band_vbn_1.color = "#84b761";#}
-{##}
-{#                var band_vbn_2 = new AmCharts.GaugeBand();#}
-{#                band_vbn_2.startValue = 201;#}
-{#                band_vbn_2.endValue = 400;#}
-{#                band_vbn_2.color = "#fdd400";#}
-{##}
-{#                var band_vbn_3 = new AmCharts.GaugeBand();#}
-{#                band_vbn_3.startValue = 401;#}
-{#                band_vbn_3.endValue = 500;#}
-{#                band_vbn_3.color = "#cc4748";#}
-{#                band_vbn_3.innerRadius = "95%";#}
-{##}
-{#                axis_vbn.bands = [band_vbn_1, band_vbn_2, band_vbn_3];#}
-{##}
-{#                // bottom text#}
-{#                axis_vbn.bottomTextYOffset = -20;#}
-{#                axis_vbn.setBottomText("Volt");#}
-{#                chart_vbn.addAxis(axis_vbn);#}
-{##}
-{#                // gauge arrow#}
-{#                arrow_vbn = new AmCharts.GaugeArrow();#}
-{#                chart_vbn.addArrow(arrow_vbn);#}
-{##}
-{#                chart_vbn.write("chartdiv1");#}
-{#                // change value every 2 seconds#}
-{#                setInterval(randomValue_vbn,2000)#}
-{#            });#}
-{#            // funzione con socket.io and event#}
-{#                function randomValue_vbn() {#}
-{#                    namespace = '/test';#}
-{#                    var socket_vbn = io.connect('http://' + document.domain + ':' + location.port + namespace);#}
-{#                        console.log(document.domain)#}
-{#                    socket_vbn.on('gauge_responce_vbn', function(evento) {#}
-{#                    arrow_vbn.setValue(evento.valore);#}
-{#                    axis_vbn.setBottomText("VbN"+evento.valore);#}
-{#                    });#}
-{#                };#}
-{#            // funzione con server send event#}
-{#            function randomValue(){#}
-{##}
-{#                var source = new EventSource("/progress");#}
-{#                //source.onmessage = function(event) {#}
-{#                    source.addEventListener('top_up',function(event){#}
-{#                     arrow.setValue(event.data);#}
-{#                    axis.setBottomText(event.data + " km/h");#}
-{##}
-{#                },false);#}
-{#            }#}
-{#        </script>#}
-        {% endblock %}
+                    // funzione con socket.io and event
+        {#                function randomValue_vbn() {#}
+        {#                    namespace = '/test';#}
+        {#                    var socket_vbn = io.connect('http://' + document.domain + ':' + location.port + namespace);#}
+        {#                        console.log(document.domain)#}
+        {#                    socket_vbn.on('gauge_responce_vbn', function(evento) {#}
+        {#                    arrow_vbn.setValue(evento.valore);#}
+        {#                    axis_vbn.setBottomText("VbN"+evento.valore);#}
+        {#                    });#}
+        {#                };#}
+        </script>#}
+    {% endblock %}
 {% endblock %}
 
 {% block content %}
     <div id="page-wrapper">
-           <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <strong><h1><div id="tne">{{ tne }}
-                            <img class="img-meters "src="/static/images/meters.png" /></div>
-                            </h1></strong>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="box-widget">
-                            <div class="box-header show-header widget-header">
-                                <div class="box-header-text">Portfolio info</div>
-                            </div>
-                            </br>
-                            <div class="Portofolio">
-                                <div class="box-text">{{ json_building['collector']['portfolio']}}</div>
-                            </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <strong>
+                        <h1>
+                            <div id="tne">{{ tne }}
+                                <img class="img-meters " src="/static/images/meters.png"/></div>
+                        </h1>
+                    </strong>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box-widget">
+                        <div class="box-header show-header widget-header">
+                            <div class="box-header-text">Portfolio info</div>
+                        </div>
+                        </br>
+                        <div class="Portofolio">
+                            <div class="box-text">{{ json_building['collector']['portfolio'] }}</div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="box-widget">
-                            <div class="box-header show-header widget-header">
-                                <div class="box-header-text">Building Info</div>
-                            </div>
-                            </br>
-                            <div class="Portofolio">
-                                <div class="box-text"><a href="{{ url_for('general.building_')}}"> {{ json_building['collector']['building']}}</a></div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box-widget">
+                        <div class="box-header show-header widget-header">
+                            <div class="box-header-text">Building Info</div>
+                        </div>
+                        </br>
+                        <div class="Portofolio">
+                            <div class="box-text"><a
+                                    href="{{ url_for('general.building_') }}"> {{ json_building['collector']['building'] }}</a>
                             </div>
                         </div>
+
                     </div>
-                    <div class="col-lg-4">
-                        <div class="box-widget">
-                            <div class="box-header show-header widget-header">
-                                <div class="box-header-text">Tenant info</div>
-                            </div>
-                            </br>
-                            <div class="Portofolio">
-                                {% for k in json_building['gateways']['meters'] %}
-                                    {% if tne in k['tne_number'] %}
-                                       <div class="box-text"><a href="{{ url_for('general.tenant_name_',tenant=k['tenant_name'])}}"> {{ k['tenant_name']|default('Nothing') }}</a></div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box-widget">
+                        <div class="box-header show-header widget-header">
+                            <div class="box-header-text">Tenant info</div>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="box-widget">
-                            <div class="box-header show-header widget-header">
-                                <div class="box-header-text">Meters Type||Meters Model</div>
+                        </br>
+                        <div class="Portofolio">
+                            {% for k in json_building['gateways']['meters'] %}
+                                {% if tne in k['tne_number'] %}
+                                    <div class="box-text"><a
+                                            href="{{ url_for('general.tenant_name_',tenant=k['tenant_name']) }}"> {{ k['tenant_name']|default('Nothing') }}</a>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-6">
+                                        <div class="box-widget">
+                                            <div class="box-header show-header widget-header">
+                                                <div class="box-header-text">Meters Type || Meters Model</div>
+                                            </div>
+                                            </br>
+                                            <div class="box-text">
+                                                <label>Manufacturer Name:</label>
+                                                <label class="label-1">{{ k['brand'] }}</label>
+                                            </div>
+
+                                            <div class="box-text">
+                                                <label>Model Name:</label>
+                                                <label class="label-1">{{ k['meter_model'] }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                    <div class="box-widget">
+                                    <div class="box-header show-header widget-header">
+                                        <div class="box-header-text">Meter Location</div>
+                                    </div>
+                                    </br>
+                                    <div class="box-text">
+                                        <label>Floor:</label>
+                                        <label class="label-1">None</label>
+                                    </div>
+
+                                    <div class="box-text">
+                                        <label>Closet:</label>
+                                        <label class="label-1">None</label>
+                                    </div>
+                                    <div class="box-text">
+                                        <label>Panel:</label>
+                                        <label class="label-1">None</label>
+                                    </div>
+                                    <div class="box-text">
+                                        <label>Breaker:</label>
+                                        <label class="label-1">None</label>
+                                    </div>
+
+                                {% endif %}
+                            {% endfor %}
                             </div>
-                        </div>
-                    </div>
-                     <div class="col-lg-6">
-                        <div class="box-widget">
-                            <div class="box-header show-header widget-header">
-                                <div class="box-header-text">Meter Location</div>
                             </div>
-                        </div>
-                    </div>
                     <div class="col-lg-12">
                         <div class="box-widget">
                             <div class="box-header show-header widget-header">
                                 <div class="box-header-text">Gauge Data Choiche</div>
                             </div>
-                            <div class="panel panel-default" align="center" style="width: 250px">
-                                <div class="pull-right">
-                                    <div class="btn-group">
-{#                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
-{#                                                data-toggle="dropdown">#}
-{#                                            Voltage-A-B-C-N#}
-{#                                            <span class="caret"></span>#}
-{#                                        </button>#}
-{#                                        <script>#}
-{#                                            $(document).ready(function(){#}
-{#                                                $(".dropdown-menu li a").click(function(){#}
-{#                                                    $("#ok").show(console.log("cazzo"))#}
-{#                                                });#}
-{##}
-{#                                            });#}
-{#                                        </script>#}
-{#                                        <ul class="dropdown-menu pull-right" role="menu">#}
-{#                                            <li><a id="ok" href="">Volts A-N</a>#}
-{#                                            </li>#}
-{#                                            <li><a href="#">Volts B-N</a>#}
-{#                                            </li>#}
-{#                                            <li><a href="#">Volts C-N</a>#}
-{#                                            </li>#}
-{#                                            <li class="divider"></li>#}
-{#                                            <li><a href="#">All Meters</a>#}
-{#                                            </li>#}
-{#                                        </ul>#}
-                                    </div>
-                                </div>
-                                <!--/.panel-heading-start-->
-                                <div id="chartdiv0" align="center" style="width: 200px; height: 200px;"></div>
-                                <!-- /.panel-heading-end --->
-                            </div>
-                             <div class="panel panel-default" align="center" style="width: 250px">
-                                <div class="pull-right">
-                                    <div class="btn-group">
-{#                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
-{#                                                data-toggle="dropdown">#}
-{#                                            Voltage-A-B-C-N#}
-{#                                            <span class="caret"></span>#}
-{#                                        </button>#}
-{#                                        <script>#}
-{#                                            $(document).ready(function(){#}
-{#                                                $(".dropdown-menu li a").click(function(){#}
-{#                                                    $("#ok").show(console.log("cazzo"))#}
-{#                                                });#}
-{##}
-{#                                            });#}
-{#                                        </script>#}
-{#                                        <ul class="dropdown-menu pull-right" role="menu">#}
-{#                                            <li><a id="ok" href="">Volts A-N</a>#}
-{#                                            </li>#}
-{#                                            <li><a href="#">Volts B-N</a>#}
-{#                                            </li>#}
-{#                                            <li><a href="#">Volts C-N</a>#}
-{#                                            </li>#}
-{#                                            <li class="divider"></li>#}
-{#                                            <li><a href="#">All Meters</a>#}
-{#                                            </li>#}
-{#                                        </ul>#}
-                                    </div>
-                                </div>
-                                <!--/.panel-heading-start-->
-                                <div id="chartdiv1" align="center" style="width: 200px; height: 200px;"></div>
-                                <!-- /.panel-heading-end --->
-
-                            </div>
-
+                        <div class="panel panel-default" align="center" style="width: 250px">
+                            <div class="pull-right">
+                                <div class="btn-group">
+                            {#                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+                            {#                                                data-toggle="dropdown">#}
+                            {#                                            Voltage-A-B-C-N#}
+                            {#                                            <span class="caret"></span>#}
+                            {#                                        </button>#}
+                            {#                                        <script>#}
+                            {#                                            $(document).ready(function(){#}
+                            {#                                                $(".dropdown-menu li a").click(function(){#}
+                            {#                                                    $("#ok").show(console.log("cazzo"))#}
+                            {#                                                });#}
+                            {##}
+                            {#                                            });#}
+                            {#                                        </script>#}
+                            {#                                        <ul class="dropdown-menu pull-right" role="menu">#}
+                            {#                                            <li><a id="ok" href="">Volts A-N</a>#}
+                            {#                                            </li>#}
+                            {#                                            <li><a href="#">Volts B-N</a>#}
+                            {#                                            </li>#}
+                            {#                                            <li><a href="#">Volts C-N</a>#}
+                            {#                                            </li>#}
+                            {#                                            <li class="divider"></li>#}
+                            {#                                            <li><a href="#">All Meters</a>#}
+                            {#                                            </li>#}
+                            {#                                        </ul>#}
                         </div>
                     </div>
+                    <script type="text/javascript">
+                          $(document).ready(function() {
+                                    console.log("ready");
+                                    {% if value_boolen_gauge_id == True %}
+                                        $('#chartdiv0').show()
+
+                                        console.log("ok")
+                                    {% else %}
+                                        $('#chartdiv0').hide()
+                                    {% endif %}
+                                });
+
+
+
+                    </script>
+                    <!--/.panel-heading-start-->
+                    <div id="chartdiv0" align="center" style="width: 200px; height: 200px;"></div><!-- /.panel-heading-end --->
                 </div>
-           </div>
+                <div class="panel panel-default" align="center" style="width: 250px">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            {#                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
+                            {#                                                data-toggle="dropdown">#}
+                            {#                                            Voltage-A-B-C-N#}
+                            {#                                            <span class="caret"></span>#}
+                            {#                                        </button>#}
+                            {#                                        <script>#}
+                            {#                                            $(document).ready(function(){#}
+                            {#                                                $(".dropdown-menu li a").click(function(){#}
+                            {#                                                    $("#ok").show(console.log("cazzo"))#}
+                            {#                                                });#}
+                            {##}
+                            {#                                            });#}
+                            {#                                        </script>#}
+                            {#                                        <ul class="dropdown-menu pull-right" role="menu">#}
+                            {#                                            <li><a id="ok" href="">Volts A-N</a>#}
+                            {#                                            </li>#}
+                            {#                                            <li><a href="#">Volts B-N</a>#}
+                            {#                                            </li>#}
+                            {#                                            <li><a href="#">Volts C-N</a>#}
+                            {#                                            </li>#}
+                            {#                                            <li class="divider"></li>#}
+                            {#                                            <li><a href="#">All Meters</a>#}
+                            {#                                            </li>#}
+                            {#                                        </ul>#}
+                        </div>
+                    </div>
+                    <!--/.panel-heading-start-->
+                    <div id="chartdiv1" align="center" style="width: 200px; height: 200px;"></div>
+                    <!-- /.panel-heading-end --->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     </div>
 {% endblock %}
