@@ -13,20 +13,20 @@
                                 <form id="form-choice-gauge" action="" method="post">
                                      {{ form.csrf_token }}
                                     <div class="box-widget">
-                                        {% if name_controll %}
                                         <div class="chartdiv0">
-                                            <label><strong>Gauge VaN :</strong>{{form.name_change_gauge_van(value=name_controll.name_gauge_change) }} {{ form.name_checked_gauge_van( checked= name_controll.gauge_choiche) }}</label></div>
-                                        {% else %}
-                                        <div class="chartdiv0">
-                                            <label><strong>Gauge VaN :</strong>{{form.name_change_gauge_van }} {{ form.name_checked_gauge_van}}</label>
+                                           <label><strong>Gauge VaN :</strong>{{form.name_change_gauge_van}} {{ form.name_checked_gauge_van}}</label>
                                         </div>
-                                        {% endif %}
                                     </div>
                                     <br/>
-
                                     <div class="box-widget">
                                         <div class="chartdiv1">
-                                            <label>Gauge Vbn:  {{ form.name_change_gauge_vbn}}  {{ form.name_checked_gauge_vbn }}</label>
+                                            <label><strong>Gauge VbN :</strong>{{ form.name_change_gauge_vbn}}  {{ form.name_checked_gauge_vbn }}</label>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                     <div class="box-widget">
+                                        <div class="chartdiv2">
+                                            <label><strong>Gauge VcN:</strong>{{ form.name_change_gauge_vcn}}  {{ form.name_checked_gauge_vcn }}</label>
                                         </div>
                                     </div>
                                     <br/>

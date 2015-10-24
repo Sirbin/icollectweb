@@ -22,7 +22,7 @@ from project import bycrypt_on_pass_user
 db.create_all()
 
 # aggiunge alla tabella user il dato
-db.session.add(user_("administrator",bycrypt_on_pass_user.generate_password_hash('binocchio1977'),"alessio.bino@gmail.com","alessio","bino",profile_type_.name))
+#db.session.add(user_("administrator",bycrypt_on_pass_user.generate_password_hash('binocchio1977'),"alessio.bino@gmail.com","alessio","bino",profile_type_.name))
 #db.session.query(gauge_).filter_by(id_gauge=1).delete()
 #db.session.add(profile_type_(""))
 #db.session.commit()

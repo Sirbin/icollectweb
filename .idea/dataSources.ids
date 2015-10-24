@@ -13,15 +13,6 @@
       <primary-key columns="id_gauge),check (gauge_choiche in (0,1"/>
       <foreign-key name="#FAKE_gauge_select_1" columns="id_" ref-table="user" ref-schema="" ref-catalog="" ref-columns="id_user" update-rule="3" delete-rule="3" deferrability="1"/>
     </table>
-    <table name="gauge_select_old" schema="" catalog="" type="TABLE">
-      <column name="id_gauge" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="name_gauge" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="name_gauge_change" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="gauge_choiche" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="id_" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
-      <primary-key columns="id_gauge),unique (name_gauge"/>
-      <foreign-key name="#FAKE_gauge_select_old_1" columns="id_" ref-table="user" ref-schema="" ref-catalog="" ref-columns="id_user" update-rule="3" delete-rule="3" deferrability="1"/>
-    </table>
     <table name="profile_type" schema="" catalog="" type="TABLE">
       <column name="id_role" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="name" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
@@ -40,7 +31,6 @@
       <primary-key columns="id_user),unique (user"/>
       <foreign-key name="#FAKE_user_1" columns="role" ref-table="profile_type" ref-schema="" ref-catalog="" ref-columns="name" update-rule="3" delete-rule="3" deferrability="1"/>
       <exported-key name="#FAKE_gauge_select_1" table="gauge_select" schema="" catalog="" columns="id_"/>
-      <exported-key name="#FAKE_gauge_select_old_1" table="gauge_select_old" schema="" catalog="" columns="id_"/>
     </table>
     <table name="user_old" schema="" catalog="" type="TABLE">
       <column name="id_user" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>

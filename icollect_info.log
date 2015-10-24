@@ -1433,3 +1433,382 @@ PermissionDenied: <Permission needs=set([Need(method='role', value='Admin')]) ex
 2015-10-17 21:07:17,013 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '17-10-2015 21-07-17'}
 2015-10-17 21:15:21,838 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '17-10-2015 21-15-21'}
 2015-10-17 21:16:23,821 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '17-10-2015 21-16-23'}
+2015-10-18 23:36:03,036 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '18-10-2015 23-36-03'}
+2015-10-18 23:45:23,096 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '18-10-2015 23-45-23'}
+2015-10-18 23:48:02,451 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '18-10-2015 23-48-02'}
+2015-10-18 23:52:29,431 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '18-10-2015 23-52-29'}
+2015-10-18 23:58:08,157 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '18-10-2015 23-58-08'}
+2015-10-19 00:04:09,201 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 00-04-09'}
+2015-10-19 00:07:02,674 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 00-07-02'}
+2015-10-19 00:23:10,493 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 00-23-10'}
+2015-10-19 00:24:28,528 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 00-24-28'}
+2015-10-19 00:33:18,951 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 00-33-18'}
+2015-10-19 00:37:24,359 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 00-37-24'}
+2015-10-19 00:40:42,071 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 00-40-42'}
+2015-10-19 00:43:03,398 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 00-43-03'}
+2015-10-19 10:47:59,782 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 10-47-59'}
+2015-10-19 10:49:13,510 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 10-49-13'}
+2015-10-19 10:53:54,943 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 10-53-54'}
+2015-10-19 10:57:32,849 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 10-57-32'}
+2015-10-19 12:12:23,405 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 12-12-23'}
+2015-10-19 12:46:17,733 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 12-46-17'}
+2015-10-19 13:16:43,082 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 13-16-43'}
+2015-10-19 13:40:41,019 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 13-40-41'}
+2015-10-19 13:43:23,816 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 13-43-23'}
+2015-10-19 13:46:44,150 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 13-46-44'}
+2015-10-19 13:48:38,365 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 13-48-38'}
+2015-10-19 13:53:06,917 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 13-53-06'}
+2015-10-19 14:23:32,358 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 14-23-32'}
+2015-10-19 14:26:15,122 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 14-26-15'}
+2015-10-19 14:28:27,450 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-10-2015 14-28-27'}
+2015-10-19 14:28:37,816 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 14-28-37'}
+2015-10-19 14:28:37,816 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 14-28-37'}
+2015-10-19 14:32:58,967 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 14-32-58'}
+2015-10-19 14:50:14,211 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 14-50-14'}
+2015-10-19 14:53:40,755 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 14-53-40'}
+2015-10-19 14:59:14,887 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 14-59-14'}
+2015-10-19 15:02:59,378 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 15-02-59'}
+2015-10-19 15:05:25,607 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 15-05-25'}
+2015-10-19 17:28:47,517 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 17-28-47'}
+2015-10-19 17:32:00,381 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 17-32-00'}
+2015-10-19 17:43:40,578 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 17-43-40'}
+2015-10-19 17:51:43,338 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 17-51-43'}
+2015-10-19 18:00:28,875 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-00-28'}
+2015-10-19 18:03:16,381 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-03-16'}
+2015-10-19 18:06:49,427 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-06-49'}
+2015-10-19 18:34:32,201 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-34-32'}
+2015-10-19 18:40:18,776 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-40-18'}
+2015-10-19 18:41:41,878 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-10-2015 18-41-41'}
+2015-10-19 18:42:06,085 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-42-06'}
+2015-10-19 18:42:06,085 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-42-06'}
+2015-10-19 18:45:50,178 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-45-50'}
+2015-10-19 18:52:44,197 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 18-52-44'}
+2015-10-19 19:00:02,270 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 19-00-02'}
+2015-10-19 19:05:34,378 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 19-05-34'}
+2015-10-19 19:22:44,632 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 19-22-44'}
+2015-10-19 19:29:17,688 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 19-29-17'}
+2015-10-19 19:33:17,497 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 19-33-17'}
+2015-10-19 19:37:04,635 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 19-37-04'}
+2015-10-19 20:04:20,759 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 20-04-20'}
+2015-10-19 20:09:17,494 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 20-09-17'}
+2015-10-19 20:15:24,599 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 20-15-24'}
+2015-10-19 20:17:18,328 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 20-17-18'}
+2015-10-19 20:36:46,559 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 20-36-46'}
+2015-10-19 20:40:03,707 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 20-40-03'}
+2015-10-19 20:54:38,611 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 20-54-38'}
+2015-10-19 22:38:13,716 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 22-38-13'}
+2015-10-19 23:12:11,704 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 23-12-11'}
+2015-10-19 23:15:02,096 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '19-10-2015 23-15-02'}
+2015-10-19 23:15:32,236 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 23-15-32'}
+2015-10-19 23:15:32,236 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 23-15-32'}
+2015-10-19 23:28:00,753 - project - INFO - Info LogIn:{'url': u'http://192.168.1.137:5000/', 'user_connect': u'administrator1', 'time': '19-10-2015 23-28-00'}
+2015-10-22 18:03:03,651 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 18-03-03'}
+2015-10-22 18:04:24,433 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-04-24'}
+2015-10-22 18:04:24,433 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-04-24'}
+2015-10-22 18:04:41,930 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-04-41'}
+2015-10-22 18:04:41,930 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-04-41'}
+2015-10-22 18:04:41,930 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-04-41'}
+2015-10-22 18:11:29,302 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 18-11-29'}
+2015-10-22 18:14:44,444 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-14-44'}
+2015-10-22 18:28:36,243 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 18-28-36'}
+2015-10-22 18:34:20,082 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 18-34-20'}
+2015-10-22 18:34:37,967 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-34-37'}
+2015-10-22 18:34:37,967 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-34-37'}
+2015-10-22 18:41:42,377 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 18-41-42'}
+2015-10-22 18:41:55,897 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-41-55'}
+2015-10-22 18:41:55,897 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 18-41-55'}
+2015-10-22 18:47:26,160 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 18-47-26'}
+2015-10-22 18:52:14,624 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 18-52-14'}
+2015-10-22 18:54:54,207 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 18-54-54'}
+2015-10-22 19:00:31,171 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 19-00-31'}
+2015-10-22 19:17:24,273 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 19-17-24'}
+2015-10-22 19:20:03,760 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '22-10-2015 19-20-03'}
+2015-10-22 19:20:08,776 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-20-08'}
+2015-10-22 19:20:08,776 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-20-08'}
+2015-10-22 19:21:24,203 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '22-10-2015 19-21-24'}
+2015-10-22 19:21:31,358 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-21-31'}
+2015-10-22 19:21:31,358 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-21-31'}
+2015-10-22 19:23:20,148 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '22-10-2015 19-23-20'}
+2015-10-22 19:23:56,882 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-23-56'}
+2015-10-22 19:23:56,882 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-23-56'}
+2015-10-22 19:29:27,454 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 19-29-27'}
+2015-10-22 19:32:52,611 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-32-52'}
+2015-10-22 19:35:13,391 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-35-13'}
+2015-10-22 19:37:49,928 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-37-49'}
+2015-10-22 19:40:51,885 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '22-10-2015 19-40-51'}
+2015-10-22 19:40:56,582 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-40-56'}
+2015-10-22 19:40:56,582 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'adelaide121', 'time': '22-10-2015 19-40-56'}
+2015-10-22 19:41:30,299 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 19-41-30'}
+2015-10-22 19:41:30,299 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 19-41-30'}
+2015-10-22 19:41:30,299 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 19-41-30'}
+2015-10-22 19:47:12,463 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 19-47-12'}
+2015-10-22 19:50:55,193 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 19-50-55'}
+2015-10-22 19:50:55,193 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 19-50-55'}
+2015-10-22 19:52:53,015 - project - INFO - Info LogIn:{'url': u'http://192.168.0.167:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 19-52-53'}
+2015-10-22 20:38:52,278 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 20-38-52'}
+2015-10-22 20:44:21,252 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 20-44-21'}
+2015-10-22 20:45:38,115 - project - INFO - Info Logout:{'user_connect': u'ivan1963', 'time': '22-10-2015 20-45-38'}
+2015-10-22 20:45:38,115 - project - INFO - Info Logout:{'user_connect': u'ivan1963', 'time': '22-10-2015 20-45-38'}
+2015-10-22 20:46:01,881 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 20-46-01'}
+2015-10-22 20:46:01,881 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 20-46-01'}
+2015-10-22 20:46:01,881 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 20-46-01'}
+2015-10-22 20:51:38,299 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '22-10-2015 20-51-38'}
+2015-10-22 20:51:58,042 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 20-51-58'}
+2015-10-22 20:51:58,042 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 20-51-58'}
+2015-10-22 20:52:17,505 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 20-52-17'}
+2015-10-22 20:52:17,505 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 20-52-17'}
+2015-10-22 20:52:17,505 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 20-52-17'}
+2015-10-22 20:52:53,346 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '22-10-2015 20-52-53'}
+2015-10-22 20:52:53,346 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '22-10-2015 20-52-53'}
+2015-10-22 20:52:53,346 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '22-10-2015 20-52-53'}
+2015-10-22 20:52:53,346 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '22-10-2015 20-52-53'}
+2015-10-22 20:53:03,575 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 20-53-03'}
+2015-10-22 20:53:03,575 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 20-53-03'}
+2015-10-22 20:53:03,575 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 20-53-03'}
+2015-10-22 20:53:03,575 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 20-53-03'}
+2015-10-22 20:53:03,575 - project - INFO - Info LogIn:{'url': u'http://127.0.0.1:5000/', 'user_connect': u'ivan1963', 'time': '22-10-2015 20-53-03'}
+2015-10-22 22:51:59,970 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 22-51-59'}
+2015-10-22 22:54:37,252 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '22-10-2015 22-54-37'}
+2015-10-22 22:54:42,634 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 22-54-42'}
+2015-10-22 22:54:42,634 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 22-54-42'}
+2015-10-22 23:07:44,653 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 23-07-44'}
+2015-10-22 23:13:13,842 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 23-13-13'}
+2015-10-22 23:25:45,690 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 23-25-45'}
+2015-10-22 23:30:54,961 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '22-10-2015 23-30-54'}
+2015-10-22 23:31:46,351 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 23-31-46'}
+2015-10-22 23:31:46,351 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 23-31-46'}
+2015-10-22 23:43:26,973 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 23-43-26'}
+2015-10-22 23:47:41,016 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '22-10-2015 23-47-41'}
+2015-10-23 00:08:35,736 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 00-08-35'}
+2015-10-23 09:25:22,492 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 09-25-22'}
+2015-10-23 09:30:46,676 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 09-30-46'}
+2015-10-23 09:32:40,846 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 09-32-40'}
+2015-10-23 09:33:33,016 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 09-33-33'}
+2015-10-23 09:33:33,016 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 09-33-33'}
+2015-10-23 09:33:56,599 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 09-33-56'}
+2015-10-23 09:33:56,599 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 09-33-56'}
+2015-10-23 09:33:56,599 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 09-33-56'}
+2015-10-23 09:34:25,381 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 09-34-25'}
+2015-10-23 09:34:25,381 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 09-34-25'}
+2015-10-23 09:34:25,381 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 09-34-25'}
+2015-10-23 09:34:25,381 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 09-34-25'}
+2015-10-23 09:34:38,551 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-34-38'}
+2015-10-23 09:34:38,551 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-34-38'}
+2015-10-23 09:34:38,551 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-34-38'}
+2015-10-23 09:34:38,551 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-34-38'}
+2015-10-23 09:34:38,551 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-34-38'}
+2015-10-23 09:37:48,076 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-37-48'}
+2015-10-23 09:39:50,286 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-39-50'}
+2015-10-23 09:39:55,716 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '23-10-2015 09-39-55'}
+2015-10-23 09:39:55,716 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '23-10-2015 09-39-55'}
+2015-10-23 09:40:06,634 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 09-40-06'}
+2015-10-23 09:40:06,634 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 09-40-06'}
+2015-10-23 09:40:06,634 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 09-40-06'}
+2015-10-23 09:42:44,951 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-42-44'}
+2015-10-23 09:44:58,875 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 09-44-58'}
+2015-10-23 09:52:36,915 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 09-52-36'}
+2015-10-23 09:54:21,808 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 09-54-21'}
+2015-10-23 09:55:27,601 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 09-55-27'}
+2015-10-23 09:55:27,601 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 09-55-27'}
+2015-10-23 09:55:37,769 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-55-37'}
+2015-10-23 09:55:37,769 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-55-37'}
+2015-10-23 09:55:37,769 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 09-55-37'}
+2015-10-23 10:01:15,436 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 10-01-15'}
+2015-10-23 10:05:35,756 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '23-10-2015 10-05-35'}
+2015-10-23 10:05:42,046 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 10-05-42'}
+2015-10-23 10:05:42,046 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 10-05-42'}
+2015-10-23 10:11:30,246 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 10-11-30'}
+2015-10-23 10:21:10,091 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 10-21-10'}
+2015-10-23 10:22:23,114 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '23-10-2015 10-22-23'}
+2015-10-23 10:22:23,114 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '23-10-2015 10-22-23'}
+2015-10-23 10:22:31,079 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 10-22-31'}
+2015-10-23 10:22:31,079 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 10-22-31'}
+2015-10-23 10:22:31,079 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 10-22-31'}
+2015-10-23 10:33:40,187 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 10-33-40'}
+2015-10-23 10:34:15,895 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '23-10-2015 10-34-15'}
+2015-10-23 10:34:15,895 - project - INFO - Info Logout:{'user_connect': u'administrator', 'time': '23-10-2015 10-34-15'}
+2015-10-23 10:34:23,878 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 10-34-23'}
+2015-10-23 10:34:23,878 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 10-34-23'}
+2015-10-23 10:34:23,878 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 10-34-23'}
+2015-10-23 10:35:47,335 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 10-35-47'}
+2015-10-23 11:00:53,354 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 11-00-53'}
+2015-10-23 11:12:01,924 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 11-12-01'}
+2015-10-23 11:14:34,392 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 11-14-34'}
+2015-10-23 11:17:31,831 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 11-17-31'}
+2015-10-23 12:07:13,510 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 12-07-13'}
+2015-10-23 12:12:22,306 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 12-12-22'}
+2015-10-23 12:23:06,631 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 12-23-06'}
+2015-10-23 12:25:56,973 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 12-25-56'}
+2015-10-23 13:05:40,914 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 13-05-40'}
+2015-10-23 13:07:19,686 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 13-07-19'}
+2015-10-23 13:21:34,490 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 13-21-34'}
+2015-10-23 13:21:39,509 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 13-21-39'}
+2015-10-23 13:21:39,509 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 13-21-39'}
+2015-10-23 13:21:54,391 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-21-54'}
+2015-10-23 13:21:54,391 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-21-54'}
+2015-10-23 13:21:54,391 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-21-54'}
+2015-10-23 13:24:29,561 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 13-24-29'}
+2015-10-23 13:24:37,555 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 13-24-37'}
+2015-10-23 13:24:37,555 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 13-24-37'}
+2015-10-23 13:25:26,872 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-25-26'}
+2015-10-23 13:25:26,872 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-25-26'}
+2015-10-23 13:25:26,872 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-25-26'}
+2015-10-23 13:25:45,003 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-25-45'}
+2015-10-23 13:25:45,003 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-25-45'}
+2015-10-23 13:25:45,003 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-25-45'}
+2015-10-23 13:25:45,003 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-25-45'}
+2015-10-23 13:27:16,082 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-27-16'}
+2015-10-23 13:27:16,082 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-27-16'}
+2015-10-23 13:27:16,082 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-27-16'}
+2015-10-23 13:27:16,082 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-27-16'}
+2015-10-23 13:27:16,082 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-27-16'}
+2015-10-23 13:27:45,601 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-27-45'}
+2015-10-23 13:27:45,601 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-27-45'}
+2015-10-23 13:27:45,601 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-27-45'}
+2015-10-23 13:27:45,601 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-27-45'}
+2015-10-23 13:27:45,601 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-27-45'}
+2015-10-23 13:27:45,601 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-27-45'}
+2015-10-23 13:27:53,111 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-27-53'}
+2015-10-23 13:27:53,111 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-27-53'}
+2015-10-23 13:27:53,111 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-27-53'}
+2015-10-23 13:27:53,111 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-27-53'}
+2015-10-23 13:27:53,111 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-27-53'}
+2015-10-23 13:27:53,111 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-27-53'}
+2015-10-23 13:27:53,111 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-27-53'}
+2015-10-23 13:32:50,351 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 13-32-50'}
+2015-10-23 13:32:56,529 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 13-32-56'}
+2015-10-23 13:32:56,529 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 13-32-56'}
+2015-10-23 13:34:37,069 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-34-37'}
+2015-10-23 13:34:37,069 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-34-37'}
+2015-10-23 13:34:37,069 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 13-34-37'}
+2015-10-23 13:35:02,013 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-35-02'}
+2015-10-23 13:35:02,013 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-35-02'}
+2015-10-23 13:35:02,013 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-35-02'}
+2015-10-23 13:35:02,013 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 13-35-02'}
+2015-10-23 13:35:08,779 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-35-08'}
+2015-10-23 13:35:08,779 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-35-08'}
+2015-10-23 13:35:08,779 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-35-08'}
+2015-10-23 13:35:08,779 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-35-08'}
+2015-10-23 13:35:08,779 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 13-35-08'}
+2015-10-23 13:40:48,905 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 13-40-48'}
+2015-10-23 13:44:15,312 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 13-44-15'}
+2015-10-23 14:08:51,818 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '23-10-2015 14-08-51'}
+2015-10-23 14:08:57,273 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 14-08-57'}
+2015-10-23 14:08:57,273 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 14-08-57'}
+2015-10-23 14:10:45,944 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 14-10-45'}
+2015-10-23 15:24:29,884 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 15-24-29'}
+2015-10-23 15:27:28,010 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 15-27-28'}
+2015-10-23 15:27:35,844 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 15-27-35'}
+2015-10-23 15:27:35,844 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 15-27-35'}
+2015-10-23 15:32:08,640 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 15-32-08'}
+2015-10-23 15:40:02,854 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 15-40-02'}
+2015-10-23 15:42:15,420 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 15-42-15'}
+2015-10-23 15:42:41,917 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 15-42-41'}
+2015-10-23 15:42:41,917 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 15-42-41'}
+2015-10-23 15:52:02,513 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 15-52-02'}
+2015-10-23 15:54:49,453 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 15-54-49'}
+2015-10-23 15:55:03,946 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 15-55-03'}
+2015-10-23 15:55:03,946 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 15-55-03'}
+2015-10-23 16:04:49,956 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 16-04-49'}
+2015-10-23 16:06:04,167 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator', 'time': '23-10-2015 16-06-04'}
+2015-10-23 16:13:41,216 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 16-13-41'}
+2015-10-23 16:16:23,023 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 16-16-23'}
+2015-10-23 16:26:03,846 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 16-26-03'}
+2015-10-23 16:27:19,756 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 16-27-19'}
+2015-10-23 17:00:56,536 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-00-56'}
+2015-10-23 17:09:07,836 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-09-07'}
+2015-10-23 17:21:23,006 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-21-23'}
+2015-10-23 17:26:48,197 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-26-48'}
+2015-10-23 17:30:46,703 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-30-46'}
+2015-10-23 17:33:34,221 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-33-34'}
+2015-10-23 17:40:06,275 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-40-06'}
+2015-10-23 17:42:37,309 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-42-37'}
+2015-10-23 17:48:13,914 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-48-13'}
+2015-10-23 17:51:10,322 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 17-51-10'}
+2015-10-23 18:49:52,089 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 18-49-52'}
+2015-10-23 18:52:07,644 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 18-52-07'}
+2015-10-23 18:53:34,372 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 18-53-34'}
+2015-10-23 19:06:53,710 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-06-53'}
+2015-10-23 19:11:26,321 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-11-26'}
+2015-10-23 19:22:04,161 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-22-04'}
+2015-10-23 19:28:14,562 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-28-14'}
+2015-10-23 19:32:14,561 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-32-14'}
+2015-10-23 19:34:48,711 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-34-48'}
+2015-10-23 19:40:06,713 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-40-06'}
+2015-10-23 19:43:22,904 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-43-22'}
+2015-10-23 19:48:37,496 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-48-37'}
+2015-10-23 19:54:18,953 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-54-18'}
+2015-10-23 19:58:48,838 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 19-58-48'}
+2015-10-23 20:00:23,519 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-00-23'}
+2015-10-23 20:04:38,230 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-04-38'}
+2015-10-23 20:09:03,918 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-09-03'}
+2015-10-23 20:11:06,552 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-11-06'}
+2015-10-23 20:17:23,905 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-17-23'}
+2015-10-23 20:29:29,999 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-29-29'}
+2015-10-23 20:30:48,257 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-30-48'}
+2015-10-23 20:52:08,828 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-52-08'}
+2015-10-23 20:55:05,487 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 20-55-05'}
+2015-10-23 21:32:59,466 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-32-59'}
+2015-10-23 21:36:14,115 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-36-14'}
+2015-10-23 21:39:11,746 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-39-11'}
+2015-10-23 21:41:11,359 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-41-11'}
+2015-10-23 21:43:10,140 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-43-10'}
+2015-10-23 21:45:10,973 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-45-10'}
+2015-10-23 21:48:29,444 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-48-29'}
+2015-10-23 21:55:49,864 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-55-49'}
+2015-10-23 21:57:23,555 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 21-57-23'}
+2015-10-23 22:03:25,229 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 22-03-25'}
+2015-10-23 22:05:49,664 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 22-05-49'}
+2015-10-23 22:11:41,138 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 22-11-41'}
+2015-10-23 22:14:26,796 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'administrator1', 'time': '23-10-2015 22-14-26'}
+2015-10-23 22:15:44,252 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 22-15-44'}
+2015-10-23 22:15:44,252 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '23-10-2015 22-15-44'}
+2015-10-23 22:15:50,072 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 22-15-50'}
+2015-10-23 22:15:50,072 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 22-15-50'}
+2015-10-23 22:15:50,072 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 22-15-50'}
+2015-10-23 22:49:58,792 - project - INFO - Info LogIn:{'url': u'http://192.168.1.134:5000/', 'user_connect': u'adelaide121', 'time': '23-10-2015 22-49-58'}
+2015-10-24 10:45:31,398 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 10-45-31'}
+2015-10-24 10:48:12,015 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 10-48-12'}
+2015-10-24 16:09:08,131 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 16-09-08'}
+2015-10-24 16:11:38,234 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 16-11-38'}
+2015-10-24 16:17:24,007 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 16-17-24'}
+2015-10-24 17:35:01,657 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 17-35-01'}
+2015-10-24 17:40:56,739 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '24-10-2015 17-40-56'}
+2015-10-24 17:40:56,739 - project - INFO - Info Logout:{'user_connect': u'administrator1', 'time': '24-10-2015 17-40-56'}
+2015-10-24 17:41:04,272 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 17-41-04'}
+2015-10-24 17:41:04,272 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 17-41-04'}
+2015-10-24 17:41:04,272 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 17-41-04'}
+2015-10-24 17:49:22,536 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 17-49-22'}
+2015-10-24 18:25:18,418 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 18-25-18'}
+2015-10-24 18:51:36,464 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 18-51-36'}
+2015-10-24 19:18:37,023 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 19-18-37'}
+2015-10-24 20:40:20,137 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 20-40-20'}
+2015-10-24 20:44:56,842 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 20-44-56'}
+2015-10-24 20:47:18,178 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 20-47-18'}
+2015-10-24 21:40:22,967 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 21-40-22'}
+2015-10-24 21:48:07,726 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 21-48-07'}
+2015-10-24 21:53:17,335 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 21-53-17'}
+2015-10-24 21:56:09,003 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 21-56-08'}
+2015-10-24 21:57:36,387 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '24-10-2015 21-57-36'}
+2015-10-24 21:57:36,387 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '24-10-2015 21-57-36'}
+2015-10-24 21:57:38,500 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 21-57-38'}
+2015-10-24 21:57:38,500 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 21-57-38'}
+2015-10-24 21:57:38,500 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 21-57-38'}
+2015-10-24 21:59:42,009 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 21-59-42'}
+2015-10-24 22:07:59,460 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-07-59'}
+2015-10-24 22:11:23,779 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-11-23'}
+2015-10-24 22:18:05,438 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-18-05'}
+2015-10-24 22:20:06,361 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-20-06'}
+2015-10-24 22:23:18,842 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-23-18'}
+2015-10-24 22:25:47,992 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-25-47'}
+2015-10-24 22:28:51,142 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-28-51'}
+2015-10-24 22:31:17,990 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-31-17'}
+2015-10-24 22:36:39,970 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-36-39'}
+2015-10-24 22:43:45,045 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-43-45'}
+2015-10-24 22:46:58,484 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-46-58'}
+2015-10-24 22:50:19,832 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-50-19'}
+2015-10-24 22:52:07,598 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'adelaide121', 'time': '24-10-2015 22-52-07'}
+2015-10-24 23:08:56,671 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '24-10-2015 23-08-56'}
+2015-10-24 23:09:02,259 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 23-09-02'}
+2015-10-24 23:09:02,259 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 23-09-02'}
+2015-10-24 23:13:11,339 - project - INFO - Info LogIn:{'url': u'http://192.168.1.132:5000/', 'user_connect': u'administrator1', 'time': '24-10-2015 23-13-11'}

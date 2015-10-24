@@ -20,30 +20,46 @@ def flask_error(form):
             flash('Error in the %s field - %s' % (getattr(form, field).label.text, error), 'error')
 
 
-
-
-
 @blueprint_setting.route("/dashboard/setting", methods=['GET', 'POST'])
 @login_required
 @admin_manager_permission.require(http_exception=403)
 def setting_():
+    d = []
     user_gauge_id = current_user.id_user
-    gauge_user_user_id = gauge_.query.filter_by(id_=user_gauge_id).first()
+    gauge_user_user_id = gauge_.query.filter_by(id_=user_gauge_id).all()
     form = form_check_gauge(request.form)
-    if request.method == "POST":
-        if gauge_user_user_id is None:
-             gauge_select = gauge_(form.name_change_gauge_van.label.text, form.name_change_gauge_van.data,
-                               form.name_checked_gauge_van.data, user_gauge_id)
-             db.session.add(gauge_select)
+    print len(gauge_user_user_id)
+    for single_object_query_for_id in gauge_user_user_id:
+        d.append(single_object_query_for_id)
+    if len(gauge_user_user_id) !=0:
+        if form.validate_on_submit():
+             d[0].name_gauge_change = form.name_change_gauge_van.data
+             d[0].gauge_choiche = form.name_checked_gauge_van.data
+             d[1].name_gauge_change = form.name_change_gauge_vbn.data
+             d[1].gauge_choiche = form.name_checked_gauge_vbn.data
+             d[2].name_gauge_change = form.name_change_gauge_vcn.data
+             d[2].gauge_choiche = form.name_checked_gauge_vcn.data
+             for my_vale_change in d:
+                 db.session.add(my_vale_change)
              db.session.commit()
-             flash("Saved")
-             return render_template('setting_.html', form=form, current_time=datetime.utcnow(),name_controll = gauge_user_user_id)
-        elif user_gauge_id == gauge_user_user_id.id_:
-                print form.name_checked_gauge_van.data
-                print form.name_change_gauge_van.data
-                gauge_.query.filter_by(id_=user_gauge_id).update(
-                     {"name_gauge_change": form.name_change_gauge_van.data, "gauge_choiche": form.name_checked_gauge_van.data})
-                db.session.commit()
-                flash("Saved")
-                return render_template('setting_.html', form=form, current_time=datetime.utcnow(),name_controll = gauge_user_user_id)
-    return render_template('setting_.html', form=form, current_time=datetime.utcnow(),name_controll = gauge_user_user_id)
+             flash("update the gauge for user {}".format(current_user.user))
+             return render_template('setting_.html',current_time = datetime.utcnow(),form=form)
+        form.name_change_gauge_van.data =  d[0].name_gauge_change
+        form.name_checked_gauge_van.data = d[0].gauge_choiche
+        form.name_change_gauge_vbn.data = d[1].name_gauge_change
+        form.name_checked_gauge_vbn.data = d[1].gauge_choiche
+        form.name_change_gauge_vcn.data = d[2].name_gauge_change
+        form.name_checked_gauge_vcn.data = d[2].gauge_choiche
+        return render_template('setting_.html',current_time = datetime.utcnow(),form=form)
+    if len(gauge_user_user_id) == 0:
+        if form.validate_on_submit():
+            complete_list_gauge_add = [gauge_(name_gauge=form.name_change_gauge_van.label.text,name_gauge_change=form.name_change_gauge_van.data,
+                                  gauge_choiche=form.name_checked_gauge_van.data,id_=user_gauge_id),
+                            gauge_(name_gauge=form.name_change_gauge_vbn.label.text,name_gauge_change=form.name_change_gauge_vbn.data,
+                                  gauge_choiche=form.name_checked_gauge_vbn.data,id_=user_gauge_id),
+                          gauge_(name_gauge=form.name_change_gauge_vcn.label.text,name_gauge_change=form.name_change_gauge_vcn.data,
+                                 gauge_choiche=form.name_checked_gauge_vcn.data,id_=user_gauge_id)]
+            db.session.add_all(complete_list_gauge_add)
+            db.session.commit()
+            return render_template('setting_.html',form=form,current_time=datetime.utcnow())
+    return render_template('setting_.html',form=form,current_time=datetime.utcnow())

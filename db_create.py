@@ -24,7 +24,7 @@ with sqlite3.connect(DATABASE_PATH_CONFIG_DB) as con:
 #     print "Impossibile connettersi",e
 
 
-#db.create_all()
+db.create_all()
 
 
 #db.session.add(user_("admin","admin","admin@admin.it","alessio","bino","admin"))
