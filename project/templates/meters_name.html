@@ -2,7 +2,7 @@
 
 {% block head %}
     {{ super() }}
-    {% block gauge %}
+    {% if name_change_gauge_dict|length != 0 %}
         <script type="text/javascript">
             $(document).ready(function () {
                 namespace = '/test';
@@ -18,7 +18,10 @@
                 socket.on('my responce', function (evento1) {
                     console.log(evento1)
                 });
+                socket.on('left',function() {
+                    socket.emit('left');
 
+                });
                 var chart;
                 var arrow;
                 var axis;
@@ -26,7 +29,7 @@
                 AmCharts.ready(function () {
                     // create angular gauge
                     chart = new AmCharts.AmAngularGauge();
-                    chart.addTitle('{{value_name_gauge_id|default('Volts A-N')}}');
+                    chart.addTitle('{{  name_change_gauge_dict['Gauge_VaN']['name_gauge_change']|default('Volts A-N',true)}}');
 
                     // create axis
                     axis = new AmCharts.GaugeAxis();
@@ -67,12 +70,11 @@
 
                 });
 
-                socket.on('gauge_responce', function (evento) {
+                socket.on('gauge_responce_van', function (evento) {
                     arrow.setValue(evento.valore);
                     axis.setBottomText("VaN" +"/"+ evento.valore);
 
                 });
-
 
                 var chart_vbn;
                 var arrow_vbn;
@@ -81,7 +83,7 @@
                 AmCharts.ready(function () {
                     // create angular gauge
                     chart_vbn = new AmCharts.AmAngularGauge();
-                    chart_vbn.addTitle("{{ value_name_gauge_id|default('VOLTS B-Nb')}}");
+                    chart_vbn.addTitle("{{  name_change_gauge_dict['Gauge_VbN']['name_gauge_change']|default('VOLTS B-N',true)}}");
 
                     // create axis
                     axis_vbn = new AmCharts.GaugeAxis();
@@ -125,19 +127,331 @@
                     axis_vbn.setBottomText("VbN" +"/"+ evento.valore);
 
                 });
+
+                var chart_vcn;
+                var arrow_vcn;
+                var axis_vcn;
+
+                AmCharts.ready(function () {
+                    // create angular gauge
+                    chart_vcn = new AmCharts.AmAngularGauge();
+                    chart_vcn.addTitle("{{ name_change_gauge_dict['Gauge_VcN']['name_gauge_change']|default('VOLTS C-N',true)}}");
+
+                    // create axis
+                    axis_vcn = new AmCharts.GaugeAxis();
+                    axis_vcn.startValue = 0;
+                    axis_vcn.axisThickness = 1;
+                    axis_vcn.endValue = 500;
+                    axis_vcn.valueInterval = 100;
+                    // color bands
+                    var band_vcn_1 = new AmCharts.GaugeBand();
+                    band_vcn_1.startValue = 0;
+                    band_vcn_1.endValue = 200;
+                    band_vcn_1.color = "#84b761";
+
+                    var band_vcn_2 = new AmCharts.GaugeBand();
+                    band_vcn_2.startValue = 201;
+                    band_vcn_2.endValue = 400;
+                    band_vcn_2.color = "#fdd400";
+
+                    var band_vcn_3 = new AmCharts.GaugeBand();
+                    band_vcn_3.startValue = 401;
+                    band_vcn_3.endValue = 500;
+                    band_vcn_3.color = "#cc4748";
+                    band_vcn_3.innerRadius = "95%";
+
+                    axis_vcn.bands = [band_vcn_1, band_vcn_2, band_vcn_3];
+
+                    // bottom text
+                    axis_vcn.bottomTextYOffset = -20;
+                    axis_vcn.setBottomText("Volt");
+                    chart_vcn.addAxis(axis_vcn);
+
+                    // gauge arrow
+                    arrow_vcn = new AmCharts.GaugeArrow();
+                    chart_vcn.addArrow(arrow_vcn);
+
+                    chart_vcn.write("chartdiv2");
+                });
+
+                socket.on('gauge_responce_vcn', function (evento) {
+                    arrow_vcn.setValue(evento.valore);
+                    axis_vcn.setBottomText("VcN" +"/"+ evento.valore);
+
+                });
+
+                var chart_ian;
+                var arrow_ian;
+                var axis_ian;
+
+                AmCharts.ready(function () {
+                    // create angular gauge
+                    chart_ian = new AmCharts.AmAngularGauge();
+                    chart_ian.addTitle("{{ name_change_gauge_dict['Gauge_IaN']['name_gauge_change']|default('Amp A-N',true)}}");
+
+                    // create axis
+                    axis_ian = new AmCharts.GaugeAxis();
+                    axis_ian.startValue = 0;
+                    axis_ian.axisThickness = 1;
+                    axis_ian.endValue = 500;
+                    axis_ian.valueInterval = 100;
+                    // color bands
+                    var band_ian_1 = new AmCharts.GaugeBand();
+                    band_ian_1.startValue = 0;
+                    band_ian_1.endValue = 200;
+                    band_ian_1.color = "#84b761";
+
+                    var band_ian_2 = new AmCharts.GaugeBand();
+                    band_ian_2.startValue = 201;
+                    band_ian_2.endValue = 400;
+                    band_ian_2.color = "#fdd400";
+
+                    var band_ian_3 = new AmCharts.GaugeBand();
+                    band_ian_3.startValue = 401;
+                    band_ian_3.endValue = 500;
+                    band_ian_3.color = "#cc4748";
+                    band_ian_3.innerRadius = "95%";
+
+                    axis_ian.bands = [band_ian_1, band_ian_2, band_ian_3];
+
+                    // bottom text
+                    axis_ian.bottomTextYOffset = -20;
+                    axis_ian.setBottomText("Amp");
+                    chart_ian.addAxis(axis_ian);
+
+                    // gauge arrow
+                    arrow_ian = new AmCharts.GaugeArrow();
+                    chart_ian.addArrow(arrow_ian);
+
+                    chart_ian.write("chartdiv3");
+                });
+
+                socket.on('gauge_responce_ian', function (evento) {
+                    arrow_ian.setValue(evento.valore);
+                    axis_ian.setBottomText("IaN" +"/"+ evento.valore);
+
+                });
+
+                var chart_ibn;
+                var arrow_ibn;
+                var axis_ibn;
+
+                AmCharts.ready(function () {
+                    // create angular gauge
+                    chart_ibn = new AmCharts.AmAngularGauge();
+                    chart_ibn.addTitle("{{ name_change_gauge_dict['Gauge_IbN']['name_gauge_change']|default('Amp B-N',true)}}");
+
+                    // create axis
+                    axis_ibn = new AmCharts.GaugeAxis();
+                    axis_ibn.startValue = 0;
+                    axis_ibn.axisThickness = 1;
+                    axis_ibn.endValue = 500;
+                    axis_ibn.valueInterval = 100;
+                    // color bands
+                    var band_ibn_1 = new AmCharts.GaugeBand();
+                    band_ibn_1.startValue = 0;
+                    band_ibn_1.endValue = 200;
+                    band_ibn_1.color = "#84b761";
+
+                    var band_ibn_2 = new AmCharts.GaugeBand();
+                    band_ibn_2.startValue = 201;
+                    band_ibn_2.endValue = 400;
+                    band_ibn_2.color = "#fdd400";
+
+                    var band_ibn_3 = new AmCharts.GaugeBand();
+                    band_ibn_3.startValue = 401;
+                    band_ibn_3.endValue = 500;
+                    band_ibn_3.color = "#cc4748";
+                    band_ibn_3.innerRadius = "95%";
+
+                    axis_ibn.bands = [band_ibn_1, band_ibn_2, band_ibn_3];
+
+                    // bottom text
+                    axis_ibn.bottomTextYOffset = -20;
+                    axis_ibn.setBottomText("Amp");
+                    chart_ibn.addAxis(axis_ibn);
+
+                    // gauge arrow
+                    arrow_ibn = new AmCharts.GaugeArrow();
+                    chart_ibn.addArrow(arrow_ibn);
+
+                    chart_ibn.write("chartdiv4");
+                });
+
+                socket.on('gauge_responce_ibn', function (evento) {
+                    arrow_ibn.setValue(evento.valore);
+                    axis_ibn.setBottomText("IbN" +"/"+ evento.valore);
+
+                });
+
+                var chart_icn;
+                var arrow_icn;
+                var axis_icn;
+
+                AmCharts.ready(function () {
+                    // create angular gauge
+                    chart_icn = new AmCharts.AmAngularGauge();
+                    chart_icn.addTitle("{{ name_change_gauge_dict['Gauge_IcN']['name_gauge_change']|default('Amp C-N',true)}}");
+
+                    // create axis
+                    axis_icn = new AmCharts.GaugeAxis();
+                    axis_icn.startValue = 0;
+                    axis_icn.axisThickness = 1;
+                    axis_icn.endValue = 500;
+                    axis_icn.valueInterval = 100;
+                    // color bands
+                    var band_icn_1 = new AmCharts.GaugeBand();
+                    band_icn_1.startValue = 0;
+                    band_icn_1.endValue = 200;
+                    band_icn_1.color = "#84b761";
+
+                    var band_icn_2 = new AmCharts.GaugeBand();
+                    band_icn_2.startValue = 201;
+                    band_icn_2.endValue = 400;
+                    band_icn_2.color = "#fdd400";
+
+                    var band_icn_3 = new AmCharts.GaugeBand();
+                    band_icn_3.startValue = 401;
+                    band_icn_3.endValue = 500;
+                    band_icn_3.color = "#cc4748";
+                    band_icn_3.innerRadius = "95%";
+
+                    axis_icn.bands = [band_icn_1, band_icn_2, band_icn_3];
+
+                    // bottom text
+                    axis_icn.bottomTextYOffset = -20;
+                    axis_icn.setBottomText("Amp");
+                    chart_icn.addAxis(axis_icn);
+
+                    // gauge arrow
+                    arrow_icn = new AmCharts.GaugeArrow();
+                    chart_icn.addArrow(arrow_icn);
+
+                    chart_icn.write("chartdiv5");
+                });
+
+                socket.on('gauge_responce_icn', function (evento) {
+                    arrow_icn.setValue(evento.valore);
+                    axis_icn.setBottomText("IcN" +"/"+ evento.valore);
+
+                });
+
+                // diagramma delle fasi
+			    var chartPhase;
+                var VaArrowPhase, VbArrowPhase, VcArrowPhase;
+                var IaArrowPhase, IbArrowPhase, IcArrowPhase;
+
+
+			    AmCharts.ready(function () {
+
+                    // clock is just an angular gauge with three arrows
+				    chartPhase = new AmCharts.AmAngularGauge();
+				    chartPhase.startDuration = 0.3;
+
+                    var bordPhase = new AmCharts.GaugeBand()
+                    bordPhase.startValue = 0;
+                    bordPhase.endValue = 360;
+
+				    // for simplicyty, we use only one axis
+				    var axisPhase = new AmCharts.GaugeAxis();
+				    axisPhase.startValue = 0;
+				    axisPhase.endValue = 360;
+				    axisPhase.valueInterval = 30;
+				    axisPhase.minorTickInterval = 1;
+				    axisPhase.showFirstLabel = true;
+                    axisPhase.showLastLabel = true;
+				    axisPhase.startAngle = 90;
+				    axisPhase.endAngle = 450;
+				    axisPhase.axisAlpha = 100;
+                    axisPhase.bottomText = ("{{ name_change_gauge_dict['Phase']['name_gauge_change']|default('Phase', true) }}");
+
+                    axisPhase.tickColor = "#97C30A";
+                    axisPhase.ValueAxis =
+                    axisPhase.radius = "100%";
+                    axisPhase.setColor = "#97C30A"
+                    chartPhase.addAxis(axisPhase);
+
+                    // Voltage PhVa
+                    VaArrowPhase = new AmCharts.GaugeArrow();
+                    VaArrowPhase.radius = "100%";
+                    VaArrowPhase.clockWiseOnly = true;
+                    VaArrowPhase.color = "#CC0000";
+                    VaArrowPhase.startWidth = 1;
+                    VaArrowPhase.nailRadius = 1;
+
+                    // PhIa
+                    IaArrowPhase = new AmCharts.GaugeArrow();
+                    IaArrowPhase.radius = "100%"; // da inserireil valore della ia
+                    IaArrowPhase.clockWiseOnly = true;
+                    IaArrowPhase.color = "#CC0000";
+                    IaArrowPhase.startWidth = 1;
+                    IaArrowPhase.nailRadius = 1;
+
+                    // Voltage PhVb
+                    VbArrowPhase = new AmCharts.GaugeArrow();
+                    VbArrowPhase.radius = "100%";
+                    VbArrowPhase.clockWiseOnly = true;
+                    VbArrowPhase.color = "#97C30A";
+                    VbArrowPhase.startWidth = 1;
+                    VbArrowPhase.nailRadius = 1;
+
+                    // PhIb
+                    IbArrowPhase = new AmCharts.GaugeArrow();
+                    IbArrowPhase.radius = "100%"; //ib
+                    IbArrowPhase.clockWiseOnly = true;
+                    IbArrowPhase.color = "#97C30A";
+                    IbArrowPhase.startWidth = 1;
+                    IbArrowPhase.nailRadius = 1;
+
+                    // Voltage PhVc
+                    VcArrowPhase = new AmCharts.GaugeArrow();
+                    VcArrowPhase.radius = "100%";
+                    VcArrowPhase.clockWiseOnly = true;
+                    VcArrowPhase.color = "#0000FF";
+                    VcArrowPhase.startWidth = 1;
+                    VcArrowPhase.nailRadius = 1;
+
+				    // PhIc
+				    IcArrowPhase = new AmCharts.GaugeArrow();
+                    IcArrowPhase.radius = "100%"; //ic
+                    IcArrowPhase.clockWiseOnly = true;
+                    IcArrowPhase.color = "#0000FF";
+                    IcArrowPhase.startWidth = 1;
+                    IcArrowPhase.nailRadius = 1;
+
+				    // add arrow
+                    chartPhase.addArrow(VaArrowPhase);
+                    chartPhase.addArrow(VbArrowPhase);
+                    chartPhase.addArrow(VcArrowPhase);
+                    chartPhase.addArrow(IaArrowPhase);
+                    chartPhase.addArrow(IbArrowPhase);
+                    chartPhase.addArrow(IcArrowPhase);
+
+				    chartPhase.write("Phase");
+
+
+			});
+
+
+
+
+            socket.on('gauge_responce_phase', function(evento){
+
+                    IaArrowPhase.setValue(   (evento.valore)); //0
+                    IbArrowPhase.setValue(   (evento.valore1)); //120
+                    IcArrowPhase.setValue(   ( evento.valore2)); //240
+                    VaArrowPhase.setValue(360);
+                    VbArrowPhase.setValue(120);
+                    VcArrowPhase.setValue(240);
             });
-                    // funzione con socket.io and event
-        {#                function randomValue_vbn() {#}
-        {#                    namespace = '/test';#}
-        {#                    var socket_vbn = io.connect('http://' + document.domain + ':' + location.port + namespace);#}
-        {#                        console.log(document.domain)#}
-        {#                    socket_vbn.on('gauge_responce_vbn', function(evento) {#}
-        {#                    arrow_vbn.setValue(evento.valore);#}
-        {#                    axis_vbn.setBottomText("VbN"+evento.valore);#}
-        {#                    });#}
-        {#                };#}
-        </script>#}
-    {% endblock %}
+
+
+            //});
+
+
+        });
+        </script>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -186,8 +500,7 @@
                         <div class="Portofolio">
                             {% for k in json_building['gateways']['meters'] %}
                                 {% if tne in k['tne_number'] %}
-                                    <div class="box-text"><a
-                                            href="{{ url_for('general.tenant_name_',tenant=k['tenant_name']) }}"> {{ k['tenant_name']|default('Nothing') }}</a>
+                                    <div class="box-text"><a href="{{ url_for('general.tenant_name_',tenant=k['tenant_name']) }}"> {{ k['tenant_name']|default('Nothing') }}</a>
                                     </div>
                                     </div>
                                     </div>
@@ -241,95 +554,173 @@
                             {% endfor %}
                             </div>
                             </div>
-                    <div class="col-lg-12">
-                        <div class="box-widget">
-                            <div class="box-header show-header widget-header">
-                                <div class="box-header-text">Gauge Data Choiche</div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="box-widget">
+                                        <div class="box-header show-header widget-header">
+                                            <div class="box-header-text">Gauge Data Choiche</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4" id="gauge_0">
+                                                <div class="panel panel-default" id="panel" align="center" style="width: 250px">
+                                                    <div class="pull-right">
+                                                    </div>
+                                                    <script type="text/javascript">
+                                                    {% if name_change_gauge_dict|length != 0 %}
+                                                        $(document).ready(function() {
+                                                        console.log("ready");
+                                                        {% if name_change_gauge_dict['Gauge_VaN']['name_gauge_choiche'] == True %}
+                                                        $('#chartdiv0').fadeIn();
+                                                        console.log("ok")
+                                                        {% else %}
+                                                            $('#gauge_0').fadeOut();
+                                                            console.log("tolto");
+                                                        {% endif %}
+                                                        });
+                                                    {% endif %}
+                                                    </script>
+                                                    <div id="chartdiv0" align="center" style="width: 200px; height: 200px;"></div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" id="gauge_1">
+                                            <div class="panel panel-default" id="panel" align="center" style="width: 250px">
+                                                <div class="pull-right">
+                                                </div>
+                                                <script type="text/javascript">
+                                                    {% if name_change_gauge_dict|length != 0 %}
+                                                        $(document).ready(function() {
+                                                            console.log("ready");
+                                                            {% if name_change_gauge_dict['Gauge_VbN']['name_gauge_choiche'] == True %}
+                                                                $('#chartdiv1').fadeIn()
+                                                                console.log("ok")
+                                                            {% else %}
+                                                                $('#gauge_1').fadeOut()
+                                                                console.log("tolto")
+                                                            {% endif %}
+                                                        });
+                                                    {% endif %}
+                                                </script>
+                                                <div id="chartdiv1" align="center" style="width: 200px; height: 200px;"></div>
+                                            </div>
+                                        </div>
+                                            <div class="col-lg-4" id="gauge_2">
+                                                <div class="panel panel-default" id="panel" align="center" style="width: 250px">
+                                                    <div class="pull-right">
+                                                    </div>
+                                                        <script type="text/javascript">
+                                                        {% if name_change_gauge_dict|length != 0 %}
+                                                            $(document).ready(function() {
+                                                                console.log("ready");
+                                                                {% if name_change_gauge_dict['Gauge_VcN']['name_gauge_choiche'] == True %}
+                                                                    $('#chartdiv2').fadeIn()
+                                                                    console.log("ok")
+                                                                {% else %}
+                                                                    $('#gauge_2').fadeOut()
+                                                                    console.log("tolto")
+                                                                {% endif %}
+                                                            });
+                                                        {% endif %}
+                                                    </script>
+                                                        <div id="chartdiv2" align="center" style="width: 200px; height: 200px;"></div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" id="gauge_3">
+                                                <div class="panel panel-default" id="panel" align="center" style="width: 250px">
+                                                    <div class="pull-right">
+                                                    </div>
+                                                        <script type="text/javascript">
+                                                        {% if name_change_gauge_dict|length != 0 %}
+                                                            $(document).ready(function() {
+                                                                console.log("ready");
+                                                                {% if name_change_gauge_dict['Gauge_IaN']['name_gauge_choiche'] == True %}
+                                                                    $('#chartdiv3').fadeIn()
+                                                                    console.log("ok")
+                                                                {% else %}
+                                                                    $('#gauge_3').fadeOut()
+                                                                    console.log("tolto")
+                                                                {% endif %}
+                                                            });
+                                                        {% endif %}
+                                                    </script>
+                                                        <div id="chartdiv3" align="center" style="width: 200px; height: 200px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" id="gauge_4">
+                                                <div class="panel panel-default" id="panel" align="center" style="width: 250px">
+                                                    <div class="pull-right">
+                                                    </div>
+                                                        <script type="text/javascript">
+                                                        {% if name_change_gauge_dict|length != 0 %}
+                                                            $(document).ready(function() {
+                                                                console.log("ready");
+                                                                {% if name_change_gauge_dict['Gauge_IbN']['name_gauge_choiche'] == True %}
+                                                                    $('#chartdiv4').fadeIn()
+                                                                    console.log("ok")
+                                                                {% else %}
+                                                                    $('#gauge_4').fadeOut()
+
+                                                                    console.log("tolto")
+                                                                {% endif %}
+                                                            });
+                                                        {% endif %}
+                                                    </script>
+                                                        <div id="chartdiv4" align="center" style="width: 200px; height: 200px;"></div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" id="gauge_5">
+                                                <div class="panel panel-default" id="panel" align="center" style="width: 250px">
+                                                    <div class="pull-right">
+                                                    </div>
+                                                        <script type="text/javascript">
+                                                        {% if name_change_gauge_dict|length != 0 %}
+                                                            $(document).ready(function() {
+                                                                console.log("ready");
+                                                                {% if name_change_gauge_dict['Gauge_IcN']['name_gauge_choiche'] == True %}
+                                                                    $('#chartdiv5').fadeIn()
+                                                                    console.log("ok")
+                                                                {% else %}
+                                                                    $('#gauge_5').fadeOut()
+                                                                    console.log("tolto")
+                                                                {% endif %}
+                                                            });
+                                                        {% endif %}
+                                                    </script>
+                                                        <div id="chartdiv5" align="center" style="width: 200px; height: 200px;"></div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" id="gauge_phase">
+                                                <div class="panel panel-default" id="panel" align="center" style="width: 250px">
+                                                    <div class="pull-right">
+                                                    </div>
+                                                        <script type="text/javascript">
+                                                        {% if name_change_gauge_dict|length != 0 %}
+                                                            $(document).ready(function() {
+                                                                console.log("ready");
+                                                                {% if name_change_gauge_dict['Phase']['name_gauge_choiche'] == True %}
+                                                                    $('#Phase').fadeIn();
+                                                                    console.log("ok")
+                                                                {% else %}
+                                                                    $('#gauge_phase').fadeOut();
+                                                                    console.log("tolto")
+                                                                {% endif %}
+                                                            });
+                                                        {% endif %}
+                                                    </script>
+                                                        <div id="Phase" align="center" style="width: 200px; height: 200px;"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        <div class="panel panel-default" align="center" style="width: 250px">
-                            <div class="pull-right">
-                                <div class="btn-group">
-                            {#                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
-                            {#                                                data-toggle="dropdown">#}
-                            {#                                            Voltage-A-B-C-N#}
-                            {#                                            <span class="caret"></span>#}
-                            {#                                        </button>#}
-                            {#                                        <script>#}
-                            {#                                            $(document).ready(function(){#}
-                            {#                                                $(".dropdown-menu li a").click(function(){#}
-                            {#                                                    $("#ok").show(console.log("cazzo"))#}
-                            {#                                                });#}
-                            {##}
-                            {#                                            });#}
-                            {#                                        </script>#}
-                            {#                                        <ul class="dropdown-menu pull-right" role="menu">#}
-                            {#                                            <li><a id="ok" href="">Volts A-N</a>#}
-                            {#                                            </li>#}
-                            {#                                            <li><a href="#">Volts B-N</a>#}
-                            {#                                            </li>#}
-                            {#                                            <li><a href="#">Volts C-N</a>#}
-                            {#                                            </li>#}
-                            {#                                            <li class="divider"></li>#}
-                            {#                                            <li><a href="#">All Meters</a>#}
-                            {#                                            </li>#}
-                            {#                                        </ul>#}
-                        </div>
                     </div>
-                    <script type="text/javascript">
-                          $(document).ready(function() {
-                                    console.log("ready");
-                                    {% if value_boolen_gauge_id == True %}
-                                        $('#chartdiv0').show()
-
-                                        console.log("ok")
-                                    {% else %}
-                                        $('#chartdiv0').hide()
-                                    {% endif %}
-                                });
-
-
-
-                    </script>
-                    <!--/.panel-heading-start-->
-                    <div id="chartdiv0" align="center" style="width: 200px; height: 200px;"></div><!-- /.panel-heading-end --->
-                </div>
-                <div class="panel panel-default" align="center" style="width: 250px">
-                    <div class="pull-right">
-                        <div class="btn-group">
-                            {#                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
-                            {#                                                data-toggle="dropdown">#}
-                            {#                                            Voltage-A-B-C-N#}
-                            {#                                            <span class="caret"></span>#}
-                            {#                                        </button>#}
-                            {#                                        <script>#}
-                            {#                                            $(document).ready(function(){#}
-                            {#                                                $(".dropdown-menu li a").click(function(){#}
-                            {#                                                    $("#ok").show(console.log("cazzo"))#}
-                            {#                                                });#}
-                            {##}
-                            {#                                            });#}
-                            {#                                        </script>#}
-                            {#                                        <ul class="dropdown-menu pull-right" role="menu">#}
-                            {#                                            <li><a id="ok" href="">Volts A-N</a>#}
-                            {#                                            </li>#}
-                            {#                                            <li><a href="#">Volts B-N</a>#}
-                            {#                                            </li>#}
-                            {#                                            <li><a href="#">Volts C-N</a>#}
-                            {#                                            </li>#}
-                            {#                                            <li class="divider"></li>#}
-                            {#                                            <li><a href="#">All Meters</a>#}
-                            {#                                            </li>#}
-                            {#                                        </ul>#}
-                        </div>
-                    </div>
-                    <!--/.panel-heading-start-->
-                    <div id="chartdiv1" align="center" style="width: 200px; height: 200px;"></div>
-                    <!-- /.panel-heading-end --->
-
-                </div>
             </div>
+
         </div>
-    </div>
-    </div>
     </div>
 {% endblock %}

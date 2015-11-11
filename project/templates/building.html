@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         {% if 'collector' in json_building %}
-                            <h1><strong>{{ json_building['collector']['building'] }}
+                            <h1><strong>{{ json_building['collector']['building']|replace("_"," ") }}
                         <img class="img-building" src="/static/images/building_black.png">
                         </strong></h1>
                     </div>

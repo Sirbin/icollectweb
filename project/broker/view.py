@@ -24,21 +24,26 @@ blueprint_mqtt_data = Blueprint('Mqtt',__name__)
 
 @blueprint_mqtt_data.route("/dashboard/meters/<meters>", methods=["GET"])
 @login_required
-def tables_history_meters(meters):
-    if json_building != False:
-        user_gauge_model_id = current_user.id_user
-        gauge_query_id_user = db.session.query(gauge_).filter_by(id_=user_gauge_model_id)
-        if gauge_query_id_user is not None:
-            for t in gauge_query_id_user:
-                 print t.id_, t.name_gauge_change, t.gauge_choiche
-            for tne in json_table_meter_value:
-                if meters == tne['tne_number']:
-                    session['tne'] = meters
-                    myth = threading.Thread(target=controllo_broker,args=(meters,))
-                    myth.start()
-                    return render_template('meters_name.html',tne=meters,json_building=json_building,
-                                       tenant = json_tenant_building,json_table_meter_value=json_table_meter_value,current_time=datetime.utcnow(),
-                                           value_boolen_gauge_id = t.gauge_choiche,value_name_gauge_id=t.name_gauge_change)
-    flash("Json not found")
-    return redirect(url_for('dashboard_'))
+def tables_historynot_meters(meters):
+    name_change_gauge_dict = {}
+    user_gauge_model_id = current_user.id_user
+    gauge_query_id_user = db.session.query(gauge_).filter_by(id_=user_gauge_model_id)
+    for t in gauge_query_id_user:
+        name_change_gauge_dict[t.name_gauge] =  dict(name_gauge_choiche = t.gauge_choiche, name_gauge_change = t.name_gauge_change)
+    print len(name_change_gauge_dict)
+    print name_change_gauge_dict
+    for tne in json_table_meter_value:
+        if meters == tne['tne_number']:
+            if len(name_change_gauge_dict) !=0:
+                session['tne'] = meters
+                myth = threading.Thread(target=controllo_broker,args=(meters,))
+                myth.name
+                myth.start()
+                return render_template('meters_name.html',tne=meters,json_building=json_building,
+                                        tenant = json_tenant_building,json_table_meter_value=json_table_meter_value,current_time=datetime.utcnow(),
+                                        name_change_gauge_dict=name_change_gauge_dict)
+            flash("Insert your setting")
+            return render_template('meters_name.html',tne=meters,json_building=json_building,
+                                        tenant = json_tenant_building,json_table_meter_value=json_table_meter_value,current_time=datetime.utcnow(),
+                                        name_change_gauge_dict=name_change_gauge_dict)
 

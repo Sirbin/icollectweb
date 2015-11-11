@@ -71,12 +71,14 @@ def meters_():
 @blueprint_general.route('/dashboard/prova')
 @login_required
 def gauge_prova():
+        value_tot = {}
         tne = json_table_meter_value
         user_gauge_id = current_user.id_user
         gauge_user_user_id = db.session.query(gauge_).filter_by(id_=user_gauge_id)
-        if gauge_user_user_id is not None:
-            for t in gauge_user_user_id:
-                print t.id_, t.name_gauge_change, t.gauge_choiche
-                value_tot = {"id":t.id_ ,"name":t.name_gauge_change,"chcuoice":t.gauge_choiche}
-            return render_template('prova.html', tne_id = json_table_meter_value,current_time=datetime.utcnow(),scelta_van =t.gauge_choiche)
-        return redirect(url_for('general.dashboard_'))
+        for t in gauge_user_user_id:
+            print "valore default %s" % t
+            print t.id_, t.name_gauge_change, t.gauge_choiche
+            value_tot[t.name_gauge] = dict(name_gauge_choiche = t.gauge_choiche, name_gauge_change = t.name_gauge_change)
+        if len(value_tot) != 0:
+            return render_template('prova.html', tne_id = json_table_meter_value,current_time=datetime.utcnow(),scelta_van =value_tot)
+        return render_template('prova.html', current_time= datetime.utcnow(),scelta_van = value_tot)

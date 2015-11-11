@@ -17,7 +17,7 @@ def flask_error(form):
 
 @api_blueprint.route('/api/v1/user')
 def api_user():
-    result = db.session.query(user_).limit(3).offset(0).all()
+    result = db.session.query(user_).limit(10).offset(0).all()
     json_result=[]
     for res in result:
         data = {
@@ -57,3 +57,4 @@ def api_edit_user(userdit):
     else:
         result = {"error" : "element not exist" }
         return jsonify(result)
+

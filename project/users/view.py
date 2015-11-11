@@ -72,7 +72,6 @@ def new_users():
                 return redirect(url_for('user.user_page'))
             except IntegrityError:
                 error = "username and/or email exist"
-                #return  redirect(url_for('new_users'))
                 return render_template('new_users.html', form=form, error=error,
                                        current_time=datetime.utcnow())
     return render_template('new_users.html', form=form, error=error,

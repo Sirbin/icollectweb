@@ -19,89 +19,32 @@
                             <div class="box-header show-header widget-header">
                                 <div class="box-header-text">Gauge Data Choiche</div>
                             </div>
-                            <script>
-                                $(document).ready(function() {
-                                    console.log("ready");
-                                    {% if scelta_van == True %}
-                                        $('#chartdiv0').show()
-                                        $('#chartdiv1').show()
-                                        console.log("ok")
-                                    {% else %}
-                                        $('#chartdiv0').hide()
-                                    {% endif %}
-                                });
 
-                            </script>
-                        <ul div="prova1">
-{#                            <div class="panel panel-default" align="center" style="width: 250px">#}
-{#                                <div class="pull-right">#}
-{#                                    <div id="fer" class="btn-group">#}
-{#                                    #}
-{#                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
-{#                                                data-toggle="dropdown">#}
-{#                                            Voltage-A-B-C-N#}
-{#                                            <span class="caret"></span>#}
-{#                                        </button>#}
-{#                                        <script>#}
-{#                                            $(document).ready(function(){#}
-{#                                                $(".dropdown-menu li a").click(function(){#}
-{#                                                    $("#ok").show(console.log("cazzo"))#}
-{#                                                });#}
-{##}
-{#                                            });#}
-{#                                        </script>#}
-{#                                        <ul class="dropdown-menu pull-right" role="menu">#}
-{#                                            <li><a id="ok" href="">Volts A-N</a>#}
-{#                                            </li>#}
-{#                                            <li><a href="#">Volts B-N</a>#}
-{#                                            </li>#}
-{#                                            <li><a href="#">Volts C-N</a>#}
-{#                                            </li>#}
-{#                                            <li class="divider"></li>#}
-{#                                            <li><a href="#">All Meters</a>#}
-{#                                            </li>#}
-{#                                        </ul>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <!--/.panel-heading-start-->#}
-                        <li>       <div id="chartdiv0" align="center" style="width: 200px; height: 200px;"></div></li>
-{#                                <!-- /.panel-heading-end --->#}
-{##}
-{#                            </div>#}
-{#                             <div class="panel panel-default" align="center" style="width: 250px">#}
-{#                                <div class="pull-right">#}
-{#                                    <div class="btn-group">#}
-{#                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"#}
-{#                                                data-toggle="dropdown">#}
-{#                                            Voltage-A-B-C-N#}
-{#                                            <span class="caret"></span>#}
-{#                                        </button>#}
-{#                                        <script>#}
-{#                                            $(document).ready(function(){#}
-{#                                                $(".dropdown-menu li a").click(function(){#}
-{#                                                    $("#ok").show(console.log("cazzo"))#}
-{#                                                });#}
-{##}
-{#                                            });#}
-{#                                        </script>#}
-{#                                        <ul class="dropdown-menu pull-right" role="menu">#}
-{#                                            <li><a id="ok" href="">Volts A-N</a>#}
-{#                                            </li>#}
-{#                                            <li><a href="#">Volts B-N</a>#}
-{#                                            </li>#}
-{#                                            <li><a href="#">Volts C-N</a>#}
-{#                                            </li>#}
-{#                                            <li class="divider"></li>#}
-{#                                            <li><a href="#">All Meters</a>#}
-{#                                            </li>#}
-{#                                        </ul>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <!--/.panel-heading-start-->#}
-                        <li>       <div id="chartdiv1" align="center" style="width: 200px; height: 200px;"></div></li>
-{#                                <!-- /.panel-heading-end --->#}{##}
-{#                            </div>#}
-                        </ul>
+                            <div class="sempliceprova">
+                                {% block gauge_all %}
+                                <table>
+                                    <thead>
+                                        <tr>exaple</tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            {% if scelta_van|length !=0 %}
+                                                <td>{{scelta_van['Gauge_VbN']['name_gauge_change']|default('nulla')}}</td>
+                                                <td> {{scelta_van['Gauge_VbN']['name_gauge_choiche']|default('nulla')}}</td>
+
+                                            {% endif %}
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% endblock %}
+                                <script>
+
+
+                                </script>
+                               <div id="chartdiv0" align="center" style="width: 200px; height: 200px;"></div>
+                               <div id="chartdiv1" align="center" style="width: 200px; height: 200px;"></div>
                         </div>
                     </div>
                 </div>

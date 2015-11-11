@@ -41,7 +41,6 @@ def onConnect(client, userdata, rc):
 
 def controllo_broker(tne=None):
     try:
-
         print("connect......")
         #client.connect(BROKER, port=1883, keepalive=60, bind_address="")
         #client.on_connect = onConnect
@@ -55,7 +54,7 @@ def controllo_broker(tne=None):
 
 def create_json_publish(tne):
     '''
-    create a json form tO send in broker for pubblish
+    create a json form to send in broker for pubblish
     '''
     data_create_meter = "realtime" + " " + str(tne)
     return data_create_meter
@@ -69,9 +68,13 @@ def onMessage(client, userdata, message):
         message_split = message.topic.split('/')
         if message_split[1] == "Realtime":
             stringa_ = json.loads(message.payload)
-            print stringa_['VaN'], stringa_['VbN'], stringa_['tne_number']
-            socketio.emit('gauge_responce', {'valore': stringa_["VaN"]},namespace='/test',room=message_split[4])
+            socketio.emit('gauge_responce_van', {'valore': stringa_["VaN"]},namespace='/test',room=message_split[4])
             socketio.emit('gauge_responce_vbn', {'valore': stringa_['VbN']},namespace='/test',room=message_split[4])
+            socketio.emit('gauge_responce_vcn', {'valore': stringa_['VcN']},namespace='/test',room=message_split[4])
+            socketio.emit('gauge_responce_ian', {'valore': stringa_['Ia']},namespace='/test',room=message_split[4])
+            socketio.emit('gauge_responce_ibn', {'valore': stringa_['Ib']},namespace='/test',room=message_split[4])
+            socketio.emit('gauge_responce_icn', {'valore': stringa_['Ic']},namespace='/test',room=message_split[4])
+            socketio.emit('gauge_responce_phase', {'valore': stringa_['PhAI'],'valore1':stringa_['PhBI'],'valore2':stringa_['PhCI']},namespace='/test',room=message_split[4])
             spedisci_dato(message_split[4])
 
 
@@ -97,6 +100,7 @@ def test_connect():
 
 @socketio.on('disconnect', namespace="/test")
 def test_disconnect():
+    left()
     session.pop('tne')
     print ('Client disconnect')
 
@@ -111,11 +115,12 @@ def join(message):
         emit('status',{'data': current_user.user+":"+' create a socket_io'+ room},room=room)
 
 @socketio.on('left',namespace='/test')
-def left(message):
+def left(message=None):
     room = session.get('tne')
-    if  leave_room(room):
-        client.unsubscribe(TOPIC_Resp)
-        emit('status',{'data':current_user.user+":"+'leave a socket_io'+room },room=room)
+    leave_room(room)
+    client.unsubscribe(TOPIC_Resp)
+    print "eliminato"
+    emit('status',{'data':current_user.user+":"+'leave a socket_io'+room },room=room)
 
 
 try:
