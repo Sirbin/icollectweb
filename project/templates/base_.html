@@ -491,22 +491,22 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
+                    <li {% if request.path   == '/dashboard' %} class="active" {% endif %}>
                         <a href="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
-                    <li>
+                    <li {% if request.path == '/dashboard/building' %} class="active" {% endif %}>
                         <a href="/dashboard/building"><i class="fa fa-fw fa-bar-chart-o"></i> Building </a>
                     </li>
-                    <li>
+                    <li {% if request.path == '/dashboard/tenant' %} class="active" {% endif %}>
                         <a href="/dashboard/tenant"><i class="fa fa-fw fa-table"></i> Tenant </a>
                     </li>
-                    <li>
+                    <li {% if request.path == '/dashboard/meters' %} class="active" {% endif %}>
                         <a href="/dashboard/meters"><i class="fa fa-fw fa-edit"></i> Meters </a>
                     </li>
-                    <li>
+                    <li  {% if request.path == '/dashboard/users' %} class="active" {% endif %}>
                         <a href="/dashboard/users"><i class="glyphicon glyphicon-user"></i> Users </a>
                     </li>
-                    <li>
+                    <li  {% if request.path == '/dashboard/prova' %} class="active" {% endif %}>
                         <a href="/dashboard/prova"><i class="fa fa-fw fa-wrench"></i> Gauge</a>
                     </li>
                     <li>
@@ -520,7 +520,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li  {% if request.path == '/dashboard/blank-page.html' %} class="active" {% endif %}>
                         <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
                     </li>
                     <li>

@@ -2287,3 +2287,14 @@ PermissionDenied: <Permission needs=set([Need(method='role', value='Admin')]) ex
 2015-11-11 14:54:57,082 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 14-54-57'}
 2015-11-11 14:56:04,736 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '11-11-2015 14-56-04'}
 2015-11-11 14:56:04,736 - project - INFO - Info Logout:{'user_connect': u'adelaide121', 'time': '11-11-2015 14-56-04'}
+2015-11-11 17:27:06,423 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-27-06'}
+2015-11-11 17:27:29,697 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-27-29'}
+2015-11-11 17:27:29,697 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-27-29'}
+2015-11-11 17:28:07,052 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-28-07'}
+2015-11-11 17:28:07,052 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-28-07'}
+2015-11-11 17:28:07,052 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-28-07'}
+2015-11-11 17:59:26,010 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-59-26'}
+2015-11-11 17:59:26,010 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-59-26'}
+2015-11-11 17:59:26,010 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-59-26'}
+2015-11-11 17:59:26,010 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 17-59-26'}
+2015-11-11 18:13:26,836 - project - INFO - Info LogIn:{'url': u'http://192.168.1.129:5000/', 'user_connect': u'adelaide121', 'time': '11-11-2015 18-13-26'}
