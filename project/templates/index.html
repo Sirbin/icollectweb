@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    {% block head %}
     <meta charset="UTF-8">
     <!-- Bootstrap Core CSS -->
     <link href="{{url_for('static', filename='css/simple-sidebar.css')}}" rel="stylesheet">
@@ -10,12 +11,13 @@
      <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static' , filename = 'css/main.css')}}">
     <title> Login Dashboard </title>
+    {% endblock %}
 </head>
 <body>
     <div class="container">
         <div class="card card-container">
-            <div class="page-tittle">
-                <h3>Icollect Dashboard Login</h3>
+            <div class="page-title">
+                <h3> {% block title_login %}Icollect Dashboard Login{% endblock %}</h3>
             </div>
             {% if not current_user.is_authenticated %}
                 {% for message in get_flashed_messages() %}
@@ -27,15 +29,10 @@
             {% endif %}
             <br>
             <br>
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-            <p id="profile-name" class="profile-name-card"></p>
-
+            <!--<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>-->
             {% block login %}
             {% endblock %}
-
-            <a href="#" class="forgot-password">
-                Forgot the password?
-            </a>
         </div>
     </div>
 </body>

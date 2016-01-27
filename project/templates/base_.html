@@ -560,24 +560,12 @@
                         {% endblock %}
                         {% block breadcrumbs %}
                              <ol class="breadcrumb">
-                                 <li><a href="#">Home</a></li>
-                                 <li><a href="#">Library</a></li>
-                                 <li class="active">Data</li>
+                                 {% set breadbrumns_set = breadcrumbs(request.path) %}
+                                    {% for c in breadbrumns_set['breadcrumbs'] %}
+                                <li><a href="{{ c['url'] }}">{{ c['brcr']}}</a></li>
+                                    {% endfor %}
                              </ol>
                         {% endblock %}
-
-{#                        <div class="page-tabs">#}
-{#                            <ul class="nav nav-pills">#}
-{#                                <li type="button" class="btn btn-default" role="presentation"><a class="tab-extra" href="{{ url_for('building_')}}" aria-controls="building" role="tab">Building</a></li>#}
-{#                                <li type="button" class="btn btn-default" role="presentation"><a class="tab-extra" href="{{ url_for('tenant_')}}"  role="tab" aria-controls="tenant">Tenant</a></li>#}
-{#                                <li type="button" class="btn btn-default" role="presentation"><a class="tab-extra" href="{{ url_for('meters_') }}" role="tab" aria-controls="meters">Meters</a></li>#}
-{##}
-{#                                <button type="button" class="btn btn-default btn-lg btn-setting" data-toggle="tooltip" title="Dashbord Setting"><a href="{{url_for('setting_')}}" class="dash-setting">#}
-{#                                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>#}
-{#                                </button>#}
-{#                            </ul>#}
-{#                        </div>#}
-
                     </div>
                 </div>
            </div>
@@ -588,7 +576,6 @@
        <!-- end Content-->
     </div>
     <!-- /#wrapper -->
-
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 

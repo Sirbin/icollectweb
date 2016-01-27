@@ -19,6 +19,9 @@ class login_users(Form):
     user_remember = BooleanField('Remember me')
 
 
+class forgot_password_user(Form):
+    email_forgot_password = StringField('email',validators=[DataRequired(), Email()])
+
 class register_user(Form):
     '''
     edit user
@@ -42,6 +45,7 @@ class register_user(Form):
          print "my email",email_control
          if field.data != self.username.email and email_control:
             raise ValidationError ('Email already exist')
+
 
     def validate_user(self,field):
         user_control = user_.query.filter_by(user=field.data).first()

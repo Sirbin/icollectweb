@@ -103,6 +103,9 @@ class user_(db.Model,UserMixin):
     def get_id(self):
         return unicode(self.id_user)
 
+    def get_user(self):
+        return self.user
+
     def __init__(self ,user=None,password=None,email=None,first_name=None,last_name=None,role=None):
         '''
         :param user:
@@ -127,4 +130,19 @@ class user_(db.Model,UserMixin):
     def load_user(id_user=None):
         '''query per ritornare user id della tabella user_'''
         return user_.query.get(int(id_user))
+
+    def get_user_for_email(self,email):
+        self.email = email
+        if self.email is None:
+            print 'Nothing'
+            return False
+        user__user = self.user_.query.filter_by(user=self.email).first()
+        print user__user
+        return user__user
+
+    def get_password_for_email(email):
+        if email is None:
+            print 'sucuni'
+            return False
+        return True
 

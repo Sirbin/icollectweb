@@ -1,20 +1,25 @@
 __author__ = 'Alessio'
 
 # Import
+from socket import gethostname,gethostbyname
 from datetime import datetime
 from functools import wraps
-from flask import render_template, redirect, url_for,flash, request, Blueprint,current_app
+from flask import render_template, redirect, url_for,flash, request, Blueprint
 from sqlalchemy.exc import IntegrityError
-from users.form import register_user , login_users , new_register_user
+from users.form import register_user , login_users , new_register_user , forgot_password_user
 from project.model_ import user_
-from project import db,bycrypt_on_pass_user,app,admin_manager_permission,admin_permission
+from project import db,bycrypt_on_pass_user,app,admin_manager_permission,admin_permission,server_mail
 from project.Loggin_Debug import Logging
 from flask_login import login_user,logout_user,login_required,current_user,session
 from flask.ext.principal import identity_changed,Identity,AnonymousIdentity
+from flask_mail import Message
+
 
 
 #config
-users_for_blueprint = Blueprint('user',__name__)
+users_for_blueprint = Blueprint('user',__name__, template_folder= 'templates')
+
+
 
 # Function error field login and edit user
 def flask_error(form):
@@ -117,8 +122,27 @@ def delete_users(usersdel):
         flash('users delete %s'% current_user.user)
         return redirect(url_for('user.user_page'))
 
+
 @users_for_blueprint.route('/dashboard/users')
 @login_required
 def user_page():
-    users_site = db.session.query(user_).order_by(user_.id_user)
+    user_mail = db.session.query(user_).order_by(user_.email)
+    if user_mail:
+        users_site = db.session.query(user_).order_by(user_.id_user)
     return render_template('users.html', users=users_site, current_time=datetime.utcnow())
+
+@users_for_blueprint.route('/user/forgot_password', methods=['GET','POST'])
+def forgot_password():
+    host=gethostbyname(gethostname())
+    form = forgot_password_user()
+    error = None
+    if form.validate_on_submit():
+        user_email = user_.query.filter_by(email=form.email_forgot_password.data).first()
+        if user_email == None:
+            error = flash('Error Email Not exist')
+            return render_template('forgot_pass.html',form=form, error=error)
+        msg = Message('Forgot Password?',sender=app.config['MAIL_USERNAME'],recipients=[form.email_forgot_password.data])
+        msg.html = render_template('template_change_password.html',user_mail=user_email.user, host=host, user_id = user_email.id_user , my_email = form.email_forgot_password.data)
+        server_mail.send(msg)
+        flash('Message Send')
+    return render_template('forgot_pass.html',form=form, error=error)

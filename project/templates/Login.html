@@ -3,25 +3,26 @@
 {% block login %}
         <form class="form-signin" method="post" action="/">
                 {{ form.csrf_token }}
-                <span id="reauth-user" class="reauth-user"></span>
-                {{ form.user_login(id="inputUsers",class="form-control",placeholder="Users")}}
-                    <span class="error">
+                 <span class="error">
                     {% if form.user_login.errors %}
                         {% for error in form.user_login.errors %}
                             {{ error }}
                         {% endfor %}
                     {% endif %}
-                    </span>
-                <br>
-                {{ form.user_password(id="inputUsers",class="form-control" ,placeholder="Password")}}
-                    <span class="error">
+                 </span>
+                <!--<span id="reauth-user" class="reauth-user"></span>-->
+
+                {{ form.user_login(id="inputUsers",class="form-control",placeholder="Users")}}
+                <br/>
+                <span class="error">
                      {% if form.user_password.errors %}
                         {% for error in form.user_password.errors %}
                             {{ error }}
                         {% endfor %}
                      {% endif %}
-                    </span>
-                <br>
+                 </span>
+                {{ form.user_password(id="inputUsers",class="form-control" ,placeholder="Password")}}
+                <br/>
             <div id="remember" class="checkbox">
                     <label>
                         {{ form.user_remember(value = 'remember me') }} Remember me
@@ -30,6 +31,8 @@
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Login">Sign in</button>
         </form>
 
-
+        <a class="forgot-password" href="{{ url_for('user.forgot_password')}}">
+                Forgot the password?
+        </a>
 
 {% endblock %}

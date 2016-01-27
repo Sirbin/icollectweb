@@ -3,7 +3,7 @@
 {% block head %}
     {{ super() }}
     {% if name_change_gauge_dict|length != 0 %}
-        <script type="text/javascript">
+        <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
             $(document).ready(function () {
                 namespace = '/test';
 
@@ -21,7 +21,18 @@
                 socket.on('left',function() {
                     socket.emit('left');
 
+                    });
+                socket.on('message',function(){
+
+                    $('#time').click(function(){
+                        socket.emit($('#time_gauge1').val());
+                        console.log($('#time_gauge1').val());
+                    });
+
                 });
+
+
+
                 var chart;
                 var arrow;
                 var axis;
@@ -559,6 +570,32 @@
                                     <div class="box-widget">
                                         <div class="box-header show-header widget-header">
                                             <div class="box-header-text">Gauge Data Choiche</div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-sm-2">
+                                                <form action="" method="post" id="time" class="form-control">
+                                                    <label class="label-default label-info">
+                                                        TIME:
+                                                    </label>
+                                                    <select id="time_gauge1" name="time_gauge" onclick="time_value()">
+                                                         <option value="0"> Stop </option>
+                                                         <option value="1"> 1 sec </option>
+                                                         <option value="2"> 2 sec </option>
+                                                         <option value="3"> 3 sec </option>
+                                                         <option value="4"> 4 sec </option>
+                                                         <option value="5"> 5 sec </option>
+                                                    </select>
+                                                    <input type="submit" class="btn btn-success ">Send </input>
+                                                </form>
+                                                <script>
+                                                    function time_value() {
+                                                        var take_time = document.getElementById('time_gauge1').value;
+                                                        console.log(take_time);
+
+                                                    };
+                                                </script>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-4" id="gauge_0">

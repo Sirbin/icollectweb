@@ -1,15 +1,14 @@
 __author__ = 'Alessio'
 
 from datetime import datetime
-from functools import wraps
-from flask import render_template, redirect, url_for, session, flash, Blueprint
+from flask import render_template, redirect, url_for, flash, Blueprint,request
 from project.json_conf_ import create_tenant_building,create_json_table,create_json_building,create_json_tne
-from project import db
-from project.model_ import gauge_
-from flask_login import login_required,current_user
-
+from project import db,app
+from project.model_ import gauge_ ,user_
+from flask_login import login_required,current_user,confirm_login,login_user
+from flask.ext.principal import identity_changed,Identity
 #config
-blueprint_general = Blueprint('general',__name__)
+blueprint_general = Blueprint('general',__name__ )
 
 #configuration Json
 json_tne_number = create_json_tne()
@@ -23,6 +22,18 @@ def flask_error(form):
      for field, errors in form.error.itemes():
          for error in errors:
              flash('Error in the %s field - %s' % (getattr(form, field).label.text, error), 'error')
+
+
+@blueprint_general.route('/confirm/<id>')
+@login_required
+def confirm_email(id):
+    id_user__ = id
+    user__mail_ = user_.query.filter_by(id_user=id_user__).first()
+    login_user(user__mail_,force=True)
+    identity = Identity(user__mail_.user)
+    identity_changed.send(app,identity=identity)
+    flash('User Confirm')
+    return render_template('Confirm_user_id.html', current_time=datetime.utcnow())
 
 
 # Pagina Principale dashbord da creare

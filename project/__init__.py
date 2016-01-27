@@ -2,19 +2,20 @@ __author__ = 'Alessio'
 
 from datetime import *
 
-from flask import Flask,render_template,request, session
+from flask import Flask,render_template,request, session, current_app
 from flask_socketio import SocketIO
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
-from flask_bcrypt import Bcrypt
+from flask.ext.bcrypt import Bcrypt
 from flask_login import LoginManager,current_user
 from flask_principal import Principal,Permission,RoleNeed,identity_loaded, UserNeed
-
+from flask_mail import Mail
 
 
 #monkey.patch_all()
 
 app = Flask(__name__)
+
 
 # application moment for time e location
 moment = Moment(app)
@@ -46,6 +47,9 @@ admin_manager_permission = Permission(RoleNeed('Admin'),RoleNeed('Manager'))
 
 user_permission = Permission(RoleNeed('User'))
 
+#Mail
+
+server_mail = Mail(app)
 
 
 from setting.view import blueprint_setting
@@ -60,6 +64,7 @@ app.register_blueprint(blueprint_general)
 app.register_blueprint(blueprint_mqtt_data)
 app.register_blueprint(users_for_blueprint)
 app.register_blueprint(api_blueprint)
+
 
 
 @identity_loaded.connect_via(app)
@@ -109,7 +114,20 @@ def prova_errore(e):
     session['redirect_url']=request.url
     return render_template('users.html', error=error , current_time = datetime.utcnow())
 
+'''if want send a single parameters on template , create a single functions '''
+def breadcrumbss(my_url):
+           bread_crumbs =[]
+           sr_url = my_url.split('/')
+           url = '' 
+           for brcr in sr_url:
+               if brcr !='':
+                url = '%s/%s' % (url,brcr)
+                bread_crumbs_dict =  {'brcr':brcr,"url":url}
+                bread_crumbs.append(bread_crumbs_dict)
+           return dict(breadcrumbs= bread_crumbs)
 
+# send to template
+app.jinja_env.globals.update(breadcrumbs=breadcrumbss)
 
-
-
+if __name__ == '__main__':
+    pass

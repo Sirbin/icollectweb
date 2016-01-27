@@ -5,8 +5,10 @@ date : 05/01/2015
 
 '''
 
+
 import json,os,sqlite3,time
 from config_ import DATABASE_PATH_CONFIG
+
 
 all_data_meters = []
 
@@ -14,6 +16,7 @@ all_data_meters = []
 # conn_database = "C:\\Users\\Alessio\\Dropbox\\Progetto_Collect_with_Flask\\icollect\\database"
 #
 # databaseMeters = os.path.join(conn_database, "meters_log.db")
+
 
 def create_json_tne():
     try:
@@ -81,6 +84,16 @@ def estraikey(jsonstring,key):
         if key in jsonstring:
             return jsonstring[key]
         return False
+
+def breadcrumbs(my_url):
+    bread_crumbs =[]
+    sr_url = my_url.split('/')
+    url = '/'
+    for brcr in sr_url:
+       url = '%s%s/' %(url,brcr)
+       bread_crumbs_dict =  {'brcr':brcr,"url":url}
+       bread_crumbs.append(bread_crumbs_dict)
+    return bread_crumbs
 
 # Create Database for Log
 

@@ -23,8 +23,16 @@ DATABASE_PATH_CONFIG_DB = os.path.join(path_, DATABASE_CONFIG_DB)
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATABASE_PATH_CONFIG_DB
 
+# Email Configurations
 
+MAIL_SERVER =  'smtp.live.com' # smtp.gmail.com'
+MAIL_PORT = 587
+MAIL_USE_TLS = True
+MAIL_USE_SSL = False
+MAIL_USERNAME = 'alessiobino@hotmail.com'
+MAIL_PASSWORD = ''
+MAIL_DEFAULT_SENDER = 'Admin TripleNet-Energy ' + MAIL_USERNAME
 
 
 if __name__ == '__main__':
-  pass
+ pass
