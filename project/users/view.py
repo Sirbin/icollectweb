@@ -6,7 +6,7 @@ from datetime import datetime
 from functools import wraps
 from flask import render_template, redirect, url_for,flash, request, Blueprint
 from sqlalchemy.exc import IntegrityError
-from users.form import register_user , login_users , new_register_user , forgot_password_user
+from .form import register_user , login_users , new_register_user , forgot_password_user
 from project.model_ import user_
 from project import db,bycrypt_on_pass_user,app,admin_manager_permission,admin_permission,server_mail
 from project.Loggin_Debug import Logging
