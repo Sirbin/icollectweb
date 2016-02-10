@@ -19,23 +19,24 @@ all_data_meters = []
 
 
 def create_json_tne():
-    try:
-        with open(DATABASE_PATH_CONFIG, "r") as JsonConn:
+    with open(DATABASE_PATH_CONFIG, "r") as JsonConn:
+        try:
             meters_data = json.load(JsonConn)
             if 'collector' in meters_data:
                 meters_value = []
                 meters_value_tnenumber = []
                 for meter_all in meters_data["gateways"]["meters"]:
-                     meters_value.append(meter_all)
+                    meters_value.append(meter_all)
                 for meter_all_tne in meters_value:
-                     meters_value_tnenumber.append(meter_all_tne["tne_number"])
+                    meters_value_tnenumber.append(meter_all_tne["tne_number"])
                 return meters_value_tnenumber
 
             else:
                 print ("Collector not present, json not present")
-    except:
-        JsonConn.close()
-        return False
+        except:
+            JsonConn.close()
+            return False
+
 
 def create_json_table():
     try:
