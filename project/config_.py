@@ -14,8 +14,8 @@ SECRET_KEY = 'my_secret1'
 CSRF_ENABLED = True
 
 DEBUG = True
-DATABASE_CONFIG_ = "Database\config.json"
-DATABASE_CONFIG_DB = "Database\icollect_.db"
+DATABASE_CONFIG_ = os.path.join("Database", "config.json")
+DATABASE_CONFIG_DB = os.path.join("Database", "icollect_.db")
 
 DATABASE_PATH_ = os.path.join(path_,DATABASE)
 DATABASE_PATH_CONFIG = os.path.join(path_,DATABASE_CONFIG_)

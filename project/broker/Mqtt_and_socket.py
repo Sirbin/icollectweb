@@ -4,7 +4,7 @@ __author__ = 'Alessio'
 from project.json_conf_ import create_tenant_building,create_json_table,create_json_building,create_json_tne
 from flask_login import current_user
 from gevent import monkey
-from broker.view import *
+from .view import *
 from flask import request,session,current_app
 import threading
 monkey.patch_all()
@@ -151,4 +151,3 @@ except Exception as e:
 
 if __name__ == '__main__':
     pass
-
